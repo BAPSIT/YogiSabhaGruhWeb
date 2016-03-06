@@ -1,0 +1,5 @@
+F:\Personal\YogiSabhaGruh\YSGOps\YSGOpsWeb\bin\YSGOpsWeb.dll
+F:\Personal\YogiSabhaGruh\YSGOps\YSGOpsWeb\bin\YSGOpsWeb.pdb
+F:\Personal\YogiSabhaGruh\YSGOps\YSGOpsWeb\obj\Debug\YSGOpsWeb.csprojResolveAssemblyReference.cache
+F:\Personal\YogiSabhaGruh\YSGOps\YSGOpsWeb\obj\Debug\YSGOpsWeb.dll
+F:\Personal\YogiSabhaGruh\YSGOps\YSGOpsWeb\obj\Debug\YSGOpsWeb.pdb
