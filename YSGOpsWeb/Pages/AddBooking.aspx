@@ -134,6 +134,18 @@
         </div>
     </div>
 
+    <div class="panel panel-default">
+        <div class="panel-heading">Event Facilities</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <p>
+                        Event Facilities grid to come here 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-1 col-sm-2">
             <button class="btn btn-primary" type="button">Save</button>
