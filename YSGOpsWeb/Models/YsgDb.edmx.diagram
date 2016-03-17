@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f7454517dc854be3a7e70d1030af1f34" Name="Diagram1">
+        <EntityTypeShape EntityType="YogiSabhaGruhModel.YSG_Booking_Info" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="YogiSabhaGruhModel.YSG_Booking_Payment" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="YogiSabhaGruhModel.YSG_Caterer_Master" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YogiSabhaGruhModel.YSG_Customer_Info" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="YogiSabhaGruhModel.YSG_Department_Master" Width="1.5" PointX="7.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YogiSabhaGruhModel.YSG_Employee_Master" Width="1.5" PointX="10" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YogiSabhaGruhModel.YSG_Event_Master" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YogiSabhaGruhModel.YSG_Feedback" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YogiSabhaGruhModel.YSG_Hall_Master" Width="1.5" PointX="2.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YogiSabhaGruhModel.YSG_Inventory_Master" Width="1.5" PointX="4.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YogiSabhaGruhModel.YSG_Role_Master" Width="1.5" PointX="7.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YogiSabhaGruhModel.YSG_User_Master" Width="1.5" PointX="10" PointY="2.875" IsExpanded="true" />
+        <AssociationConnector Association="YogiSabhaGruhModel.FK__YSG_Booki__Booki__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="YogiSabhaGruhModel.FK__YSG_Booki__Event__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="YogiSabhaGruhModel.FK__YSG_Feedb__Booki__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="YogiSabhaGruhModel.FK_YSG_Booking_Info_YSG_Customer_Info" ManuallyRouted="false" />
+        <AssociationConnector Association="YogiSabhaGruhModel.FK__YSG_Emplo__Dept___6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="YogiSabhaGruhModel.FK_YSG_User_Master_YSG_Role_Master" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
