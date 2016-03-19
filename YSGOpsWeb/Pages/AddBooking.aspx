@@ -5,12 +5,16 @@
     <link href="../Content/bootstrap-timepicker.css" rel="stylesheet" />
     <script src="../Scripts/bootstrap-datepicker.min.js"></script>
     <script src="../Scripts/bootstrap-timepicker.js"></script>
+    <script src="../Scripts/editable-table.js"></script>
     <script>
         $(document).ready(function () {
             $(".datepicker").datepicker({
                 format: 'dd/mm/yyyy'
             });
             $(".timepicker").timepicker();
+            $('.table').editableTableWidget({
+                editor: $('<select><option>Chair</option><option>Light</option></select>')
+            });
         });
 
     </script>
@@ -21,31 +25,31 @@
         <div class="panel-heading">Event Info</div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 form-inline">
                     <div class="form-group">
-                        <label for="inpBookingDate">Booking Date</label><span class="text-danger">*</span>
+                        <label for="inpBookingDate">Booking Date</label><span class="text-danger">*</span>&nbsp;
                         <input type="text" runat="server" class="form-control datepicker" id="inpBookingDate" placeholder="Booking Date" />
                     </div>
 
 
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 form-inline">
                     <div class="form-group">
-                        <label for="inpBookingFrom">From</label><span class="text-danger">*</span>
+                        <label for="inpBookingFrom">From</label><span class="text-danger">*</span>&nbsp;
                         <input type="text" class="form-control timepicker" id="inpBookingFrom" placeholder="From" />
                     </div>
 
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="form-group">
-                        <label for="inpBookingTo">To</label><span class="text-danger">*</span>
+                <div class="col-md-4 col-sm-6 form-inline">
+                    <div class="form-group ">
+                        <label for="inpBookingTo">To</label><span class="text-danger">*</span>&nbsp;
                         <input type="text" class="form-control timepicker" id="inpBookingTo" placeholder="To" />
                     </div>
 
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 form-inline">
                     <div class="form-group">
                         <label>Type Of Event</label>
                         <asp:DropDownList CssClass="form-control" ID="ddlEventType" runat="server">
@@ -56,7 +60,7 @@
 
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 form-inline">
                     <div class="form-group">
                         <label>Category Event</label>
                         <asp:DropDownList CssClass="form-control" ID="ddlEventCategory" runat="server">
@@ -77,19 +81,19 @@
         <div class="panel-body">
 
             <div class="row">
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 form-inline">
                     <div class="form-group">
                         <label for="inpName">Customer Name</label><span class="text-danger">*</span>
                         <input type="text" runat="server" class="form-control" id="inpName" placeholder="Name" />
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 form-inline">
                     <div class="form-group">
                         <label for="inpPrimaryPhone">Phone Number</label><span class="text-danger">*</span>
                         <input type="text" runat="server" class="form-control" id="inpPrimaryPhone" placeholder="Mobile Number" />
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 form-inline">
                     <div class="form-group">
                         <label for="inpEmail">Email Id</label>
                         <input type="text" runat="server" class="form-control" id="inpEmail" placeholder="someone@example.com" />
@@ -97,7 +101,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 form-inline">
                     <div class="form-group">
                         <label for="inpEmail">Address</label>
                         <textarea runat="server" class="form-control" id="textAreaAddress" cols="20" rows="4"></textarea>
@@ -139,11 +143,31 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <p>
-                        Event Facilities grid to come here 
-                    </p>
+                    <table class="table table-bordered table-condensed">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Facility
+                                </th>
+                                <th>Item Available</th>
+                                <th>Quantity</th>
+                                 <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Chair</td>
+                                <td>200</td>
+                                <td class="ignore">500</td>
+                                <td class="ignore">
+                                    <i class="glyphicon glyphicon-remove" title="Remove Item"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+            <button type="button" id="addRow">Add Row</button>
         </div>
     </div>
     <div class="row">

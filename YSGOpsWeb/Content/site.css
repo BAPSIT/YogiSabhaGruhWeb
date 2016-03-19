@@ -51,3 +51,7 @@
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
     background-color: #f23e16;
 }
+
+.row {
+margin-bottom:10px;
+}
