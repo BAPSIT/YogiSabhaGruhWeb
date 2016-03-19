@@ -8,10 +8,10 @@ namespace YSGOpsWeb.Models
 {
     public interface IAddBookingRepository
     {
-        IEnumerable<YSG_Booking_Info> Get();
-        bool TryGet(int id, out YSG_Booking_Info addBooking);
-        YSG_Booking_Info Add(YSG_Booking_Info addBooking);
-        bool Delete(int id);
-        bool Update(YSG_Booking_Info addBooking);
+        //IEnumerable<YSG_Booking_Info> Get();
+        //bool TryGet(int id, out YSG_Booking_Info addBooking);
+        //YSG_Booking_Info Add(YSG_Booking_Info addBooking);
+        //bool Delete(int id);
+        //bool Update(YSG_Booking_Info addBooking);
     }
 }
