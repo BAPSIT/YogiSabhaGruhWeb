@@ -85,6 +85,7 @@
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -177,16 +178,6 @@
     <Content Include="Content\site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\YsgDb.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>YsgDb.edmx</DependentUpon>
-      <LastGenOutput>YsgDb.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\YsgDb.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>YsgDb.edmx</DependentUpon>
-      <LastGenOutput>YsgDb.cs</LastGenOutput>
-    </Content>
     <Content Include="packages.config" />
     <Content Include="Pages\AddBooking.aspx" />
     <Content Include="Pages\Home.aspx" />
@@ -198,13 +189,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\fullcalendar.js" />
     <Content Include="Scripts\fullcalendar.min.js" />
-    <EntityDeploy Include="Models\YsgDb.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>YsgDb.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\YsgDb.edmx.diagram">
-      <DependentUpon>YsgDb.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -238,57 +222,6 @@
       <DependentUpon>YSGWeb.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\IAddBookingRepository.cs" />
-    <Compile Include="Models\YsgDb.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>YsgDb.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YsgDb.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>YsgDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YsgDb.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>YsgDb.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YSG_Booking_Info.cs">
-      <DependentUpon>YsgDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YSG_Booking_Payment.cs">
-      <DependentUpon>YsgDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YSG_Caterer_Master.cs">
-      <DependentUpon>YsgDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YSG_Customer_Info.cs">
-      <DependentUpon>YsgDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YSG_Department_Master.cs">
-      <DependentUpon>YsgDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YSG_Employee_Master.cs">
-      <DependentUpon>YsgDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YSG_Event_Master.cs">
-      <DependentUpon>YsgDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YSG_Feedback.cs">
-      <DependentUpon>YsgDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YSG_Hall_Master.cs">
-      <DependentUpon>YsgDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YSG_Inventory_Master.cs">
-      <DependentUpon>YsgDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YSG_Role_Master.cs">
-      <DependentUpon>YsgDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YSG_User_Master.cs">
-      <DependentUpon>YsgDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Pages\AddBooking.aspx.cs">
       <DependentUpon>AddBooking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
