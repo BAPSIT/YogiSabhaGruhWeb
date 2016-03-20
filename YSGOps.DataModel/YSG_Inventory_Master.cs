@@ -14,6 +14,12 @@ namespace YSGOps.DataModel
     
     public partial class YSG_Inventory_Master
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public YSG_Inventory_Master()
+        {
+            this.YSG_Booking_Facilities = new HashSet<YSG_Booking_Facilities>();
+        }
+    
         public decimal Item_no { get; set; }
         public string Item_name { get; set; }
         public Nullable<decimal> Related_Dept_No { get; set; }
@@ -24,5 +30,10 @@ namespace YSGOps.DataModel
         public Nullable<System.DateTime> created_datetime { get; set; }
         public Nullable<decimal> Updated_By { get; set; }
         public Nullable<System.DateTime> Updated_Datetime { get; set; }
+        public string IsActive { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<YSG_Booking_Facilities> YSG_Booking_Facilities { get; set; }
+        public virtual YSG_Department_Master YSG_Department_Master { get; set; }
     }
 }

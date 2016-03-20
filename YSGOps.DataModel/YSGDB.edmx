@@ -5,9 +5,10 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="YogiSabhaGruhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="YSG_Booking_Catering_info">
+          <Key>
+            <PropertyRef Name="Booking_Catering_info_No" />
+          </Key>
           <Property Name="Booking_no" Type="numeric" Precision="12" Scale="0" />
           <Property Name="Caterer_No" Type="numeric" Precision="5" Scale="0" />
           <Property Name="event_Date" Type="datetime" />
@@ -15,10 +16,12 @@ warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' does 
           <Property Name="Persons" Type="numeric" Precision="18" Scale="0" />
           <Property Name="Rate_per_person" Type="numeric" Precision="18" Scale="0" />
           <Property Name="Amount" Type="numeric" Precision="18" Scale="0" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_Booking_Contact_Persons' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+          <Property Name="Booking_Catering_info_No" Type="numeric" Precision="8" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
         <EntityType Name="YSG_Booking_Contact_Persons">
+          <Key>
+            <PropertyRef Name="Booking_Contact_Person_No" />
+          </Key>
           <Property Name="Booking_No" Type="numeric" Precision="12" Scale="0" />
           <Property Name="Contact_name" Type="nvarchar" MaxLength="50" />
           <Property Name="Contact_No" Type="nvarchar" MaxLength="50" />
@@ -27,30 +30,36 @@ warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_Booking_Contact_Persons' doe
           <Property Name="created_datetime" Type="datetime" />
           <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="datetime" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_Booking_Facilities' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+          <Property Name="Booking_Contact_Person_No" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+        </EntityType>
         <EntityType Name="YSG_Booking_Facilities">
+          <Key>
+            <PropertyRef Name="Booking_Facility_No" />
+          </Key>
           <Property Name="Booking_No" Type="numeric" Precision="12" Scale="0" />
           <Property Name="Item_no" Type="numeric" Precision="5" Scale="0" />
           <Property Name="Required_Qty" Type="numeric" Precision="6" Scale="0" />
-          <Property Name="Calculated_Amount" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="Calculated_Amount" Type="money" />
           <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
           <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
           <Property Name="created_datetime" Type="datetime" />
           <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="datetime" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+          <Property Name="Booking_Facility_No" Type="numeric" Precision="7" Scale="0" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" />
+        </EntityType>
         <EntityType Name="YSG_Booking_Hall_Info">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Booking_No" Type="numeric" Precision="12" Scale="0" />
           <Property Name="Hall_no" Type="numeric" Precision="5" Scale="0" />
           <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
           <Property Name="created_datetime" Type="datetime" />
           <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="datetime" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="YSG_Booking_Info">
           <Key>
             <PropertyRef Name="Booking_No" />
@@ -61,6 +70,7 @@ warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' does not 
           <Property Name="Booking_FromTime" Type="datetime" />
           <Property Name="Booking_ToTime" Type="datetime" />
           <Property Name="Event_no" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="Event_Class" Type="varchar" MaxLength="50" />
           <Property Name="Customer_no" Type="numeric" Precision="10" Scale="0" />
           <Property Name="Booking_Status" Type="nvarchar" MaxLength="1" />
           <Property Name="No_Of_Invitees" Type="numeric" Precision="6" Scale="0" />
@@ -75,6 +85,7 @@ warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' does not 
           <Property Name="created_datetime" Type="datetime" />
           <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="datetime" />
+          <Property Name="IsActive" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="YSG_Booking_Payment">
           <Key>
@@ -190,8 +201,8 @@ warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' does not 
           </Key>
           <Property Name="Hall_no" Type="numeric" Precision="5" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Hall_name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Capicity_seating" Type="numeric" Precision="10" Scale="0" />
-          <Property Name="Capicity_chairs" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="Capacity_seating" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="Capacity_chairs" Type="numeric" Precision="10" Scale="0" />
           <Property Name="Rent_per_hour" Type="numeric" Precision="19" Scale="4" />
           <Property Name="Description" Type="nvarchar" MaxLength="2000" />
           <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
@@ -207,16 +218,18 @@ warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' does not 
           <Property Name="Item_name" Type="nvarchar" MaxLength="50" />
           <Property Name="Related_Dept_No" Type="numeric" Precision="5" Scale="0" />
           <Property Name="Available_Qty" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="Rent_per_Qty" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="Rent_per_Qty" Type="money" />
           <Property Name="Description" Type="nvarchar" MaxLength="2000" />
           <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
           <Property Name="created_datetime" Type="datetime" />
           <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="datetime" />
+          <Property Name="IsActive" Type="char" MaxLength="1" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_My_To_Do_List' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="YSG_My_To_Do_List">
+          <Key>
+            <PropertyRef Name="Task_ID" />
+          </Key>
           <Property Name="User_No" Type="numeric" Precision="5" Scale="0" />
           <Property Name="Booking_No" Type="numeric" Precision="12" Scale="0" />
           <Property Name="Task_Date" Type="datetime" />
@@ -229,7 +242,8 @@ warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_My_To_Do_List' does not have
           <Property Name="created_datetime" Type="datetime" />
           <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="datetime" />
-        </EntityType>-->
+          <Property Name="Task_ID" Type="numeric" Precision="8" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
         <EntityType Name="YSG_Role_Master">
           <Key>
             <PropertyRef Name="Role_no" />
@@ -245,13 +259,25 @@ warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_SysParam' does not have a pr
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
           <Property Name="Value" Type="nvarchar" MaxLength="500" />
         </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YogiSabhaGruh.dbo.YSG_Tithi_Info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="YSG_Tithi_Info">
+          <Key>
+            <PropertyRef Name="Tithi_Date" />
+            <PropertyRef Name="Tithi" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="Tithi_Date" Type="datetime" Nullable="false" />
+          <Property Name="Tithi" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="YSG_User_Master">
           <Key>
             <PropertyRef Name="user_no" />
           </Key>
           <Property Name="user_no" Type="numeric" Precision="5" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_login_id" Type="nvarchar" MaxLength="15" />
-          <Property Name="User_password" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_password" Type="nvarchar" MaxLength="500" />
           <Property Name="reset_password" Type="nvarchar" MaxLength="1" />
           <Property Name="user_name" Type="nvarchar" MaxLength="50" />
           <Property Name="Mobile_No" Type="numeric" Precision="10" Scale="0" />
@@ -264,16 +290,31 @@ warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_SysParam' does not have a pr
           <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Contact_Persons' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__YSG_Booki__Booki__6383C8BA" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Facilities' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__YSG_Booki__Booki__6477ECF3" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__YSG_Booki__Booki__66603565" />-->
-        <Association Name="FK__YSG_Booki__Booki__6A30C649">
+        <Association Name="FK__YSG_Booki__Booki__5070F446">
+          <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+          <End Role="YSG_Booking_Contact_Persons" Type="Self.YSG_Booking_Contact_Persons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Booking_Info">
+              <PropertyRef Name="Booking_No" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Contact_Persons">
+              <PropertyRef Name="Booking_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YSG_Booki__Booki__5165187F">
+          <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+          <End Role="YSG_Booking_Facilities" Type="Self.YSG_Booking_Facilities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Booking_Info">
+              <PropertyRef Name="Booking_No" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Facilities">
+              <PropertyRef Name="Booking_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YSG_Booki__Booki__571DF1D5">
           <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
           <End Role="YSG_Booking_Payment" Type="Self.YSG_Booking_Payment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -285,7 +326,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' is referenced by
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__YSG_Booki__Event__68487DD7">
+        <Association Name="FK__YSG_Booki__Event__5535A963">
           <End Role="YSG_Event_Master" Type="Self.YSG_Event_Master" Multiplicity="0..1" />
           <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="*" />
           <ReferentialConstraint>
@@ -297,13 +338,19 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' is referenced by
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__YSG_Booki__Hall___6754599E" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Facilities' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__YSG_Booki__Item___656C112C" />-->
-        <Association Name="FK__YSG_Emplo__Dept___6B24EA82">
+        <Association Name="FK__YSG_Booki__Item___52593CB8">
+          <End Role="YSG_Inventory_Master" Type="Self.YSG_Inventory_Master" Multiplicity="0..1" />
+          <End Role="YSG_Booking_Facilities" Type="Self.YSG_Booking_Facilities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Inventory_Master">
+              <PropertyRef Name="Item_no" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Facilities">
+              <PropertyRef Name="Item_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YSG_Emplo__Dept___7A672E12">
           <End Role="YSG_Department_Master" Type="Self.YSG_Department_Master" Multiplicity="0..1" />
           <End Role="YSG_Employee_Master" Type="Self.YSG_Employee_Master" Multiplicity="*" />
           <ReferentialConstraint>
@@ -315,7 +362,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Facilities' is referenced b
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__YSG_Feedb__Booki__6C190EBB">
+        <Association Name="FK__YSG_Feedb__Booki__59063A47">
           <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
           <End Role="YSG_Feedback" Type="Self.YSG_Feedback" Multiplicity="*" />
           <ReferentialConstraint>
@@ -327,12 +374,66 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Facilities' is referenced b
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'YogiSabhaGruh.dbo.YSG_My_To_Do_List' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__YSG_My_To__Booki__6D0D32F4" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_YSG_Booking_Catering_info_YSG_Caterer_Master" />-->
+        <Association Name="FK__YSG_My_To__Booki__59FA5E80">
+          <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+          <End Role="YSG_My_To_Do_List" Type="Self.YSG_My_To_Do_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Booking_Info">
+              <PropertyRef Name="Booking_No" />
+            </Principal>
+            <Dependent Role="YSG_My_To_Do_List">
+              <PropertyRef Name="Booking_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YSG_Booking_Catering_info_YSG_Booking_Info">
+          <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+          <End Role="YSG_Booking_Catering_info" Type="Self.YSG_Booking_Catering_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Booking_Info">
+              <PropertyRef Name="Booking_No" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Catering_info">
+              <PropertyRef Name="Booking_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YSG_Booking_Catering_info_YSG_Caterer_Master">
+          <End Role="YSG_Caterer_Master" Type="Self.YSG_Caterer_Master" Multiplicity="0..1" />
+          <End Role="YSG_Booking_Catering_info" Type="Self.YSG_Booking_Catering_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Caterer_Master">
+              <PropertyRef Name="Caterer_No" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Catering_info">
+              <PropertyRef Name="Caterer_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YSG_Booking_Hall_Info_YSG_Booking_Info">
+          <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+          <End Role="YSG_Booking_Hall_Info" Type="Self.YSG_Booking_Hall_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Booking_Info">
+              <PropertyRef Name="Booking_No" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Hall_Info">
+              <PropertyRef Name="Booking_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YSG_Booking_Hall_Info_YSG_Hall_Master">
+          <End Role="YSG_Hall_Master" Type="Self.YSG_Hall_Master" Multiplicity="0..1" />
+          <End Role="YSG_Booking_Hall_Info" Type="Self.YSG_Booking_Hall_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Hall_Master">
+              <PropertyRef Name="Hall_no" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Hall_Info">
+              <PropertyRef Name="Hall_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_YSG_Booking_Info_YSG_Customer_Info">
           <End Role="YSG_Customer_Info" Type="Self.YSG_Customer_Info" Multiplicity="0..1" />
           <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="*" />
@@ -342,6 +443,30 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
             </Principal>
             <Dependent Role="YSG_Booking_Info">
               <PropertyRef Name="Customer_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YSG_Hall_Master_YSG_Hall_Master">
+          <End Role="YSG_Hall_Master" Type="Self.YSG_Hall_Master" Multiplicity="1" />
+          <End Role="YSG_Hall_Master1" Type="Self.YSG_Hall_Master" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Hall_Master">
+              <PropertyRef Name="Hall_no" />
+            </Principal>
+            <Dependent Role="YSG_Hall_Master1">
+              <PropertyRef Name="Hall_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YSG_Inventory_Master_YSG_Department_Master">
+          <End Role="YSG_Department_Master" Type="Self.YSG_Department_Master" Multiplicity="0..1" />
+          <End Role="YSG_Inventory_Master" Type="Self.YSG_Inventory_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Department_Master">
+              <PropertyRef Name="Dept_no" />
+            </Principal>
+            <Dependent Role="YSG_Inventory_Master">
+              <PropertyRef Name="Related_Dept_No" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -357,7 +482,91 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ADD_YSG_Customer_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Customer_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Customer_Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="Landline_No" Type="nvarchar" Mode="In" />
+          <Parameter Name="Fax_No" Type="nvarchar" Mode="In" />
+          <Parameter Name="Mobile_No" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email_id" Type="nvarchar" Mode="In" />
+          <Parameter Name="Customer_Status" Type="nvarchar" Mode="In" />
+          <Parameter Name="Referred_By" Type="nvarchar" Mode="In" />
+          <Parameter Name="Customer_Type" Type="nvarchar" Mode="In" />
+          <Parameter Name="Comments" Type="nvarchar" Mode="In" />
+          <Parameter Name="created_By" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="ADD_YSG_Event_Master" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Event_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="created_By" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="ADD_YSG_Hall_Master" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Hall_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Capacity_seating" Type="numeric" Mode="In" />
+          <Parameter Name="Capacity_chairs" Type="numeric" Mode="In" />
+          <Parameter Name="Rent_per_hour" Type="numeric" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="created_By" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="AUD_Booking_Contact_Persons" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Booking_No" Type="numeric" Mode="In" />
+          <Parameter Name="Contact_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Contact_No" Type="nvarchar" Mode="In" />
+          <Parameter Name="Contact_Email_id" Type="nvarchar" Mode="In" />
+          <Parameter Name="created_By" Type="numeric" Mode="In" />
+          <Parameter Name="ACTION" Type="char" Mode="In" />
+          <Parameter Name="Booking_Contact_Person_No" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="AUD_YSG_Booking_Facilities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ACTION" Type="char" Mode="In" />
+          <Parameter Name="Booking_Facility_No" Type="numeric" Mode="In" />
+          <Parameter Name="Booking_No" Type="numeric" Mode="In" />
+          <Parameter Name="Item_no" Type="numeric" Mode="In" />
+          <Parameter Name="Required_Qty" Type="numeric" Mode="In" />
+          <Parameter Name="Calculated_Amount" Type="money" Mode="In" />
+          <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+          <Parameter Name="created_By" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="AUD_YSG_Booking_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Action" Type="char" Mode="In" />
+          <Parameter Name="Booking_No" Type="numeric" Mode="In" />
+          <Parameter Name="Booking_ID" Type="numeric" Mode="In" />
+          <Parameter Name="Booking_Date" Type="datetime" Mode="In" />
+          <Parameter Name="Booking_FromTime" Type="datetime" Mode="In" />
+          <Parameter Name="Booking_ToTime" Type="datetime" Mode="In" />
+          <Parameter Name="Event_no" Type="numeric" Mode="In" />
+          <Parameter Name="Event_Class" Type="varchar" Mode="In" />
+          <Parameter Name="Customer_no" Type="numeric" Mode="In" />
+          <Parameter Name="Booking_Status" Type="nvarchar" Mode="In" />
+          <Parameter Name="No_Of_Invitees" Type="numeric" Mode="In" />
+          <Parameter Name="Booking_calculated_Amt" Type="numeric" Mode="In" />
+          <Parameter Name="Discount" Type="numeric" Mode="In" />
+          <Parameter Name="Discount_Reason" Type="nvarchar" Mode="In" />
+          <Parameter Name="Booking_final_Amt" Type="numeric" Mode="In" />
+          <Parameter Name="RemarkOrComments" Type="nvarchar" Mode="In" />
+          <Parameter Name="Paid_Amt" Type="numeric" Mode="In" />
+          <Parameter Name="Balance_Amt" Type="numeric" Mode="In" />
+          <Parameter Name="created_By" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="AUD_YSG_Inventory_Master" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ACTION" Type="char" Mode="In" />
+          <Parameter Name="Item_no" Type="numeric" Mode="In" />
+          <Parameter Name="Item_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Related_Dept_No" Type="numeric" Mode="In" />
+          <Parameter Name="Available_Qty" Type="numeric" Mode="In" />
+          <Parameter Name="Rent_per_Qty" Type="numeric" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="created_By" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="GetTithiInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="endDate" Type="datetime" Mode="In" />
+        </Function>
         <EntityContainer Name="YogiSabhaGruhModelStoreContainer">
+          <EntitySet Name="YSG_Booking_Catering_info" EntityType="Self.YSG_Booking_Catering_info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YSG_Booking_Contact_Persons" EntityType="Self.YSG_Booking_Contact_Persons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YSG_Booking_Facilities" EntityType="Self.YSG_Booking_Facilities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YSG_Booking_Hall_Info" EntityType="Self.YSG_Booking_Hall_Info" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="YSG_Booking_Info" EntityType="Self.YSG_Booking_Info" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="YSG_Booking_Payment" EntityType="Self.YSG_Booking_Payment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="YSG_Caterer_Master" EntityType="Self.YSG_Caterer_Master" Schema="dbo" store:Type="Tables" />
@@ -368,27 +577,75 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           <EntitySet Name="YSG_Feedback" EntityType="Self.YSG_Feedback" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="YSG_Hall_Master" EntityType="Self.YSG_Hall_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="YSG_Inventory_Master" EntityType="Self.YSG_Inventory_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YSG_My_To_Do_List" EntityType="Self.YSG_My_To_Do_List" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="YSG_Role_Master" EntityType="Self.YSG_Role_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="YSG_User_Master" EntityType="Self.YSG_User_Master" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__YSG_Booki__Booki__6A30C649" Association="Self.FK__YSG_Booki__Booki__6A30C649">
+          <EntitySet Name="YSG_Tithi_Info" EntityType="Self.YSG_Tithi_Info" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [YSG_Tithi_Info].[Tithi_Date] AS [Tithi_Date], 
+    [YSG_Tithi_Info].[Tithi] AS [Tithi], 
+    [YSG_Tithi_Info].[Description] AS [Description]
+    FROM [dbo].[YSG_Tithi_Info] AS [YSG_Tithi_Info]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__YSG_Booki__Booki__5070F446" Association="Self.FK__YSG_Booki__Booki__5070F446">
+            <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+            <End Role="YSG_Booking_Contact_Persons" EntitySet="YSG_Booking_Contact_Persons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YSG_Booki__Booki__5165187F" Association="Self.FK__YSG_Booki__Booki__5165187F">
+            <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+            <End Role="YSG_Booking_Facilities" EntitySet="YSG_Booking_Facilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YSG_Booki__Booki__571DF1D5" Association="Self.FK__YSG_Booki__Booki__571DF1D5">
             <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
             <End Role="YSG_Booking_Payment" EntitySet="YSG_Booking_Payment" />
           </AssociationSet>
-          <AssociationSet Name="FK__YSG_Booki__Event__68487DD7" Association="Self.FK__YSG_Booki__Event__68487DD7">
+          <AssociationSet Name="FK__YSG_Booki__Event__5535A963" Association="Self.FK__YSG_Booki__Event__5535A963">
             <End Role="YSG_Event_Master" EntitySet="YSG_Event_Master" />
             <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK__YSG_Emplo__Dept___6B24EA82" Association="Self.FK__YSG_Emplo__Dept___6B24EA82">
+          <AssociationSet Name="FK__YSG_Booki__Item___52593CB8" Association="Self.FK__YSG_Booki__Item___52593CB8">
+            <End Role="YSG_Inventory_Master" EntitySet="YSG_Inventory_Master" />
+            <End Role="YSG_Booking_Facilities" EntitySet="YSG_Booking_Facilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YSG_Emplo__Dept___7A672E12" Association="Self.FK__YSG_Emplo__Dept___7A672E12">
             <End Role="YSG_Department_Master" EntitySet="YSG_Department_Master" />
             <End Role="YSG_Employee_Master" EntitySet="YSG_Employee_Master" />
           </AssociationSet>
-          <AssociationSet Name="FK__YSG_Feedb__Booki__6C190EBB" Association="Self.FK__YSG_Feedb__Booki__6C190EBB">
+          <AssociationSet Name="FK__YSG_Feedb__Booki__59063A47" Association="Self.FK__YSG_Feedb__Booki__59063A47">
             <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
             <End Role="YSG_Feedback" EntitySet="YSG_Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YSG_My_To__Booki__59FA5E80" Association="Self.FK__YSG_My_To__Booki__59FA5E80">
+            <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+            <End Role="YSG_My_To_Do_List" EntitySet="YSG_My_To_Do_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YSG_Booking_Catering_info_YSG_Booking_Info" Association="Self.FK_YSG_Booking_Catering_info_YSG_Booking_Info">
+            <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+            <End Role="YSG_Booking_Catering_info" EntitySet="YSG_Booking_Catering_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YSG_Booking_Catering_info_YSG_Caterer_Master" Association="Self.FK_YSG_Booking_Catering_info_YSG_Caterer_Master">
+            <End Role="YSG_Caterer_Master" EntitySet="YSG_Caterer_Master" />
+            <End Role="YSG_Booking_Catering_info" EntitySet="YSG_Booking_Catering_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YSG_Booking_Hall_Info_YSG_Booking_Info" Association="Self.FK_YSG_Booking_Hall_Info_YSG_Booking_Info">
+            <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+            <End Role="YSG_Booking_Hall_Info" EntitySet="YSG_Booking_Hall_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YSG_Booking_Hall_Info_YSG_Hall_Master" Association="Self.FK_YSG_Booking_Hall_Info_YSG_Hall_Master">
+            <End Role="YSG_Hall_Master" EntitySet="YSG_Hall_Master" />
+            <End Role="YSG_Booking_Hall_Info" EntitySet="YSG_Booking_Hall_Info" />
           </AssociationSet>
           <AssociationSet Name="FK_YSG_Booking_Info_YSG_Customer_Info" Association="Self.FK_YSG_Booking_Info_YSG_Customer_Info">
             <End Role="YSG_Customer_Info" EntitySet="YSG_Customer_Info" />
             <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YSG_Hall_Master_YSG_Hall_Master" Association="Self.FK_YSG_Hall_Master_YSG_Hall_Master">
+            <End Role="YSG_Hall_Master" EntitySet="YSG_Hall_Master" />
+            <End Role="YSG_Hall_Master1" EntitySet="YSG_Hall_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YSG_Inventory_Master_YSG_Department_Master" Association="Self.FK_YSG_Inventory_Master_YSG_Department_Master">
+            <End Role="YSG_Department_Master" EntitySet="YSG_Department_Master" />
+            <End Role="YSG_Inventory_Master" EntitySet="YSG_Inventory_Master" />
           </AssociationSet>
           <AssociationSet Name="FK_YSG_User_Master_YSG_Role_Master" Association="Self.FK_YSG_User_Master_YSG_Role_Master">
             <End Role="YSG_Role_Master" EntitySet="YSG_Role_Master" />
@@ -399,6 +656,54 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="YogiSabhaGruhModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="YSG_Booking_Catering_info">
+          <Key>
+            <PropertyRef Name="Booking_Catering_info_No" />
+          </Key>
+          <Property Name="Booking_no" Type="Decimal" Precision="12" Scale="0" />
+          <Property Name="Caterer_No" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="event_Date" Type="DateTime" Precision="3" />
+          <Property Name="FoodType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Persons" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Rate_per_person" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Booking_Catering_info_No" Type="Decimal" Precision="8" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="YSG_Booking_Info" Relationship="Self.FK_YSG_Booking_Catering_info_YSG_Booking_Info" FromRole="YSG_Booking_Catering_info" ToRole="YSG_Booking_Info" />
+          <NavigationProperty Name="YSG_Caterer_Master" Relationship="Self.FK_YSG_Booking_Catering_info_YSG_Caterer_Master" FromRole="YSG_Booking_Catering_info" ToRole="YSG_Caterer_Master" />
+        </EntityType>
+        <EntityType Name="YSG_Booking_Contact_Persons">
+          <Key>
+            <PropertyRef Name="Booking_Contact_Person_No" />
+          </Key>
+          <Property Name="Booking_No" Type="Decimal" Precision="12" Scale="0" />
+          <Property Name="Contact_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Email_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="created_By" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="created_datetime" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
+          <Property Name="Booking_Contact_Person_No" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <NavigationProperty Name="YSG_Booking_Info" Relationship="Self.FK__YSG_Booki__Booki__5070F446" FromRole="YSG_Booking_Contact_Persons" ToRole="YSG_Booking_Info" />
+        </EntityType>
+        <EntityType Name="YSG_Booking_Facilities">
+          <Key>
+            <PropertyRef Name="Booking_Facility_No" />
+          </Key>
+          <Property Name="Booking_No" Type="Decimal" Precision="12" Scale="0" />
+          <Property Name="Item_no" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="Required_Qty" Type="Decimal" Precision="6" Scale="0" />
+          <Property Name="Calculated_Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="created_By" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="created_datetime" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
+          <Property Name="Booking_Facility_No" Type="Decimal" Precision="7" Scale="0" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="YSG_Booking_Info" Relationship="Self.FK__YSG_Booki__Booki__5165187F" FromRole="YSG_Booking_Facilities" ToRole="YSG_Booking_Info" />
+          <NavigationProperty Name="YSG_Inventory_Master" Relationship="Self.FK__YSG_Booki__Item___52593CB8" FromRole="YSG_Booking_Facilities" ToRole="YSG_Inventory_Master" />
+        </EntityType>
         <EntityType Name="YSG_Booking_Info">
           <Key>
             <PropertyRef Name="Booking_No" />
@@ -409,6 +714,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           <Property Name="Booking_FromTime" Type="DateTime" Precision="3" />
           <Property Name="Booking_ToTime" Type="DateTime" Precision="3" />
           <Property Name="Event_no" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="Event_Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Customer_no" Type="Decimal" Precision="10" Scale="0" />
           <Property Name="Booking_Status" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
           <Property Name="No_Of_Invitees" Type="Decimal" Precision="6" Scale="0" />
@@ -423,10 +729,16 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           <Property Name="created_datetime" Type="DateTime" Precision="3" />
           <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="YSG_Booking_Payment" Relationship="Self.FK__YSG_Booki__Booki__6A30C649" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Payment" />
-          <NavigationProperty Name="YSG_Event_Master" Relationship="Self.FK__YSG_Booki__Event__68487DD7" FromRole="YSG_Booking_Info" ToRole="YSG_Event_Master" />
-          <NavigationProperty Name="YSG_Feedback" Relationship="Self.FK__YSG_Feedb__Booki__6C190EBB" FromRole="YSG_Booking_Info" ToRole="YSG_Feedback" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="YSG_Booking_Catering_info" Relationship="Self.FK_YSG_Booking_Catering_info_YSG_Booking_Info" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Catering_info" />
+          <NavigationProperty Name="YSG_Booking_Contact_Persons" Relationship="Self.FK__YSG_Booki__Booki__5070F446" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Contact_Persons" />
+          <NavigationProperty Name="YSG_Booking_Facilities" Relationship="Self.FK__YSG_Booki__Booki__5165187F" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Facilities" />
+          <NavigationProperty Name="YSG_Booking_Payment" Relationship="Self.FK__YSG_Booki__Booki__571DF1D5" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Payment" />
+          <NavigationProperty Name="YSG_Event_Master" Relationship="Self.FK__YSG_Booki__Event__5535A963" FromRole="YSG_Booking_Info" ToRole="YSG_Event_Master" />
+          <NavigationProperty Name="YSG_Feedback" Relationship="Self.FK__YSG_Feedb__Booki__59063A47" FromRole="YSG_Booking_Info" ToRole="YSG_Feedback" />
+          <NavigationProperty Name="YSG_My_To_Do_List" Relationship="Self.FK__YSG_My_To__Booki__59FA5E80" FromRole="YSG_Booking_Info" ToRole="YSG_My_To_Do_List" />
           <NavigationProperty Name="YSG_Customer_Info" Relationship="Self.FK_YSG_Booking_Info_YSG_Customer_Info" FromRole="YSG_Booking_Info" ToRole="YSG_Customer_Info" />
+          <NavigationProperty Name="YSG_Booking_Hall_Info" Relationship="YogiSabhaGruhModel.FK_YSG_Booking_Hall_Info_YSG_Booking_Info" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Hall_Info" />
         </EntityType>
         <EntityType Name="YSG_Booking_Payment">
           <Key>
@@ -448,7 +760,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           <Property Name="created_datetime" Type="DateTime" Precision="3" />
           <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="YSG_Booking_Info" Relationship="Self.FK__YSG_Booki__Booki__6A30C649" FromRole="YSG_Booking_Payment" ToRole="YSG_Booking_Info" />
+          <NavigationProperty Name="YSG_Booking_Info" Relationship="Self.FK__YSG_Booki__Booki__571DF1D5" FromRole="YSG_Booking_Payment" ToRole="YSG_Booking_Info" />
         </EntityType>
         <EntityType Name="YSG_Caterer_Master">
           <Key>
@@ -463,6 +775,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           <Property Name="updated_by" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="updated_datetime" Type="DateTime" Precision="3" />
           <Property Name="is_Active" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="YSG_Booking_Catering_info" Relationship="Self.FK_YSG_Booking_Catering_info_YSG_Caterer_Master" FromRole="YSG_Caterer_Master" ToRole="YSG_Booking_Catering_info" />
         </EntityType>
         <EntityType Name="YSG_Customer_Info">
           <Key>
@@ -496,7 +809,8 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           <Property Name="created_datetime" Type="DateTime" Precision="3" />
           <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="YSG_Employee_Master" Relationship="Self.FK__YSG_Emplo__Dept___6B24EA82" FromRole="YSG_Department_Master" ToRole="YSG_Employee_Master" />
+          <NavigationProperty Name="YSG_Employee_Master" Relationship="Self.FK__YSG_Emplo__Dept___7A672E12" FromRole="YSG_Department_Master" ToRole="YSG_Employee_Master" />
+          <NavigationProperty Name="YSG_Inventory_Master" Relationship="Self.FK_YSG_Inventory_Master_YSG_Department_Master" FromRole="YSG_Department_Master" ToRole="YSG_Inventory_Master" />
         </EntityType>
         <EntityType Name="YSG_Employee_Master">
           <Key>
@@ -512,7 +826,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           <Property Name="created_datetime" Type="DateTime" Precision="3" />
           <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="YSG_Department_Master" Relationship="Self.FK__YSG_Emplo__Dept___6B24EA82" FromRole="YSG_Employee_Master" ToRole="YSG_Department_Master" />
+          <NavigationProperty Name="YSG_Department_Master" Relationship="Self.FK__YSG_Emplo__Dept___7A672E12" FromRole="YSG_Employee_Master" ToRole="YSG_Department_Master" />
         </EntityType>
         <EntityType Name="YSG_Event_Master">
           <Key>
@@ -525,7 +839,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           <Property Name="created_datetime" Type="DateTime" Precision="3" />
           <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="YSG_Booking_Info" Relationship="Self.FK__YSG_Booki__Event__68487DD7" FromRole="YSG_Event_Master" ToRole="YSG_Booking_Info" />
+          <NavigationProperty Name="YSG_Booking_Info" Relationship="Self.FK__YSG_Booki__Event__5535A963" FromRole="YSG_Event_Master" ToRole="YSG_Booking_Info" />
         </EntityType>
         <EntityType Name="YSG_Feedback">
           <Key>
@@ -540,7 +854,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           <Property Name="created_datetime" Type="DateTime" Precision="3" />
           <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="YSG_Booking_Info" Relationship="Self.FK__YSG_Feedb__Booki__6C190EBB" FromRole="YSG_Feedback" ToRole="YSG_Booking_Info" />
+          <NavigationProperty Name="YSG_Booking_Info" Relationship="Self.FK__YSG_Feedb__Booki__59063A47" FromRole="YSG_Feedback" ToRole="YSG_Booking_Info" />
         </EntityType>
         <EntityType Name="YSG_Hall_Master">
           <Key>
@@ -548,14 +862,17 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           </Key>
           <Property Name="Hall_no" Type="Decimal" Precision="5" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Hall_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Capicity_seating" Type="Decimal" Precision="10" Scale="0" />
-          <Property Name="Capicity_chairs" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="Capacity_seating" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="Capacity_chairs" Type="Decimal" Precision="10" Scale="0" />
           <Property Name="Rent_per_hour" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
           <Property Name="created_By" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="created_datetime" Type="DateTime" Precision="3" />
           <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="YSG_Hall_Master1" Relationship="Self.FK_YSG_Hall_Master_YSG_Hall_Master" FromRole="YSG_Hall_Master" ToRole="YSG_Hall_Master1" />
+          <NavigationProperty Name="YSG_Hall_Master2" Relationship="Self.FK_YSG_Hall_Master_YSG_Hall_Master" FromRole="YSG_Hall_Master1" ToRole="YSG_Hall_Master" />
+          <NavigationProperty Name="YSG_Booking_Hall_Info" Relationship="YogiSabhaGruhModel.FK_YSG_Booking_Hall_Info_YSG_Hall_Master" FromRole="YSG_Hall_Master" ToRole="YSG_Booking_Hall_Info" />
         </EntityType>
         <EntityType Name="YSG_Inventory_Master">
           <Key>
@@ -571,6 +888,28 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           <Property Name="created_datetime" Type="DateTime" Precision="3" />
           <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="YSG_Booking_Facilities" Relationship="Self.FK__YSG_Booki__Item___52593CB8" FromRole="YSG_Inventory_Master" ToRole="YSG_Booking_Facilities" />
+          <NavigationProperty Name="YSG_Department_Master" Relationship="Self.FK_YSG_Inventory_Master_YSG_Department_Master" FromRole="YSG_Inventory_Master" ToRole="YSG_Department_Master" />
+        </EntityType>
+        <EntityType Name="YSG_My_To_Do_List">
+          <Key>
+            <PropertyRef Name="Task_ID" />
+          </Key>
+          <Property Name="User_No" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="Booking_No" Type="Decimal" Precision="12" Scale="0" />
+          <Property Name="Task_Date" Type="DateTime" Precision="3" />
+          <Property Name="Reminder_DateTime" Type="DateTime" Precision="3" />
+          <Property Name="Task_Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_No" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="Task_Status" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="created_By" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="created_datetime" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
+          <Property Name="Task_ID" Type="Decimal" Precision="8" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="YSG_Booking_Info" Relationship="Self.FK__YSG_My_To__Booki__59FA5E80" FromRole="YSG_My_To_Do_List" ToRole="YSG_Booking_Info" />
         </EntityType>
         <EntityType Name="YSG_Role_Master">
           <Key>
@@ -587,7 +926,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           </Key>
           <Property Name="user_no" Type="Decimal" Precision="5" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_login_id" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="User_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_password" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="reset_password" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
           <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Mobile_No" Type="Decimal" Precision="10" Scale="0" />
@@ -601,7 +940,77 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
           <NavigationProperty Name="YSG_Role_Master" Relationship="Self.FK_YSG_User_Master_YSG_Role_Master" FromRole="YSG_User_Master" ToRole="YSG_Role_Master" />
         </EntityType>
-        <Association Name="FK__YSG_Booki__Booki__6A30C649">
+        <EntityType Name="YSG_Tithi_Info">
+          <Key>
+            <PropertyRef Name="Tithi_Date" />
+            <PropertyRef Name="Tithi" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="Tithi_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Tithi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_YSG_Booking_Catering_info_YSG_Booking_Info">
+          <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+          <End Role="YSG_Booking_Catering_info" Type="Self.YSG_Booking_Catering_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Booking_Info">
+              <PropertyRef Name="Booking_No" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Catering_info">
+              <PropertyRef Name="Booking_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YSG_Booking_Catering_info_YSG_Caterer_Master">
+          <End Role="YSG_Caterer_Master" Type="Self.YSG_Caterer_Master" Multiplicity="0..1" />
+          <End Role="YSG_Booking_Catering_info" Type="Self.YSG_Booking_Catering_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Caterer_Master">
+              <PropertyRef Name="Caterer_No" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Catering_info">
+              <PropertyRef Name="Caterer_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YSG_Booki__Booki__5070F446">
+          <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+          <End Role="YSG_Booking_Contact_Persons" Type="Self.YSG_Booking_Contact_Persons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Booking_Info">
+              <PropertyRef Name="Booking_No" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Contact_Persons">
+              <PropertyRef Name="Booking_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YSG_Booki__Booki__5165187F">
+          <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+          <End Role="YSG_Booking_Facilities" Type="Self.YSG_Booking_Facilities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Booking_Info">
+              <PropertyRef Name="Booking_No" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Facilities">
+              <PropertyRef Name="Booking_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YSG_Booki__Item___52593CB8">
+          <End Role="YSG_Inventory_Master" Type="Self.YSG_Inventory_Master" Multiplicity="0..1" />
+          <End Role="YSG_Booking_Facilities" Type="Self.YSG_Booking_Facilities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Inventory_Master">
+              <PropertyRef Name="Item_no" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Facilities">
+              <PropertyRef Name="Item_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YSG_Booki__Booki__571DF1D5">
           <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
           <End Role="YSG_Booking_Payment" Type="Self.YSG_Booking_Payment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -613,7 +1022,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__YSG_Booki__Event__68487DD7">
+        <Association Name="FK__YSG_Booki__Event__5535A963">
           <End Role="YSG_Event_Master" Type="Self.YSG_Event_Master" Multiplicity="0..1" />
           <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="*" />
           <ReferentialConstraint>
@@ -625,7 +1034,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__YSG_Feedb__Booki__6C190EBB">
+        <Association Name="FK__YSG_Feedb__Booki__59063A47">
           <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
           <End Role="YSG_Feedback" Type="Self.YSG_Feedback" Multiplicity="*" />
           <ReferentialConstraint>
@@ -633,6 +1042,18 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
               <PropertyRef Name="Booking_No" />
             </Principal>
             <Dependent Role="YSG_Feedback">
+              <PropertyRef Name="Booking_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YSG_My_To__Booki__59FA5E80">
+          <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+          <End Role="YSG_My_To_Do_List" Type="Self.YSG_My_To_Do_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Booking_Info">
+              <PropertyRef Name="Booking_No" />
+            </Principal>
+            <Dependent Role="YSG_My_To_Do_List">
               <PropertyRef Name="Booking_No" />
             </Dependent>
           </ReferentialConstraint>
@@ -649,7 +1070,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__YSG_Emplo__Dept___6B24EA82">
+        <Association Name="FK__YSG_Emplo__Dept___7A672E12">
           <End Role="YSG_Department_Master" Type="Self.YSG_Department_Master" Multiplicity="0..1" />
           <End Role="YSG_Employee_Master" Type="Self.YSG_Employee_Master" Multiplicity="*" />
           <ReferentialConstraint>
@@ -658,6 +1079,30 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
             </Principal>
             <Dependent Role="YSG_Employee_Master">
               <PropertyRef Name="Dept_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YSG_Inventory_Master_YSG_Department_Master">
+          <End Role="YSG_Department_Master" Type="Self.YSG_Department_Master" Multiplicity="0..1" />
+          <End Role="YSG_Inventory_Master" Type="Self.YSG_Inventory_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Department_Master">
+              <PropertyRef Name="Dept_no" />
+            </Principal>
+            <Dependent Role="YSG_Inventory_Master">
+              <PropertyRef Name="Related_Dept_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YSG_Hall_Master_YSG_Hall_Master">
+          <End Role="YSG_Hall_Master" Type="Self.YSG_Hall_Master" Multiplicity="1" />
+          <End Role="YSG_Hall_Master1" Type="Self.YSG_Hall_Master" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Hall_Master">
+              <PropertyRef Name="Hall_no" />
+            </Principal>
+            <Dependent Role="YSG_Hall_Master1">
+              <PropertyRef Name="Hall_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -674,6 +1119,9 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="YogiSabhaGruhEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="YSG_Booking_Catering_info" EntityType="Self.YSG_Booking_Catering_info" />
+          <EntitySet Name="YSG_Booking_Contact_Persons" EntityType="Self.YSG_Booking_Contact_Persons" />
+          <EntitySet Name="YSG_Booking_Facilities" EntityType="Self.YSG_Booking_Facilities" />
           <EntitySet Name="YSG_Booking_Info" EntityType="Self.YSG_Booking_Info" />
           <EntitySet Name="YSG_Booking_Payment" EntityType="Self.YSG_Booking_Payment" />
           <EntitySet Name="YSG_Caterer_Master" EntityType="Self.YSG_Caterer_Master" />
@@ -684,39 +1132,251 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
           <EntitySet Name="YSG_Feedback" EntityType="Self.YSG_Feedback" />
           <EntitySet Name="YSG_Hall_Master" EntityType="Self.YSG_Hall_Master" />
           <EntitySet Name="YSG_Inventory_Master" EntityType="Self.YSG_Inventory_Master" />
+          <EntitySet Name="YSG_My_To_Do_List" EntityType="Self.YSG_My_To_Do_List" />
           <EntitySet Name="YSG_Role_Master" EntityType="Self.YSG_Role_Master" />
           <EntitySet Name="YSG_User_Master" EntityType="Self.YSG_User_Master" />
-          <AssociationSet Name="FK__YSG_Booki__Booki__6A30C649" Association="Self.FK__YSG_Booki__Booki__6A30C649">
+          <EntitySet Name="YSG_Tithi_Info" EntityType="Self.YSG_Tithi_Info" />
+          <AssociationSet Name="FK_YSG_Booking_Catering_info_YSG_Booking_Info" Association="Self.FK_YSG_Booking_Catering_info_YSG_Booking_Info">
+            <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+            <End Role="YSG_Booking_Catering_info" EntitySet="YSG_Booking_Catering_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YSG_Booking_Catering_info_YSG_Caterer_Master" Association="Self.FK_YSG_Booking_Catering_info_YSG_Caterer_Master">
+            <End Role="YSG_Caterer_Master" EntitySet="YSG_Caterer_Master" />
+            <End Role="YSG_Booking_Catering_info" EntitySet="YSG_Booking_Catering_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YSG_Booki__Booki__5070F446" Association="Self.FK__YSG_Booki__Booki__5070F446">
+            <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+            <End Role="YSG_Booking_Contact_Persons" EntitySet="YSG_Booking_Contact_Persons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YSG_Booki__Booki__5165187F" Association="Self.FK__YSG_Booki__Booki__5165187F">
+            <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+            <End Role="YSG_Booking_Facilities" EntitySet="YSG_Booking_Facilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YSG_Booki__Item___52593CB8" Association="Self.FK__YSG_Booki__Item___52593CB8">
+            <End Role="YSG_Inventory_Master" EntitySet="YSG_Inventory_Master" />
+            <End Role="YSG_Booking_Facilities" EntitySet="YSG_Booking_Facilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YSG_Booki__Booki__571DF1D5" Association="Self.FK__YSG_Booki__Booki__571DF1D5">
             <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
             <End Role="YSG_Booking_Payment" EntitySet="YSG_Booking_Payment" />
           </AssociationSet>
-          <AssociationSet Name="FK__YSG_Booki__Event__68487DD7" Association="Self.FK__YSG_Booki__Event__68487DD7">
+          <AssociationSet Name="FK__YSG_Booki__Event__5535A963" Association="Self.FK__YSG_Booki__Event__5535A963">
             <End Role="YSG_Event_Master" EntitySet="YSG_Event_Master" />
             <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK__YSG_Feedb__Booki__6C190EBB" Association="Self.FK__YSG_Feedb__Booki__6C190EBB">
+          <AssociationSet Name="FK__YSG_Feedb__Booki__59063A47" Association="Self.FK__YSG_Feedb__Booki__59063A47">
             <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
             <End Role="YSG_Feedback" EntitySet="YSG_Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YSG_My_To__Booki__59FA5E80" Association="Self.FK__YSG_My_To__Booki__59FA5E80">
+            <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+            <End Role="YSG_My_To_Do_List" EntitySet="YSG_My_To_Do_List" />
           </AssociationSet>
           <AssociationSet Name="FK_YSG_Booking_Info_YSG_Customer_Info" Association="Self.FK_YSG_Booking_Info_YSG_Customer_Info">
             <End Role="YSG_Customer_Info" EntitySet="YSG_Customer_Info" />
             <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK__YSG_Emplo__Dept___6B24EA82" Association="Self.FK__YSG_Emplo__Dept___6B24EA82">
+          <AssociationSet Name="FK__YSG_Emplo__Dept___7A672E12" Association="Self.FK__YSG_Emplo__Dept___7A672E12">
             <End Role="YSG_Department_Master" EntitySet="YSG_Department_Master" />
             <End Role="YSG_Employee_Master" EntitySet="YSG_Employee_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YSG_Inventory_Master_YSG_Department_Master" Association="Self.FK_YSG_Inventory_Master_YSG_Department_Master">
+            <End Role="YSG_Department_Master" EntitySet="YSG_Department_Master" />
+            <End Role="YSG_Inventory_Master" EntitySet="YSG_Inventory_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YSG_Hall_Master_YSG_Hall_Master" Association="Self.FK_YSG_Hall_Master_YSG_Hall_Master">
+            <End Role="YSG_Hall_Master" EntitySet="YSG_Hall_Master" />
+            <End Role="YSG_Hall_Master1" EntitySet="YSG_Hall_Master" />
           </AssociationSet>
           <AssociationSet Name="FK_YSG_User_Master_YSG_Role_Master" Association="Self.FK_YSG_User_Master_YSG_Role_Master">
             <End Role="YSG_Role_Master" EntitySet="YSG_Role_Master" />
             <End Role="YSG_User_Master" EntitySet="YSG_User_Master" />
           </AssociationSet>
+          <FunctionImport Name="ADD_YSG_Customer_Info">
+            <Parameter Name="Customer_name" Mode="In" Type="String" />
+            <Parameter Name="Customer_Address" Mode="In" Type="String" />
+            <Parameter Name="Landline_No" Mode="In" Type="String" />
+            <Parameter Name="Fax_No" Mode="In" Type="String" />
+            <Parameter Name="Mobile_No" Mode="In" Type="String" />
+            <Parameter Name="Email_id" Mode="In" Type="String" />
+            <Parameter Name="Customer_Status" Mode="In" Type="String" />
+            <Parameter Name="Referred_By" Mode="In" Type="String" />
+            <Parameter Name="Customer_Type" Mode="In" Type="String" />
+            <Parameter Name="Comments" Mode="In" Type="String" />
+            <Parameter Name="created_By" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ADD_YSG_Event_Master">
+            <Parameter Name="Event_name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="created_By" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ADD_YSG_Hall_Master">
+            <Parameter Name="Hall_name" Mode="In" Type="String" />
+            <Parameter Name="Capacity_seating" Mode="In" Type="Decimal" />
+            <Parameter Name="Capacity_chairs" Mode="In" Type="Decimal" />
+            <Parameter Name="Rent_per_hour" Mode="In" Type="Decimal" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="created_By" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="AUD_Booking_Contact_Persons">
+            <Parameter Name="Booking_No" Mode="In" Type="Decimal" />
+            <Parameter Name="Contact_name" Mode="In" Type="String" />
+            <Parameter Name="Contact_No" Mode="In" Type="String" />
+            <Parameter Name="Contact_Email_id" Mode="In" Type="String" />
+            <Parameter Name="created_By" Mode="In" Type="Decimal" />
+            <Parameter Name="ACTION" Mode="In" Type="String" />
+            <Parameter Name="Booking_Contact_Person_No" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="AUD_YSG_Booking_Facilities">
+            <Parameter Name="ACTION" Mode="In" Type="String" />
+            <Parameter Name="Booking_Facility_No" Mode="In" Type="Decimal" />
+            <Parameter Name="Booking_No" Mode="In" Type="Decimal" />
+            <Parameter Name="Item_no" Mode="In" Type="Decimal" />
+            <Parameter Name="Required_Qty" Mode="In" Type="Decimal" />
+            <Parameter Name="Calculated_Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="Remarks" Mode="In" Type="String" />
+            <Parameter Name="created_By" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="AUD_YSG_Booking_Info">
+            <Parameter Name="Action" Mode="In" Type="String" />
+            <Parameter Name="Booking_No" Mode="In" Type="Decimal" />
+            <Parameter Name="Booking_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="Booking_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Booking_FromTime" Mode="In" Type="DateTime" />
+            <Parameter Name="Booking_ToTime" Mode="In" Type="DateTime" />
+            <Parameter Name="Event_no" Mode="In" Type="Decimal" />
+            <Parameter Name="Event_Class" Mode="In" Type="String" />
+            <Parameter Name="Customer_no" Mode="In" Type="Decimal" />
+            <Parameter Name="Booking_Status" Mode="In" Type="String" />
+            <Parameter Name="No_Of_Invitees" Mode="In" Type="Decimal" />
+            <Parameter Name="Booking_calculated_Amt" Mode="In" Type="Decimal" />
+            <Parameter Name="Discount" Mode="In" Type="Decimal" />
+            <Parameter Name="Discount_Reason" Mode="In" Type="String" />
+            <Parameter Name="Booking_final_Amt" Mode="In" Type="Decimal" />
+            <Parameter Name="RemarkOrComments" Mode="In" Type="String" />
+            <Parameter Name="Paid_Amt" Mode="In" Type="Decimal" />
+            <Parameter Name="Balance_Amt" Mode="In" Type="Decimal" />
+            <Parameter Name="created_By" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="AUD_YSG_Inventory_Master">
+            <Parameter Name="ACTION" Mode="In" Type="String" />
+            <Parameter Name="Item_no" Mode="In" Type="Decimal" />
+            <Parameter Name="Item_name" Mode="In" Type="String" />
+            <Parameter Name="Related_Dept_No" Mode="In" Type="Decimal" />
+            <Parameter Name="Available_Qty" Mode="In" Type="Decimal" />
+            <Parameter Name="Rent_per_Qty" Mode="In" Type="Decimal" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="created_By" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GetTithiInfo" ReturnType="Collection(YogiSabhaGruhModel.GetTithiInfo_Result)">
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="endDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="YSG_Booking_Hall_Info" EntityType="YogiSabhaGruhModel.YSG_Booking_Hall_Info" />
+          <AssociationSet Name="FK_YSG_Booking_Hall_Info_YSG_Booking_Info" Association="YogiSabhaGruhModel.FK_YSG_Booking_Hall_Info_YSG_Booking_Info">
+            <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+            <End Role="YSG_Booking_Hall_Info" EntitySet="YSG_Booking_Hall_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YSG_Booking_Hall_Info_YSG_Hall_Master" Association="YogiSabhaGruhModel.FK_YSG_Booking_Hall_Info_YSG_Hall_Master">
+            <End Role="YSG_Hall_Master" EntitySet="YSG_Hall_Master" />
+            <End Role="YSG_Booking_Hall_Info" EntitySet="YSG_Booking_Hall_Info" />
+          </AssociationSet>
         </EntityContainer>
+        <ComplexType Name="GetTithiInfo_Result">
+          <Property Type="DateTime" Name="Tithi_Date" Nullable="false" Precision="23" />
+          <Property Type="String" Name="TithiName" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="YSG_Booking_Hall_Info">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Booking_No" Type="Decimal" Precision="12" Scale="0" />
+          <Property Name="Hall_no" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="created_By" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="created_datetime" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="YSG_Booking_Info" Relationship="YogiSabhaGruhModel.FK_YSG_Booking_Hall_Info_YSG_Booking_Info" FromRole="YSG_Booking_Hall_Info" ToRole="YSG_Booking_Info" />
+          <NavigationProperty Name="YSG_Hall_Master" Relationship="YogiSabhaGruhModel.FK_YSG_Booking_Hall_Info_YSG_Hall_Master" FromRole="YSG_Booking_Hall_Info" ToRole="YSG_Hall_Master" />
+        </EntityType>
+        <Association Name="FK_YSG_Booking_Hall_Info_YSG_Booking_Info">
+          <End Type="YogiSabhaGruhModel.YSG_Booking_Info" Role="YSG_Booking_Info" Multiplicity="0..1" />
+          <End Type="YogiSabhaGruhModel.YSG_Booking_Hall_Info" Role="YSG_Booking_Hall_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Booking_Info">
+              <PropertyRef Name="Booking_No" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Hall_Info">
+              <PropertyRef Name="Booking_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YSG_Booking_Hall_Info_YSG_Hall_Master">
+          <End Type="YogiSabhaGruhModel.YSG_Hall_Master" Role="YSG_Hall_Master" Multiplicity="0..1" />
+          <End Type="YogiSabhaGruhModel.YSG_Booking_Hall_Info" Role="YSG_Booking_Hall_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Hall_Master">
+              <PropertyRef Name="Hall_no" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Hall_Info">
+              <PropertyRef Name="Hall_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="YogiSabhaGruhModelStoreContainer" CdmEntityContainer="YogiSabhaGruhEntities">
+          <EntitySetMapping Name="YSG_Booking_Catering_info">
+            <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Booking_Catering_info">
+              <MappingFragment StoreEntitySet="YSG_Booking_Catering_info">
+                <ScalarProperty Name="Booking_no" ColumnName="Booking_no" />
+                <ScalarProperty Name="Caterer_No" ColumnName="Caterer_No" />
+                <ScalarProperty Name="event_Date" ColumnName="event_Date" />
+                <ScalarProperty Name="FoodType" ColumnName="FoodType" />
+                <ScalarProperty Name="Persons" ColumnName="Persons" />
+                <ScalarProperty Name="Rate_per_person" ColumnName="Rate_per_person" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Booking_Catering_info_No" ColumnName="Booking_Catering_info_No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YSG_Booking_Contact_Persons">
+            <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Booking_Contact_Persons">
+              <MappingFragment StoreEntitySet="YSG_Booking_Contact_Persons">
+                <ScalarProperty Name="Booking_No" ColumnName="Booking_No" />
+                <ScalarProperty Name="Contact_name" ColumnName="Contact_name" />
+                <ScalarProperty Name="Contact_No" ColumnName="Contact_No" />
+                <ScalarProperty Name="Contact_Email_id" ColumnName="Contact_Email_id" />
+                <ScalarProperty Name="created_By" ColumnName="created_By" />
+                <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+                <ScalarProperty Name="Booking_Contact_Person_No" ColumnName="Booking_Contact_Person_No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YSG_Booking_Facilities">
+            <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Booking_Facilities">
+              <MappingFragment StoreEntitySet="YSG_Booking_Facilities">
+                <ScalarProperty Name="Booking_No" ColumnName="Booking_No" />
+                <ScalarProperty Name="Item_no" ColumnName="Item_no" />
+                <ScalarProperty Name="Required_Qty" ColumnName="Required_Qty" />
+                <ScalarProperty Name="Calculated_Amount" ColumnName="Calculated_Amount" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="created_By" ColumnName="created_By" />
+                <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+                <ScalarProperty Name="Booking_Facility_No" ColumnName="Booking_Facility_No" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="YSG_Booking_Info">
             <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Booking_Info">
               <MappingFragment StoreEntitySet="YSG_Booking_Info">
@@ -726,6 +1386,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
                 <ScalarProperty Name="Booking_FromTime" ColumnName="Booking_FromTime" />
                 <ScalarProperty Name="Booking_ToTime" ColumnName="Booking_ToTime" />
                 <ScalarProperty Name="Event_no" ColumnName="Event_no" />
+                <ScalarProperty Name="Event_Class" ColumnName="Event_Class" />
                 <ScalarProperty Name="Customer_no" ColumnName="Customer_no" />
                 <ScalarProperty Name="Booking_Status" ColumnName="Booking_Status" />
                 <ScalarProperty Name="No_Of_Invitees" ColumnName="No_Of_Invitees" />
@@ -740,6 +1401,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
                 <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
                 <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
                 <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -863,8 +1525,8 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
               <MappingFragment StoreEntitySet="YSG_Hall_Master">
                 <ScalarProperty Name="Hall_no" ColumnName="Hall_no" />
                 <ScalarProperty Name="Hall_name" ColumnName="Hall_name" />
-                <ScalarProperty Name="Capicity_seating" ColumnName="Capicity_seating" />
-                <ScalarProperty Name="Capicity_chairs" ColumnName="Capicity_chairs" />
+                <ScalarProperty Name="Capacity_seating" ColumnName="Capacity_seating" />
+                <ScalarProperty Name="Capacity_chairs" ColumnName="Capacity_chairs" />
                 <ScalarProperty Name="Rent_per_hour" ColumnName="Rent_per_hour" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="created_By" ColumnName="created_By" />
@@ -887,6 +1549,26 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
                 <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
                 <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
                 <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YSG_My_To_Do_List">
+            <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_My_To_Do_List">
+              <MappingFragment StoreEntitySet="YSG_My_To_Do_List">
+                <ScalarProperty Name="User_No" ColumnName="User_No" />
+                <ScalarProperty Name="Booking_No" ColumnName="Booking_No" />
+                <ScalarProperty Name="Task_Date" ColumnName="Task_Date" />
+                <ScalarProperty Name="Reminder_DateTime" ColumnName="Reminder_DateTime" />
+                <ScalarProperty Name="Task_Description" ColumnName="Task_Description" />
+                <ScalarProperty Name="Dept_No" ColumnName="Dept_No" />
+                <ScalarProperty Name="Task_Status" ColumnName="Task_Status" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="created_By" ColumnName="created_By" />
+                <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+                <ScalarProperty Name="Task_ID" ColumnName="Task_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -916,6 +1598,44 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Catering_info' is reference
                 <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
                 <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
                 <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YSG_Tithi_Info">
+            <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Tithi_Info">
+              <MappingFragment StoreEntitySet="YSG_Tithi_Info">
+                <ScalarProperty Name="Tithi_Date" ColumnName="Tithi_Date" />
+                <ScalarProperty Name="Tithi" ColumnName="Tithi" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ADD_YSG_Customer_Info" FunctionName="YogiSabhaGruhModel.Store.ADD_YSG_Customer_Info" />
+          <FunctionImportMapping FunctionImportName="ADD_YSG_Event_Master" FunctionName="YogiSabhaGruhModel.Store.ADD_YSG_Event_Master" />
+          <FunctionImportMapping FunctionImportName="ADD_YSG_Hall_Master" FunctionName="YogiSabhaGruhModel.Store.ADD_YSG_Hall_Master" />
+          <FunctionImportMapping FunctionImportName="AUD_Booking_Contact_Persons" FunctionName="YogiSabhaGruhModel.Store.AUD_Booking_Contact_Persons" />
+          <FunctionImportMapping FunctionImportName="AUD_YSG_Booking_Facilities" FunctionName="YogiSabhaGruhModel.Store.AUD_YSG_Booking_Facilities" />
+          <FunctionImportMapping FunctionImportName="AUD_YSG_Booking_Info" FunctionName="YogiSabhaGruhModel.Store.AUD_YSG_Booking_Info" />
+          <FunctionImportMapping FunctionImportName="AUD_YSG_Inventory_Master" FunctionName="YogiSabhaGruhModel.Store.AUD_YSG_Inventory_Master" />
+          <FunctionImportMapping FunctionImportName="GetTithiInfo" FunctionName="YogiSabhaGruhModel.Store.GetTithiInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YogiSabhaGruhModel.GetTithiInfo_Result">
+                <ScalarProperty Name="Tithi_Date" ColumnName="Tithi_Date" />
+                <ScalarProperty Name="TithiName" ColumnName="TithiName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="YSG_Booking_Hall_Info">
+            <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Booking_Hall_Info">
+              <MappingFragment StoreEntitySet="YSG_Booking_Hall_Info">
+                <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
+                <ScalarProperty Name="created_By" ColumnName="created_By" />
+                <ScalarProperty Name="Hall_no" ColumnName="Hall_no" />
+                <ScalarProperty Name="Booking_No" ColumnName="Booking_No" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

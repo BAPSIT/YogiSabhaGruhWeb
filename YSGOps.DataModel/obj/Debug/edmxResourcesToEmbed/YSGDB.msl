@@ -1,6 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="YogiSabhaGruhModelStoreContainer" CdmEntityContainer="YogiSabhaGruhEntities">
+    <EntitySetMapping Name="YSG_Booking_Catering_info">
+      <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Booking_Catering_info">
+        <MappingFragment StoreEntitySet="YSG_Booking_Catering_info">
+          <ScalarProperty Name="Booking_no" ColumnName="Booking_no" />
+          <ScalarProperty Name="Caterer_No" ColumnName="Caterer_No" />
+          <ScalarProperty Name="event_Date" ColumnName="event_Date" />
+          <ScalarProperty Name="FoodType" ColumnName="FoodType" />
+          <ScalarProperty Name="Persons" ColumnName="Persons" />
+          <ScalarProperty Name="Rate_per_person" ColumnName="Rate_per_person" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Booking_Catering_info_No" ColumnName="Booking_Catering_info_No" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YSG_Booking_Contact_Persons">
+      <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Booking_Contact_Persons">
+        <MappingFragment StoreEntitySet="YSG_Booking_Contact_Persons">
+          <ScalarProperty Name="Booking_No" ColumnName="Booking_No" />
+          <ScalarProperty Name="Contact_name" ColumnName="Contact_name" />
+          <ScalarProperty Name="Contact_No" ColumnName="Contact_No" />
+          <ScalarProperty Name="Contact_Email_id" ColumnName="Contact_Email_id" />
+          <ScalarProperty Name="created_By" ColumnName="created_By" />
+          <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+          <ScalarProperty Name="Booking_Contact_Person_No" ColumnName="Booking_Contact_Person_No" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YSG_Booking_Facilities">
+      <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Booking_Facilities">
+        <MappingFragment StoreEntitySet="YSG_Booking_Facilities">
+          <ScalarProperty Name="Booking_No" ColumnName="Booking_No" />
+          <ScalarProperty Name="Item_no" ColumnName="Item_no" />
+          <ScalarProperty Name="Required_Qty" ColumnName="Required_Qty" />
+          <ScalarProperty Name="Calculated_Amount" ColumnName="Calculated_Amount" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="created_By" ColumnName="created_By" />
+          <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+          <ScalarProperty Name="Booking_Facility_No" ColumnName="Booking_Facility_No" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="YSG_Booking_Info">
       <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Booking_Info">
         <MappingFragment StoreEntitySet="YSG_Booking_Info">
@@ -10,6 +56,7 @@
           <ScalarProperty Name="Booking_FromTime" ColumnName="Booking_FromTime" />
           <ScalarProperty Name="Booking_ToTime" ColumnName="Booking_ToTime" />
           <ScalarProperty Name="Event_no" ColumnName="Event_no" />
+          <ScalarProperty Name="Event_Class" ColumnName="Event_Class" />
           <ScalarProperty Name="Customer_no" ColumnName="Customer_no" />
           <ScalarProperty Name="Booking_Status" ColumnName="Booking_Status" />
           <ScalarProperty Name="No_Of_Invitees" ColumnName="No_Of_Invitees" />
@@ -24,6 +71,7 @@
           <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
           <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
           <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -147,8 +195,8 @@
         <MappingFragment StoreEntitySet="YSG_Hall_Master">
           <ScalarProperty Name="Hall_no" ColumnName="Hall_no" />
           <ScalarProperty Name="Hall_name" ColumnName="Hall_name" />
-          <ScalarProperty Name="Capicity_seating" ColumnName="Capicity_seating" />
-          <ScalarProperty Name="Capicity_chairs" ColumnName="Capicity_chairs" />
+          <ScalarProperty Name="Capacity_seating" ColumnName="Capacity_seating" />
+          <ScalarProperty Name="Capacity_chairs" ColumnName="Capacity_chairs" />
           <ScalarProperty Name="Rent_per_hour" ColumnName="Rent_per_hour" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="created_By" ColumnName="created_By" />
@@ -171,6 +219,26 @@
           <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
           <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
           <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YSG_My_To_Do_List">
+      <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_My_To_Do_List">
+        <MappingFragment StoreEntitySet="YSG_My_To_Do_List">
+          <ScalarProperty Name="User_No" ColumnName="User_No" />
+          <ScalarProperty Name="Booking_No" ColumnName="Booking_No" />
+          <ScalarProperty Name="Task_Date" ColumnName="Task_Date" />
+          <ScalarProperty Name="Reminder_DateTime" ColumnName="Reminder_DateTime" />
+          <ScalarProperty Name="Task_Description" ColumnName="Task_Description" />
+          <ScalarProperty Name="Dept_No" ColumnName="Dept_No" />
+          <ScalarProperty Name="Task_Status" ColumnName="Task_Status" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="created_By" ColumnName="created_By" />
+          <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+          <ScalarProperty Name="Task_ID" ColumnName="Task_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -200,6 +268,44 @@
           <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
           <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
           <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YSG_Tithi_Info">
+      <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Tithi_Info">
+        <MappingFragment StoreEntitySet="YSG_Tithi_Info">
+          <ScalarProperty Name="Tithi_Date" ColumnName="Tithi_Date" />
+          <ScalarProperty Name="Tithi" ColumnName="Tithi" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ADD_YSG_Customer_Info" FunctionName="YogiSabhaGruhModel.Store.ADD_YSG_Customer_Info" />
+    <FunctionImportMapping FunctionImportName="ADD_YSG_Event_Master" FunctionName="YogiSabhaGruhModel.Store.ADD_YSG_Event_Master" />
+    <FunctionImportMapping FunctionImportName="ADD_YSG_Hall_Master" FunctionName="YogiSabhaGruhModel.Store.ADD_YSG_Hall_Master" />
+    <FunctionImportMapping FunctionImportName="AUD_Booking_Contact_Persons" FunctionName="YogiSabhaGruhModel.Store.AUD_Booking_Contact_Persons" />
+    <FunctionImportMapping FunctionImportName="AUD_YSG_Booking_Facilities" FunctionName="YogiSabhaGruhModel.Store.AUD_YSG_Booking_Facilities" />
+    <FunctionImportMapping FunctionImportName="AUD_YSG_Booking_Info" FunctionName="YogiSabhaGruhModel.Store.AUD_YSG_Booking_Info" />
+    <FunctionImportMapping FunctionImportName="AUD_YSG_Inventory_Master" FunctionName="YogiSabhaGruhModel.Store.AUD_YSG_Inventory_Master" />
+    <FunctionImportMapping FunctionImportName="GetTithiInfo" FunctionName="YogiSabhaGruhModel.Store.GetTithiInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="YogiSabhaGruhModel.GetTithiInfo_Result">
+          <ScalarProperty Name="Tithi_Date" ColumnName="Tithi_Date" />
+          <ScalarProperty Name="TithiName" ColumnName="TithiName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="YSG_Booking_Hall_Info">
+      <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Booking_Hall_Info">
+        <MappingFragment StoreEntitySet="YSG_Booking_Hall_Info">
+          <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
+          <ScalarProperty Name="created_By" ColumnName="created_By" />
+          <ScalarProperty Name="Hall_no" ColumnName="Hall_no" />
+          <ScalarProperty Name="Booking_No" ColumnName="Booking_No" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -51,83 +51,104 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetTithiInfo_Result.cs">
+      <DependentUpon>YsgDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YSGDB.Context.cs">
+    <Compile Include="YsgDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>YSGDB.Context.tt</DependentUpon>
+      <DependentUpon>YsgDb.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="YSGDB.cs">
+    <Compile Include="YsgDb.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>YSGDB.tt</DependentUpon>
+      <DependentUpon>YsgDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="YSGDB.Designer.cs">
+    <Compile Include="YsgDb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>YSGDB.edmx</DependentUpon>
+      <DependentUpon>YsgDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="YSG_Booking_Catering_info.cs">
+      <DependentUpon>YsgDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YSG_Booking_Contact_Persons.cs">
+      <DependentUpon>YsgDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YSG_Booking_Facilities.cs">
+      <DependentUpon>YsgDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YSG_Booking_Hall_Info.cs">
+      <DependentUpon>YsgDb.tt</DependentUpon>
     </Compile>
     <Compile Include="YSG_Booking_Info.cs">
-      <DependentUpon>YSGDB.tt</DependentUpon>
+      <DependentUpon>YsgDb.tt</DependentUpon>
     </Compile>
     <Compile Include="YSG_Booking_Payment.cs">
-      <DependentUpon>YSGDB.tt</DependentUpon>
+      <DependentUpon>YsgDb.tt</DependentUpon>
     </Compile>
     <Compile Include="YSG_Caterer_Master.cs">
-      <DependentUpon>YSGDB.tt</DependentUpon>
+      <DependentUpon>YsgDb.tt</DependentUpon>
     </Compile>
     <Compile Include="YSG_Customer_Info.cs">
-      <DependentUpon>YSGDB.tt</DependentUpon>
+      <DependentUpon>YsgDb.tt</DependentUpon>
     </Compile>
     <Compile Include="YSG_Department_Master.cs">
-      <DependentUpon>YSGDB.tt</DependentUpon>
+      <DependentUpon>YsgDb.tt</DependentUpon>
     </Compile>
     <Compile Include="YSG_Employee_Master.cs">
-      <DependentUpon>YSGDB.tt</DependentUpon>
+      <DependentUpon>YsgDb.tt</DependentUpon>
     </Compile>
     <Compile Include="YSG_Event_Master.cs">
-      <DependentUpon>YSGDB.tt</DependentUpon>
+      <DependentUpon>YsgDb.tt</DependentUpon>
     </Compile>
     <Compile Include="YSG_Feedback.cs">
-      <DependentUpon>YSGDB.tt</DependentUpon>
+      <DependentUpon>YsgDb.tt</DependentUpon>
     </Compile>
     <Compile Include="YSG_Hall_Master.cs">
-      <DependentUpon>YSGDB.tt</DependentUpon>
+      <DependentUpon>YsgDb.tt</DependentUpon>
     </Compile>
     <Compile Include="YSG_Inventory_Master.cs">
-      <DependentUpon>YSGDB.tt</DependentUpon>
+      <DependentUpon>YsgDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YSG_My_To_Do_List.cs">
+      <DependentUpon>YsgDb.tt</DependentUpon>
     </Compile>
     <Compile Include="YSG_Role_Master.cs">
-      <DependentUpon>YSGDB.tt</DependentUpon>
+      <DependentUpon>YsgDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YSG_Tithi_Info.cs">
+      <DependentUpon>YsgDb.tt</DependentUpon>
     </Compile>
     <Compile Include="YSG_User_Master.cs">
-      <DependentUpon>YSGDB.tt</DependentUpon>
+      <DependentUpon>YsgDb.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="YSGDB.edmx">
+    <EntityDeploy Include="YsgDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>YSGDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>YsgDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="YSGDB.edmx.diagram">
-      <DependentUpon>YSGDB.edmx</DependentUpon>
+    <None Include="YsgDb.edmx.diagram">
+      <DependentUpon>YsgDb.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="YSGDB.Context.tt">
+    <Content Include="YsgDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>YSGDB.edmx</DependentUpon>
-      <LastGenOutput>YSGDB.Context.cs</LastGenOutput>
+      <DependentUpon>YsgDb.edmx</DependentUpon>
+      <LastGenOutput>YsgDb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="YSGDB.tt">
+    <Content Include="YsgDb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>YSGDB.edmx</DependentUpon>
-      <LastGenOutput>YSGDB.cs</LastGenOutput>
+      <DependentUpon>YsgDb.edmx</DependentUpon>
+      <LastGenOutput>YsgDb.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

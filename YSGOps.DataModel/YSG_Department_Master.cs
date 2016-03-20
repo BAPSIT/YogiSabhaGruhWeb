@@ -18,6 +18,7 @@ namespace YSGOps.DataModel
         public YSG_Department_Master()
         {
             this.YSG_Employee_Master = new HashSet<YSG_Employee_Master>();
+            this.YSG_Inventory_Master = new HashSet<YSG_Inventory_Master>();
         }
     
         public decimal Dept_no { get; set; }
@@ -30,5 +31,7 @@ namespace YSGOps.DataModel
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<YSG_Employee_Master> YSG_Employee_Master { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<YSG_Inventory_Master> YSG_Inventory_Master { get; set; }
     }
 }

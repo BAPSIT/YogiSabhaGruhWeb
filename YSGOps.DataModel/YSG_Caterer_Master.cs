@@ -14,6 +14,12 @@ namespace YSGOps.DataModel
     
     public partial class YSG_Caterer_Master
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public YSG_Caterer_Master()
+        {
+            this.YSG_Booking_Catering_info = new HashSet<YSG_Booking_Catering_info>();
+        }
+    
         public decimal Caterer_No { get; set; }
         public string Caterer_Name { get; set; }
         public string Contact_NUMERIC { get; set; }
@@ -23,5 +29,8 @@ namespace YSGOps.DataModel
         public Nullable<decimal> updated_by { get; set; }
         public Nullable<System.DateTime> updated_datetime { get; set; }
         public string is_Active { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<YSG_Booking_Catering_info> YSG_Booking_Catering_info { get; set; }
     }
 }
