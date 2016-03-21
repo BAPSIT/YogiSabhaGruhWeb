@@ -30,6 +30,7 @@ namespace YSGOps.DataModel
         public virtual DbSet<YSG_Booking_Catering_info> YSG_Booking_Catering_info { get; set; }
         public virtual DbSet<YSG_Booking_Contact_Persons> YSG_Booking_Contact_Persons { get; set; }
         public virtual DbSet<YSG_Booking_Facilities> YSG_Booking_Facilities { get; set; }
+        public virtual DbSet<YSG_Booking_Hall_Info> YSG_Booking_Hall_Info { get; set; }
         public virtual DbSet<YSG_Booking_Info> YSG_Booking_Info { get; set; }
         public virtual DbSet<YSG_Booking_Payment> YSG_Booking_Payment { get; set; }
         public virtual DbSet<YSG_Caterer_Master> YSG_Caterer_Master { get; set; }
@@ -44,7 +45,6 @@ namespace YSGOps.DataModel
         public virtual DbSet<YSG_Role_Master> YSG_Role_Master { get; set; }
         public virtual DbSet<YSG_User_Master> YSG_User_Master { get; set; }
         public virtual DbSet<YSG_Tithi_Info> YSG_Tithi_Info { get; set; }
-        public virtual DbSet<YSG_Booking_Hall_Info> YSG_Booking_Hall_Info { get; set; }
     
         public virtual int ADD_YSG_Customer_Info(string customer_name, string customer_Address, string landline_No, string fax_No, string mobile_No, string email_id, string customer_Status, string referred_By, string customer_Type, string comments, Nullable<decimal> created_By)
         {

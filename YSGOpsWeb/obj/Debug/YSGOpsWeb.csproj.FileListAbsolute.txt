@@ -23,4 +23,3 @@ F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Microsoft.Owin.S
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Microsoft.Owin.Security.Cookies.xml
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Microsoft.Owin.Security.OAuth.xml
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Newtonsoft.Json.xml
-E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\YSGOpsWeb.csprojResolveAssemblyReference.cache

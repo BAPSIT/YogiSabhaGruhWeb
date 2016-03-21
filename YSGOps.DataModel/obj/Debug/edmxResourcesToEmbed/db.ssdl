@@ -43,16 +43,18 @@
     <Property Name="Booking_Facility_No" Type="numeric" Precision="7" Scale="0" Nullable="false" />
     <Property Name="IsActive" Type="char" MaxLength="1" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="YSG_Booking_Hall_Info">
-          <Property Name="Booking_No" Type="numeric" Precision="12" Scale="0" />
-          <Property Name="Hall_no" Type="numeric" Precision="5" Scale="0" />
-          <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
-          <Property Name="created_datetime" Type="datetime" />
-          <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
-          <Property Name="Updated_Datetime" Type="datetime" />
-        </EntityType>-->
+  <EntityType Name="YSG_Booking_Hall_Info">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Booking_No" Type="numeric" Precision="12" Scale="0" />
+    <Property Name="Hall_no" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+  </EntityType>
   <EntityType Name="YSG_Booking_Info">
     <Key>
       <PropertyRef Name="Booking_No" />
@@ -307,9 +309,6 @@ warning 6002: The table/view 'YogiSabhaGruh.dbo.YSG_Tithi_Info' does not have a 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <!--Errors Found During Generation:
-error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__YSG_Booki__Booki__534D60F1" />-->
   <Association Name="FK__YSG_Booki__Booki__571DF1D5">
     <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
     <End Role="YSG_Booking_Payment" Type="Self.YSG_Booking_Payment" Multiplicity="*" />
@@ -334,9 +333,6 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' is referenced by
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <!--Errors Found During Generation:
-error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__YSG_Booki__Hall___76969D2E" />-->
   <Association Name="FK__YSG_Booki__Item___52593CB8">
     <End Role="YSG_Inventory_Master" Type="Self.YSG_Inventory_Master" Multiplicity="0..1" />
     <End Role="YSG_Booking_Facilities" Type="Self.YSG_Booking_Facilities" Multiplicity="*" />
@@ -409,6 +405,30 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' is referenced by
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_YSG_Booking_Hall_Info_YSG_Booking_Info">
+    <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+    <End Role="YSG_Booking_Hall_Info" Type="Self.YSG_Booking_Hall_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Booking_Info">
+        <PropertyRef Name="Booking_No" />
+      </Principal>
+      <Dependent Role="YSG_Booking_Hall_Info">
+        <PropertyRef Name="Booking_No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YSG_Booking_Hall_Info_YSG_Hall_Master">
+    <End Role="YSG_Hall_Master" Type="Self.YSG_Hall_Master" Multiplicity="0..1" />
+    <End Role="YSG_Booking_Hall_Info" Type="Self.YSG_Booking_Hall_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Hall_Master">
+        <PropertyRef Name="Hall_no" />
+      </Principal>
+      <Dependent Role="YSG_Booking_Hall_Info">
+        <PropertyRef Name="Hall_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_YSG_Booking_Info_YSG_Customer_Info">
     <End Role="YSG_Customer_Info" Type="Self.YSG_Customer_Info" Multiplicity="0..1" />
     <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="*" />
@@ -418,6 +438,18 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' is referenced by
       </Principal>
       <Dependent Role="YSG_Booking_Info">
         <PropertyRef Name="Customer_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YSG_Hall_Master_YSG_Hall_Master">
+    <End Role="YSG_Hall_Master" Type="Self.YSG_Hall_Master" Multiplicity="1" />
+    <End Role="YSG_Hall_Master1" Type="Self.YSG_Hall_Master" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Hall_Master">
+        <PropertyRef Name="Hall_no" />
+      </Principal>
+      <Dependent Role="YSG_Hall_Master1">
+        <PropertyRef Name="Hall_no" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -529,6 +561,7 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' is referenced by
     <EntitySet Name="YSG_Booking_Catering_info" EntityType="Self.YSG_Booking_Catering_info" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="YSG_Booking_Contact_Persons" EntityType="Self.YSG_Booking_Contact_Persons" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="YSG_Booking_Facilities" EntityType="Self.YSG_Booking_Facilities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Booking_Hall_Info" EntityType="Self.YSG_Booking_Hall_Info" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="YSG_Booking_Info" EntityType="Self.YSG_Booking_Info" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="YSG_Booking_Payment" EntityType="Self.YSG_Booking_Payment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="YSG_Caterer_Master" EntityType="Self.YSG_Caterer_Master" Schema="dbo" store:Type="Tables" />
@@ -589,9 +622,21 @@ error 6004: The table 'YogiSabhaGruh.dbo.YSG_Booking_Hall_Info' is referenced by
       <End Role="YSG_Caterer_Master" EntitySet="YSG_Caterer_Master" />
       <End Role="YSG_Booking_Catering_info" EntitySet="YSG_Booking_Catering_info" />
     </AssociationSet>
+    <AssociationSet Name="FK_YSG_Booking_Hall_Info_YSG_Booking_Info" Association="Self.FK_YSG_Booking_Hall_Info_YSG_Booking_Info">
+      <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+      <End Role="YSG_Booking_Hall_Info" EntitySet="YSG_Booking_Hall_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YSG_Booking_Hall_Info_YSG_Hall_Master" Association="Self.FK_YSG_Booking_Hall_Info_YSG_Hall_Master">
+      <End Role="YSG_Hall_Master" EntitySet="YSG_Hall_Master" />
+      <End Role="YSG_Booking_Hall_Info" EntitySet="YSG_Booking_Hall_Info" />
+    </AssociationSet>
     <AssociationSet Name="FK_YSG_Booking_Info_YSG_Customer_Info" Association="Self.FK_YSG_Booking_Info_YSG_Customer_Info">
       <End Role="YSG_Customer_Info" EntitySet="YSG_Customer_Info" />
       <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YSG_Hall_Master_YSG_Hall_Master" Association="Self.FK_YSG_Hall_Master_YSG_Hall_Master">
+      <End Role="YSG_Hall_Master" EntitySet="YSG_Hall_Master" />
+      <End Role="YSG_Hall_Master1" EntitySet="YSG_Hall_Master" />
     </AssociationSet>
     <AssociationSet Name="FK_YSG_Inventory_Master_YSG_Department_Master" Association="Self.FK_YSG_Inventory_Master_YSG_Department_Master">
       <End Role="YSG_Department_Master" EntitySet="YSG_Department_Master" />

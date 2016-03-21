@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="YogisabhaGruhServices.Service1" CodeBehind="BookingService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="YSGServices.BookingService" CodeBehind="BookingService.svc.cs" %>

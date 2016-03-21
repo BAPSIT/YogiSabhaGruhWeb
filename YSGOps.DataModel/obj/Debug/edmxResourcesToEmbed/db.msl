@@ -47,6 +47,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="YSG_Booking_Hall_Info">
+      <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Booking_Hall_Info">
+        <MappingFragment StoreEntitySet="YSG_Booking_Hall_Info">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Booking_No" ColumnName="Booking_No" />
+          <ScalarProperty Name="Hall_no" ColumnName="Hall_no" />
+          <ScalarProperty Name="created_By" ColumnName="created_By" />
+          <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="YSG_Booking_Info">
       <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Booking_Info">
         <MappingFragment StoreEntitySet="YSG_Booking_Info">

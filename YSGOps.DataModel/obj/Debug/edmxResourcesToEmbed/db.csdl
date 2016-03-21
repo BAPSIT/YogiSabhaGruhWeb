@@ -48,6 +48,20 @@
     <NavigationProperty Name="YSG_Booking_Info" Relationship="Self.FK__YSG_Booki__Booki__5165187F" FromRole="YSG_Booking_Facilities" ToRole="YSG_Booking_Info" />
     <NavigationProperty Name="YSG_Inventory_Master" Relationship="Self.FK__YSG_Booki__Item___52593CB8" FromRole="YSG_Booking_Facilities" ToRole="YSG_Inventory_Master" />
   </EntityType>
+  <EntityType Name="YSG_Booking_Hall_Info">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Booking_No" Type="Decimal" Precision="12" Scale="0" />
+    <Property Name="Hall_no" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="created_By" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="DateTime" Precision="3" />
+    <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="YSG_Booking_Info" Relationship="Self.FK_YSG_Booking_Hall_Info_YSG_Booking_Info" FromRole="YSG_Booking_Hall_Info" ToRole="YSG_Booking_Info" />
+    <NavigationProperty Name="YSG_Hall_Master" Relationship="Self.FK_YSG_Booking_Hall_Info_YSG_Hall_Master" FromRole="YSG_Booking_Hall_Info" ToRole="YSG_Hall_Master" />
+  </EntityType>
   <EntityType Name="YSG_Booking_Info">
     <Key>
       <PropertyRef Name="Booking_No" />
@@ -77,6 +91,7 @@
     <NavigationProperty Name="YSG_Booking_Catering_info" Relationship="Self.FK_YSG_Booking_Catering_info_YSG_Booking_Info" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Catering_info" />
     <NavigationProperty Name="YSG_Booking_Contact_Persons" Relationship="Self.FK__YSG_Booki__Booki__5070F446" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Contact_Persons" />
     <NavigationProperty Name="YSG_Booking_Facilities" Relationship="Self.FK__YSG_Booki__Booki__5165187F" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Facilities" />
+    <NavigationProperty Name="YSG_Booking_Hall_Info" Relationship="Self.FK_YSG_Booking_Hall_Info_YSG_Booking_Info" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Hall_Info" />
     <NavigationProperty Name="YSG_Booking_Payment" Relationship="Self.FK__YSG_Booki__Booki__571DF1D5" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Payment" />
     <NavigationProperty Name="YSG_Event_Master" Relationship="Self.FK__YSG_Booki__Event__5535A963" FromRole="YSG_Booking_Info" ToRole="YSG_Event_Master" />
     <NavigationProperty Name="YSG_Feedback" Relationship="Self.FK__YSG_Feedb__Booki__59063A47" FromRole="YSG_Booking_Info" ToRole="YSG_Feedback" />
@@ -213,6 +228,9 @@
     <Property Name="created_datetime" Type="DateTime" Precision="3" />
     <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
     <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="YSG_Booking_Hall_Info" Relationship="Self.FK_YSG_Booking_Hall_Info_YSG_Hall_Master" FromRole="YSG_Hall_Master" ToRole="YSG_Booking_Hall_Info" />
+    <NavigationProperty Name="YSG_Hall_Master1" Relationship="Self.FK_YSG_Hall_Master_YSG_Hall_Master" FromRole="YSG_Hall_Master" ToRole="YSG_Hall_Master1" />
+    <NavigationProperty Name="YSG_Hall_Master2" Relationship="Self.FK_YSG_Hall_Master_YSG_Hall_Master" FromRole="YSG_Hall_Master1" ToRole="YSG_Hall_Master" />
   </EntityType>
   <EntityType Name="YSG_Inventory_Master">
     <Key>
@@ -350,6 +368,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_YSG_Booking_Hall_Info_YSG_Booking_Info">
+    <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+    <End Role="YSG_Booking_Hall_Info" Type="Self.YSG_Booking_Hall_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Booking_Info">
+        <PropertyRef Name="Booking_No" />
+      </Principal>
+      <Dependent Role="YSG_Booking_Hall_Info">
+        <PropertyRef Name="Booking_No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YSG_Booking_Hall_Info_YSG_Hall_Master">
+    <End Role="YSG_Hall_Master" Type="Self.YSG_Hall_Master" Multiplicity="0..1" />
+    <End Role="YSG_Booking_Hall_Info" Type="Self.YSG_Booking_Hall_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Hall_Master">
+        <PropertyRef Name="Hall_no" />
+      </Principal>
+      <Dependent Role="YSG_Booking_Hall_Info">
+        <PropertyRef Name="Hall_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__YSG_Booki__Booki__571DF1D5">
     <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
     <End Role="YSG_Booking_Payment" Type="Self.YSG_Booking_Payment" Multiplicity="*" />
@@ -434,6 +476,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_YSG_Hall_Master_YSG_Hall_Master">
+    <End Role="YSG_Hall_Master" Type="Self.YSG_Hall_Master" Multiplicity="1" />
+    <End Role="YSG_Hall_Master1" Type="Self.YSG_Hall_Master" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Hall_Master">
+        <PropertyRef Name="Hall_no" />
+      </Principal>
+      <Dependent Role="YSG_Hall_Master1">
+        <PropertyRef Name="Hall_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_YSG_User_Master_YSG_Role_Master">
     <End Role="YSG_Role_Master" Type="Self.YSG_Role_Master" Multiplicity="0..1" />
     <End Role="YSG_User_Master" Type="Self.YSG_User_Master" Multiplicity="*" />
@@ -450,6 +504,7 @@
     <EntitySet Name="YSG_Booking_Catering_info" EntityType="Self.YSG_Booking_Catering_info" />
     <EntitySet Name="YSG_Booking_Contact_Persons" EntityType="Self.YSG_Booking_Contact_Persons" />
     <EntitySet Name="YSG_Booking_Facilities" EntityType="Self.YSG_Booking_Facilities" />
+    <EntitySet Name="YSG_Booking_Hall_Info" EntityType="Self.YSG_Booking_Hall_Info" />
     <EntitySet Name="YSG_Booking_Info" EntityType="Self.YSG_Booking_Info" />
     <EntitySet Name="YSG_Booking_Payment" EntityType="Self.YSG_Booking_Payment" />
     <EntitySet Name="YSG_Caterer_Master" EntityType="Self.YSG_Caterer_Master" />
@@ -484,6 +539,14 @@
       <End Role="YSG_Inventory_Master" EntitySet="YSG_Inventory_Master" />
       <End Role="YSG_Booking_Facilities" EntitySet="YSG_Booking_Facilities" />
     </AssociationSet>
+    <AssociationSet Name="FK_YSG_Booking_Hall_Info_YSG_Booking_Info" Association="Self.FK_YSG_Booking_Hall_Info_YSG_Booking_Info">
+      <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+      <End Role="YSG_Booking_Hall_Info" EntitySet="YSG_Booking_Hall_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YSG_Booking_Hall_Info_YSG_Hall_Master" Association="Self.FK_YSG_Booking_Hall_Info_YSG_Hall_Master">
+      <End Role="YSG_Hall_Master" EntitySet="YSG_Hall_Master" />
+      <End Role="YSG_Booking_Hall_Info" EntitySet="YSG_Booking_Hall_Info" />
+    </AssociationSet>
     <AssociationSet Name="FK__YSG_Booki__Booki__571DF1D5" Association="Self.FK__YSG_Booki__Booki__571DF1D5">
       <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
       <End Role="YSG_Booking_Payment" EntitySet="YSG_Booking_Payment" />
@@ -511,6 +574,10 @@
     <AssociationSet Name="FK_YSG_Inventory_Master_YSG_Department_Master" Association="Self.FK_YSG_Inventory_Master_YSG_Department_Master">
       <End Role="YSG_Department_Master" EntitySet="YSG_Department_Master" />
       <End Role="YSG_Inventory_Master" EntitySet="YSG_Inventory_Master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YSG_Hall_Master_YSG_Hall_Master" Association="Self.FK_YSG_Hall_Master_YSG_Hall_Master">
+      <End Role="YSG_Hall_Master" EntitySet="YSG_Hall_Master" />
+      <End Role="YSG_Hall_Master1" EntitySet="YSG_Hall_Master" />
     </AssociationSet>
     <AssociationSet Name="FK_YSG_User_Master_YSG_Role_Master" Association="Self.FK_YSG_User_Master_YSG_Role_Master">
       <End Role="YSG_Role_Master" EntitySet="YSG_Role_Master" />

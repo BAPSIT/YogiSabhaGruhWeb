@@ -31,9 +31,9 @@ namespace YSGOps.DataModel
         public Nullable<decimal> Updated_By { get; set; }
         public Nullable<System.DateTime> Updated_Datetime { get; set; }
     
-        public virtual YSG_Hall_Master YSG_Hall_Master1 { get; set; }
-        public virtual YSG_Hall_Master YSG_Hall_Master2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<YSG_Booking_Hall_Info> YSG_Booking_Hall_Info { get; set; }
+        public virtual YSG_Hall_Master YSG_Hall_Master1 { get; set; }
+        public virtual YSG_Hall_Master YSG_Hall_Master2 { get; set; }
     }
 }

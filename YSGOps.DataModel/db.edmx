@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="YogiSabhaGruhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="YogiSabhaGruhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="YSG_Booking_Catering_info">
           <Key>
             <PropertyRef Name="Booking_Catering_info_No" />
@@ -652,7 +652,8 @@ warning 6002: The table/view 'YogiSabhaGruh.dbo.YSG_Tithi_Info' does not have a 
             <End Role="YSG_User_Master" EntitySet="YSG_User_Master" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="YogiSabhaGruhModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -704,6 +705,20 @@ warning 6002: The table/view 'YogiSabhaGruh.dbo.YSG_Tithi_Info' does not have a 
           <NavigationProperty Name="YSG_Booking_Info" Relationship="Self.FK__YSG_Booki__Booki__5165187F" FromRole="YSG_Booking_Facilities" ToRole="YSG_Booking_Info" />
           <NavigationProperty Name="YSG_Inventory_Master" Relationship="Self.FK__YSG_Booki__Item___52593CB8" FromRole="YSG_Booking_Facilities" ToRole="YSG_Inventory_Master" />
         </EntityType>
+        <EntityType Name="YSG_Booking_Hall_Info">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Booking_No" Type="Decimal" Precision="12" Scale="0" />
+          <Property Name="Hall_no" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="created_By" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="created_datetime" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="YSG_Booking_Info" Relationship="Self.FK_YSG_Booking_Hall_Info_YSG_Booking_Info" FromRole="YSG_Booking_Hall_Info" ToRole="YSG_Booking_Info" />
+          <NavigationProperty Name="YSG_Hall_Master" Relationship="Self.FK_YSG_Booking_Hall_Info_YSG_Hall_Master" FromRole="YSG_Booking_Hall_Info" ToRole="YSG_Hall_Master" />
+        </EntityType>
         <EntityType Name="YSG_Booking_Info">
           <Key>
             <PropertyRef Name="Booking_No" />
@@ -733,12 +748,12 @@ warning 6002: The table/view 'YogiSabhaGruh.dbo.YSG_Tithi_Info' does not have a 
           <NavigationProperty Name="YSG_Booking_Catering_info" Relationship="Self.FK_YSG_Booking_Catering_info_YSG_Booking_Info" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Catering_info" />
           <NavigationProperty Name="YSG_Booking_Contact_Persons" Relationship="Self.FK__YSG_Booki__Booki__5070F446" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Contact_Persons" />
           <NavigationProperty Name="YSG_Booking_Facilities" Relationship="Self.FK__YSG_Booki__Booki__5165187F" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Facilities" />
+          <NavigationProperty Name="YSG_Booking_Hall_Info" Relationship="Self.FK_YSG_Booking_Hall_Info_YSG_Booking_Info" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Hall_Info" />
           <NavigationProperty Name="YSG_Booking_Payment" Relationship="Self.FK__YSG_Booki__Booki__571DF1D5" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Payment" />
           <NavigationProperty Name="YSG_Event_Master" Relationship="Self.FK__YSG_Booki__Event__5535A963" FromRole="YSG_Booking_Info" ToRole="YSG_Event_Master" />
           <NavigationProperty Name="YSG_Feedback" Relationship="Self.FK__YSG_Feedb__Booki__59063A47" FromRole="YSG_Booking_Info" ToRole="YSG_Feedback" />
           <NavigationProperty Name="YSG_My_To_Do_List" Relationship="Self.FK__YSG_My_To__Booki__59FA5E80" FromRole="YSG_Booking_Info" ToRole="YSG_My_To_Do_List" />
           <NavigationProperty Name="YSG_Customer_Info" Relationship="Self.FK_YSG_Booking_Info_YSG_Customer_Info" FromRole="YSG_Booking_Info" ToRole="YSG_Customer_Info" />
-          <NavigationProperty Name="YSG_Booking_Hall_Info" Relationship="YogiSabhaGruhModel.FK_YSG_Booking_Hall_Info_YSG_Booking_Info" FromRole="YSG_Booking_Info" ToRole="YSG_Booking_Hall_Info" />
         </EntityType>
         <EntityType Name="YSG_Booking_Payment">
           <Key>
@@ -870,9 +885,9 @@ warning 6002: The table/view 'YogiSabhaGruh.dbo.YSG_Tithi_Info' does not have a 
           <Property Name="created_datetime" Type="DateTime" Precision="3" />
           <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="YSG_Booking_Hall_Info" Relationship="Self.FK_YSG_Booking_Hall_Info_YSG_Hall_Master" FromRole="YSG_Hall_Master" ToRole="YSG_Booking_Hall_Info" />
           <NavigationProperty Name="YSG_Hall_Master1" Relationship="Self.FK_YSG_Hall_Master_YSG_Hall_Master" FromRole="YSG_Hall_Master" ToRole="YSG_Hall_Master1" />
           <NavigationProperty Name="YSG_Hall_Master2" Relationship="Self.FK_YSG_Hall_Master_YSG_Hall_Master" FromRole="YSG_Hall_Master1" ToRole="YSG_Hall_Master" />
-          <NavigationProperty Name="YSG_Booking_Hall_Info" Relationship="YogiSabhaGruhModel.FK_YSG_Booking_Hall_Info_YSG_Hall_Master" FromRole="YSG_Hall_Master" ToRole="YSG_Booking_Hall_Info" />
         </EntityType>
         <EntityType Name="YSG_Inventory_Master">
           <Key>
@@ -1010,6 +1025,30 @@ warning 6002: The table/view 'YogiSabhaGruh.dbo.YSG_Tithi_Info' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_YSG_Booking_Hall_Info_YSG_Booking_Info">
+          <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+          <End Role="YSG_Booking_Hall_Info" Type="Self.YSG_Booking_Hall_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Booking_Info">
+              <PropertyRef Name="Booking_No" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Hall_Info">
+              <PropertyRef Name="Booking_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YSG_Booking_Hall_Info_YSG_Hall_Master">
+          <End Role="YSG_Hall_Master" Type="Self.YSG_Hall_Master" Multiplicity="0..1" />
+          <End Role="YSG_Booking_Hall_Info" Type="Self.YSG_Booking_Hall_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YSG_Hall_Master">
+              <PropertyRef Name="Hall_no" />
+            </Principal>
+            <Dependent Role="YSG_Booking_Hall_Info">
+              <PropertyRef Name="Hall_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__YSG_Booki__Booki__571DF1D5">
           <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
           <End Role="YSG_Booking_Payment" Type="Self.YSG_Booking_Payment" Multiplicity="*" />
@@ -1122,6 +1161,7 @@ warning 6002: The table/view 'YogiSabhaGruh.dbo.YSG_Tithi_Info' does not have a 
           <EntitySet Name="YSG_Booking_Catering_info" EntityType="Self.YSG_Booking_Catering_info" />
           <EntitySet Name="YSG_Booking_Contact_Persons" EntityType="Self.YSG_Booking_Contact_Persons" />
           <EntitySet Name="YSG_Booking_Facilities" EntityType="Self.YSG_Booking_Facilities" />
+          <EntitySet Name="YSG_Booking_Hall_Info" EntityType="Self.YSG_Booking_Hall_Info" />
           <EntitySet Name="YSG_Booking_Info" EntityType="Self.YSG_Booking_Info" />
           <EntitySet Name="YSG_Booking_Payment" EntityType="Self.YSG_Booking_Payment" />
           <EntitySet Name="YSG_Caterer_Master" EntityType="Self.YSG_Caterer_Master" />
@@ -1155,6 +1195,14 @@ warning 6002: The table/view 'YogiSabhaGruh.dbo.YSG_Tithi_Info' does not have a 
           <AssociationSet Name="FK__YSG_Booki__Item___52593CB8" Association="Self.FK__YSG_Booki__Item___52593CB8">
             <End Role="YSG_Inventory_Master" EntitySet="YSG_Inventory_Master" />
             <End Role="YSG_Booking_Facilities" EntitySet="YSG_Booking_Facilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YSG_Booking_Hall_Info_YSG_Booking_Info" Association="Self.FK_YSG_Booking_Hall_Info_YSG_Booking_Info">
+            <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+            <End Role="YSG_Booking_Hall_Info" EntitySet="YSG_Booking_Hall_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YSG_Booking_Hall_Info_YSG_Hall_Master" Association="Self.FK_YSG_Booking_Hall_Info_YSG_Hall_Master">
+            <End Role="YSG_Hall_Master" EntitySet="YSG_Hall_Master" />
+            <End Role="YSG_Booking_Hall_Info" EntitySet="YSG_Booking_Hall_Info" />
           </AssociationSet>
           <AssociationSet Name="FK__YSG_Booki__Booki__571DF1D5" Association="Self.FK__YSG_Booki__Booki__571DF1D5">
             <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
@@ -1272,59 +1320,12 @@ warning 6002: The table/view 'YogiSabhaGruh.dbo.YSG_Tithi_Info' does not have a 
             <Parameter Name="StartDate" Mode="In" Type="DateTime" />
             <Parameter Name="endDate" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <EntitySet Name="YSG_Booking_Hall_Info" EntityType="YogiSabhaGruhModel.YSG_Booking_Hall_Info" />
-          <AssociationSet Name="FK_YSG_Booking_Hall_Info_YSG_Booking_Info" Association="YogiSabhaGruhModel.FK_YSG_Booking_Hall_Info_YSG_Booking_Info">
-            <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
-            <End Role="YSG_Booking_Hall_Info" EntitySet="YSG_Booking_Hall_Info" />
-          </AssociationSet>
-          <AssociationSet Name="FK_YSG_Booking_Hall_Info_YSG_Hall_Master" Association="YogiSabhaGruhModel.FK_YSG_Booking_Hall_Info_YSG_Hall_Master">
-            <End Role="YSG_Hall_Master" EntitySet="YSG_Hall_Master" />
-            <End Role="YSG_Booking_Hall_Info" EntitySet="YSG_Booking_Hall_Info" />
-          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="GetTithiInfo_Result">
           <Property Type="DateTime" Name="Tithi_Date" Nullable="false" Precision="23" />
           <Property Type="String" Name="TithiName" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="false" />
         </ComplexType>
-        <EntityType Name="YSG_Booking_Hall_Info">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Booking_No" Type="Decimal" Precision="12" Scale="0" />
-          <Property Name="Hall_no" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="created_By" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="created_datetime" Type="DateTime" Precision="3" />
-          <Property Name="Updated_By" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="Updated_Datetime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="YSG_Booking_Info" Relationship="YogiSabhaGruhModel.FK_YSG_Booking_Hall_Info_YSG_Booking_Info" FromRole="YSG_Booking_Hall_Info" ToRole="YSG_Booking_Info" />
-          <NavigationProperty Name="YSG_Hall_Master" Relationship="YogiSabhaGruhModel.FK_YSG_Booking_Hall_Info_YSG_Hall_Master" FromRole="YSG_Booking_Hall_Info" ToRole="YSG_Hall_Master" />
-        </EntityType>
-        <Association Name="FK_YSG_Booking_Hall_Info_YSG_Booking_Info">
-          <End Type="YogiSabhaGruhModel.YSG_Booking_Info" Role="YSG_Booking_Info" Multiplicity="0..1" />
-          <End Type="YogiSabhaGruhModel.YSG_Booking_Hall_Info" Role="YSG_Booking_Hall_Info" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="YSG_Booking_Info">
-              <PropertyRef Name="Booking_No" />
-            </Principal>
-            <Dependent Role="YSG_Booking_Hall_Info">
-              <PropertyRef Name="Booking_No" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_YSG_Booking_Hall_Info_YSG_Hall_Master">
-          <End Type="YogiSabhaGruhModel.YSG_Hall_Master" Role="YSG_Hall_Master" Multiplicity="0..1" />
-          <End Type="YogiSabhaGruhModel.YSG_Booking_Hall_Info" Role="YSG_Booking_Hall_Info" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="YSG_Hall_Master">
-              <PropertyRef Name="Hall_no" />
-            </Principal>
-            <Dependent Role="YSG_Booking_Hall_Info">
-              <PropertyRef Name="Hall_no" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1374,6 +1375,19 @@ warning 6002: The table/view 'YogiSabhaGruh.dbo.YSG_Tithi_Info' does not have a 
                 <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
                 <ScalarProperty Name="Booking_Facility_No" ColumnName="Booking_Facility_No" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YSG_Booking_Hall_Info">
+            <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Booking_Hall_Info">
+              <MappingFragment StoreEntitySet="YSG_Booking_Hall_Info">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Booking_No" ColumnName="Booking_No" />
+                <ScalarProperty Name="Hall_no" ColumnName="Hall_no" />
+                <ScalarProperty Name="created_By" ColumnName="created_By" />
+                <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1626,19 +1640,6 @@ warning 6002: The table/view 'YogiSabhaGruh.dbo.YSG_Tithi_Info' does not have a 
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="YSG_Booking_Hall_Info">
-            <EntityTypeMapping TypeName="YogiSabhaGruhModel.YSG_Booking_Hall_Info">
-              <MappingFragment StoreEntitySet="YSG_Booking_Hall_Info">
-                <ScalarProperty Name="Updated_Datetime" ColumnName="Updated_Datetime" />
-                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
-                <ScalarProperty Name="created_datetime" ColumnName="created_datetime" />
-                <ScalarProperty Name="created_By" ColumnName="created_By" />
-                <ScalarProperty Name="Hall_no" ColumnName="Hall_no" />
-                <ScalarProperty Name="Booking_No" ColumnName="Booking_No" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

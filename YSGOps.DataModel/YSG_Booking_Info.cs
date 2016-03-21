@@ -20,10 +20,10 @@ namespace YSGOps.DataModel
             this.YSG_Booking_Catering_info = new HashSet<YSG_Booking_Catering_info>();
             this.YSG_Booking_Contact_Persons = new HashSet<YSG_Booking_Contact_Persons>();
             this.YSG_Booking_Facilities = new HashSet<YSG_Booking_Facilities>();
+            this.YSG_Booking_Hall_Info = new HashSet<YSG_Booking_Hall_Info>();
             this.YSG_Booking_Payment = new HashSet<YSG_Booking_Payment>();
             this.YSG_Feedback = new HashSet<YSG_Feedback>();
             this.YSG_My_To_Do_List = new HashSet<YSG_My_To_Do_List>();
-            this.YSG_Booking_Hall_Info = new HashSet<YSG_Booking_Hall_Info>();
         }
     
         public decimal Booking_No { get; set; }
@@ -56,6 +56,8 @@ namespace YSGOps.DataModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<YSG_Booking_Facilities> YSG_Booking_Facilities { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<YSG_Booking_Hall_Info> YSG_Booking_Hall_Info { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<YSG_Booking_Payment> YSG_Booking_Payment { get; set; }
         public virtual YSG_Event_Master YSG_Event_Master { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -63,7 +65,5 @@ namespace YSGOps.DataModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<YSG_My_To_Do_List> YSG_My_To_Do_List { get; set; }
         public virtual YSG_Customer_Info YSG_Customer_Info { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<YSG_Booking_Hall_Info> YSG_Booking_Hall_Info { get; set; }
     }
 }
