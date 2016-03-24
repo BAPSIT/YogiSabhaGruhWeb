@@ -234,6 +234,18 @@
     </Compile>
     <Compile Include="Models\IAddBookingRepository.cs" />
     <Compile Include="Models\Tithi.cs" />
+    <Compile Include="Models\YSG_Booking_Info.cs" />
+    <Compile Include="Models\YSG_Booking_Payment.cs" />
+    <Compile Include="Models\YSG_Caterer_Master.cs" />
+    <Compile Include="Models\YSG_Customer_Info.cs" />
+    <Compile Include="Models\YSG_Department_Master.cs" />
+    <Compile Include="Models\YSG_Employee_Master.cs" />
+    <Compile Include="Models\YSG_Event_Master.cs" />
+    <Compile Include="Models\YSG_Feedback.cs" />
+    <Compile Include="Models\YSG_Hall_Master.cs" />
+    <Compile Include="Models\YSG_Inventory_Master.cs" />
+    <Compile Include="Models\YSG_Role_Master.cs" />
+    <Compile Include="Models\YSG_User_Master.cs" />
     <Compile Include="Pages\AddBooking.aspx.cs">
       <DependentUpon>AddBooking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
