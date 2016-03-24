@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YogiSabhaGruhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="YSG_Booking_Catering_info">
+    <Key>
+      <PropertyRef Name="Booking_Catering_info_No" />
+    </Key>
+    <Property Name="Booking_no" Type="numeric" Precision="12" Scale="0" />
+    <Property Name="Caterer_No" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="event_Date" Type="datetime" />
+    <Property Name="FoodType" Type="nvarchar" MaxLength="500" />
+    <Property Name="Persons" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Rate_per_person" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Amount" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Booking_Catering_info_No" Type="numeric" Precision="8" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YSG_Booking_Contact_Persons">
+    <Key>
+      <PropertyRef Name="Booking_Contact_Person_No" />
+    </Key>
+    <Property Name="Booking_No" Type="numeric" Precision="12" Scale="0" />
+    <Property Name="Contact_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Contact_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Contact_Email_id" Type="nvarchar" MaxLength="100" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+    <Property Name="Booking_Contact_Person_No" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YSG_Booking_Facilities">
+    <Key>
+      <PropertyRef Name="Booking_Facility_No" />
+    </Key>
+    <Property Name="Booking_No" Type="numeric" Precision="12" Scale="0" />
+    <Property Name="Item_no" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Required_Qty" Type="numeric" Precision="6" Scale="0" />
+    <Property Name="Calculated_Amount" Type="money" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+    <Property Name="Booking_Facility_No" Type="numeric" Precision="7" Scale="0" Nullable="false" />
+    <Property Name="IsActive" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="YSG_Booking_Hall_Info">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Booking_No" Type="numeric" Precision="12" Scale="0" />
+    <Property Name="Hall_no" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="YSG_Booking_Info">
+    <Key>
+      <PropertyRef Name="Booking_No" />
+    </Key>
+    <Property Name="Booking_No" Type="numeric" Precision="12" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Booking_ID" Type="numeric" Precision="12" Scale="0" />
+    <Property Name="Booking_Date" Type="datetime" />
+    <Property Name="Booking_FromTime" Type="datetime" />
+    <Property Name="Booking_ToTime" Type="datetime" />
+    <Property Name="Event_no" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Event_Class" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_no" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="Booking_Status" Type="nvarchar" MaxLength="1" />
+    <Property Name="No_Of_Invitees" Type="numeric" Precision="6" Scale="0" />
+    <Property Name="Booking_calculated_Amt" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="Discount" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="Discount_Reason" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Booking_final_Amt" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="RemarkOrComments" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Paid_Amt" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="Balance_Amt" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+    <Property Name="IsActive" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="YSG_Booking_Payment">
+    <Key>
+      <PropertyRef Name="Payment_No" />
+    </Key>
+    <Property Name="Booking_No" Type="numeric" Precision="12" Scale="0" />
+    <Property Name="Payment_No" Type="numeric" Precision="12" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Payment_Account_Head" Type="nvarchar" MaxLength="1" />
+    <Property Name="Payment_Date" Type="datetime" />
+    <Property Name="Cash_Cheque_Card" Type="nvarchar" MaxLength="25" />
+    <Property Name="Bank_Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Cheque_Card_No" Type="nvarchar" MaxLength="100" />
+    <Property Name="Cheque_Date" Type="datetime" />
+    <Property Name="Amount" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="Amount_In_Words" Type="nvarchar" MaxLength="500" />
+    <Property Name="Payment_Status" Type="nvarchar" MaxLength="1" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="YSG_Caterer_Master">
+    <Key>
+      <PropertyRef Name="Caterer_No" />
+    </Key>
+    <Property Name="Caterer_No" Type="numeric" Precision="5" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Caterer_Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Contact_NUMERIC" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="250" />
+    <Property Name="Created_by" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_Datetime" Type="datetime" />
+    <Property Name="updated_by" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="updated_datetime" Type="datetime" />
+    <Property Name="is_Active" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="YSG_Customer_Info">
+    <Key>
+      <PropertyRef Name="Customer_no" />
+    </Key>
+    <Property Name="Customer_no" Type="numeric" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Customer_Address" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Landline_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fax_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email_id" Type="nvarchar" MaxLength="100" />
+    <Property Name="Customer_Status" Type="nvarchar" MaxLength="25" />
+    <Property Name="Referred_By" Type="nvarchar" MaxLength="500" />
+    <Property Name="Customer_Type" Type="nvarchar" MaxLength="1" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="2000" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="YSG_Department_Master">
+    <Key>
+      <PropertyRef Name="Dept_no" />
+    </Key>
+    <Property Name="Dept_no" Type="numeric" Precision="5" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dept_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="YSG_Employee_Master">
+    <Key>
+      <PropertyRef Name="Emp_no" />
+    </Key>
+    <Property Name="Emp_no" Type="numeric" Precision="5" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emp_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile_No" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="Email_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dept_no" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="IsDept_Head" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="YSG_Event_Master">
+    <Key>
+      <PropertyRef Name="Event_no" />
+    </Key>
+    <Property Name="Event_no" Type="numeric" Precision="5" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Event_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="YSG_Feedback">
+    <Key>
+      <PropertyRef Name="Feedback_No" />
+    </Key>
+    <Property Name="Feedback_No" Type="numeric" Precision="12" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Booking_No" Type="numeric" Precision="12" Scale="0" />
+    <Property Name="QuestionOrCriteria" Type="nvarchar" MaxLength="500" />
+    <Property Name="Ratings" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="YSG_Hall_Master">
+    <Key>
+      <PropertyRef Name="Hall_no" />
+    </Key>
+    <Property Name="Hall_no" Type="numeric" Precision="5" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hall_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Capacity_seating" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="Capacity_chairs" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="Rent_per_hour" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="YSG_Inventory_Master">
+    <Key>
+      <PropertyRef Name="Item_no" />
+    </Key>
+    <Property Name="Item_no" Type="numeric" Precision="5" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Item_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Related_Dept_No" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Available_Qty" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Rent_per_Qty" Type="money" />
+    <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+    <Property Name="IsActive" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="YSG_My_To_Do_List">
+    <Key>
+      <PropertyRef Name="Task_ID" />
+    </Key>
+    <Property Name="User_No" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Booking_No" Type="numeric" Precision="12" Scale="0" />
+    <Property Name="Task_Date" Type="datetime" />
+    <Property Name="Reminder_DateTime" Type="datetime" />
+    <Property Name="Task_Description" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Dept_No" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Task_Status" Type="nvarchar" MaxLength="1" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+    <Property Name="Task_ID" Type="numeric" Precision="8" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YSG_Role_Master">
+    <Key>
+      <PropertyRef Name="Role_no" />
+    </Key>
+    <Property Name="Role_no" Type="numeric" Precision="5" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role_name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'YogiSabhaGruh.dbo.YSG_SysParam' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="YSG_SysParam">
+          <Property Name="SysParamName" Type="nvarchar" MaxLength="5" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Value" Type="nvarchar" MaxLength="500" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'YogiSabhaGruh.dbo.YSG_Tithi_Info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="YSG_Tithi_Info">
+    <Key>
+      <PropertyRef Name="Tithi_Date" />
+      <PropertyRef Name="Tithi" />
+      <PropertyRef Name="Description" />
+    </Key>
+    <Property Name="Tithi_Date" Type="datetime" Nullable="false" />
+    <Property Name="Tithi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YSG_User_Master">
+    <Key>
+      <PropertyRef Name="user_no" />
+    </Key>
+    <Property Name="user_no" Type="numeric" Precision="5" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_login_id" Type="nvarchar" MaxLength="15" />
+    <Property Name="User_password" Type="nvarchar" MaxLength="500" />
+    <Property Name="reset_password" Type="nvarchar" MaxLength="1" />
+    <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile_No" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="Email_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="Last_login_datetime" Type="datetime" />
+    <Property Name="Role_no" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="IsActive" Type="nvarchar" MaxLength="1" />
+    <Property Name="created_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="created_datetime" Type="datetime" />
+    <Property Name="Updated_By" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Updated_Datetime" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__YSG_Booki__Booki__5070F446">
+    <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+    <End Role="YSG_Booking_Contact_Persons" Type="Self.YSG_Booking_Contact_Persons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Booking_Info">
+        <PropertyRef Name="Booking_No" />
+      </Principal>
+      <Dependent Role="YSG_Booking_Contact_Persons">
+        <PropertyRef Name="Booking_No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__YSG_Booki__Booki__5165187F">
+    <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+    <End Role="YSG_Booking_Facilities" Type="Self.YSG_Booking_Facilities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Booking_Info">
+        <PropertyRef Name="Booking_No" />
+      </Principal>
+      <Dependent Role="YSG_Booking_Facilities">
+        <PropertyRef Name="Booking_No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__YSG_Booki__Booki__571DF1D5">
+    <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+    <End Role="YSG_Booking_Payment" Type="Self.YSG_Booking_Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Booking_Info">
+        <PropertyRef Name="Booking_No" />
+      </Principal>
+      <Dependent Role="YSG_Booking_Payment">
+        <PropertyRef Name="Booking_No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__YSG_Booki__Event__5535A963">
+    <End Role="YSG_Event_Master" Type="Self.YSG_Event_Master" Multiplicity="0..1" />
+    <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Event_Master">
+        <PropertyRef Name="Event_no" />
+      </Principal>
+      <Dependent Role="YSG_Booking_Info">
+        <PropertyRef Name="Event_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__YSG_Booki__Item___52593CB8">
+    <End Role="YSG_Inventory_Master" Type="Self.YSG_Inventory_Master" Multiplicity="0..1" />
+    <End Role="YSG_Booking_Facilities" Type="Self.YSG_Booking_Facilities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Inventory_Master">
+        <PropertyRef Name="Item_no" />
+      </Principal>
+      <Dependent Role="YSG_Booking_Facilities">
+        <PropertyRef Name="Item_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__YSG_Emplo__Dept___7A672E12">
+    <End Role="YSG_Department_Master" Type="Self.YSG_Department_Master" Multiplicity="0..1" />
+    <End Role="YSG_Employee_Master" Type="Self.YSG_Employee_Master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Department_Master">
+        <PropertyRef Name="Dept_no" />
+      </Principal>
+      <Dependent Role="YSG_Employee_Master">
+        <PropertyRef Name="Dept_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__YSG_Feedb__Booki__59063A47">
+    <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+    <End Role="YSG_Feedback" Type="Self.YSG_Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Booking_Info">
+        <PropertyRef Name="Booking_No" />
+      </Principal>
+      <Dependent Role="YSG_Feedback">
+        <PropertyRef Name="Booking_No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__YSG_My_To__Booki__59FA5E80">
+    <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+    <End Role="YSG_My_To_Do_List" Type="Self.YSG_My_To_Do_List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Booking_Info">
+        <PropertyRef Name="Booking_No" />
+      </Principal>
+      <Dependent Role="YSG_My_To_Do_List">
+        <PropertyRef Name="Booking_No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YSG_Booking_Catering_info_YSG_Booking_Info">
+    <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+    <End Role="YSG_Booking_Catering_info" Type="Self.YSG_Booking_Catering_info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Booking_Info">
+        <PropertyRef Name="Booking_No" />
+      </Principal>
+      <Dependent Role="YSG_Booking_Catering_info">
+        <PropertyRef Name="Booking_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YSG_Booking_Catering_info_YSG_Caterer_Master">
+    <End Role="YSG_Caterer_Master" Type="Self.YSG_Caterer_Master" Multiplicity="0..1" />
+    <End Role="YSG_Booking_Catering_info" Type="Self.YSG_Booking_Catering_info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Caterer_Master">
+        <PropertyRef Name="Caterer_No" />
+      </Principal>
+      <Dependent Role="YSG_Booking_Catering_info">
+        <PropertyRef Name="Caterer_No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YSG_Booking_Hall_Info_YSG_Booking_Info">
+    <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="0..1" />
+    <End Role="YSG_Booking_Hall_Info" Type="Self.YSG_Booking_Hall_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Booking_Info">
+        <PropertyRef Name="Booking_No" />
+      </Principal>
+      <Dependent Role="YSG_Booking_Hall_Info">
+        <PropertyRef Name="Booking_No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YSG_Booking_Hall_Info_YSG_Hall_Master">
+    <End Role="YSG_Hall_Master" Type="Self.YSG_Hall_Master" Multiplicity="0..1" />
+    <End Role="YSG_Booking_Hall_Info" Type="Self.YSG_Booking_Hall_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Hall_Master">
+        <PropertyRef Name="Hall_no" />
+      </Principal>
+      <Dependent Role="YSG_Booking_Hall_Info">
+        <PropertyRef Name="Hall_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YSG_Booking_Info_YSG_Customer_Info">
+    <End Role="YSG_Customer_Info" Type="Self.YSG_Customer_Info" Multiplicity="0..1" />
+    <End Role="YSG_Booking_Info" Type="Self.YSG_Booking_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Customer_Info">
+        <PropertyRef Name="Customer_no" />
+      </Principal>
+      <Dependent Role="YSG_Booking_Info">
+        <PropertyRef Name="Customer_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YSG_Hall_Master_YSG_Hall_Master">
+    <End Role="YSG_Hall_Master" Type="Self.YSG_Hall_Master" Multiplicity="1" />
+    <End Role="YSG_Hall_Master1" Type="Self.YSG_Hall_Master" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Hall_Master">
+        <PropertyRef Name="Hall_no" />
+      </Principal>
+      <Dependent Role="YSG_Hall_Master1">
+        <PropertyRef Name="Hall_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YSG_Inventory_Master_YSG_Department_Master">
+    <End Role="YSG_Department_Master" Type="Self.YSG_Department_Master" Multiplicity="0..1" />
+    <End Role="YSG_Inventory_Master" Type="Self.YSG_Inventory_Master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Department_Master">
+        <PropertyRef Name="Dept_no" />
+      </Principal>
+      <Dependent Role="YSG_Inventory_Master">
+        <PropertyRef Name="Related_Dept_No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YSG_User_Master_YSG_Role_Master">
+    <End Role="YSG_Role_Master" Type="Self.YSG_Role_Master" Multiplicity="0..1" />
+    <End Role="YSG_User_Master" Type="Self.YSG_User_Master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YSG_Role_Master">
+        <PropertyRef Name="Role_no" />
+      </Principal>
+      <Dependent Role="YSG_User_Master">
+        <PropertyRef Name="Role_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ADD_YSG_Customer_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Customer_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Customer_Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="Landline_No" Type="nvarchar" Mode="In" />
+    <Parameter Name="Fax_No" Type="nvarchar" Mode="In" />
+    <Parameter Name="Mobile_No" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email_id" Type="nvarchar" Mode="In" />
+    <Parameter Name="Customer_Status" Type="nvarchar" Mode="In" />
+    <Parameter Name="Referred_By" Type="nvarchar" Mode="In" />
+    <Parameter Name="Customer_Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="Comments" Type="nvarchar" Mode="In" />
+    <Parameter Name="created_By" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="ADD_YSG_Event_Master" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Event_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="created_By" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="ADD_YSG_Hall_Master" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Hall_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Capacity_seating" Type="numeric" Mode="In" />
+    <Parameter Name="Capacity_chairs" Type="numeric" Mode="In" />
+    <Parameter Name="Rent_per_hour" Type="numeric" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="created_By" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="AUD_Booking_Contact_Persons" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Booking_No" Type="numeric" Mode="In" />
+    <Parameter Name="Contact_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Contact_No" Type="nvarchar" Mode="In" />
+    <Parameter Name="Contact_Email_id" Type="nvarchar" Mode="In" />
+    <Parameter Name="created_By" Type="numeric" Mode="In" />
+    <Parameter Name="ACTION" Type="char" Mode="In" />
+    <Parameter Name="Booking_Contact_Person_No" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="AUD_YSG_Booking_Facilities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ACTION" Type="char" Mode="In" />
+    <Parameter Name="Booking_Facility_No" Type="numeric" Mode="In" />
+    <Parameter Name="Booking_No" Type="numeric" Mode="In" />
+    <Parameter Name="Item_no" Type="numeric" Mode="In" />
+    <Parameter Name="Required_Qty" Type="numeric" Mode="In" />
+    <Parameter Name="Calculated_Amount" Type="money" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="created_By" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="AUD_YSG_Booking_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="char" Mode="In" />
+    <Parameter Name="Booking_No" Type="numeric" Mode="In" />
+    <Parameter Name="Booking_ID" Type="numeric" Mode="In" />
+    <Parameter Name="Booking_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Booking_FromTime" Type="datetime" Mode="In" />
+    <Parameter Name="Booking_ToTime" Type="datetime" Mode="In" />
+    <Parameter Name="Event_no" Type="numeric" Mode="In" />
+    <Parameter Name="Event_Class" Type="varchar" Mode="In" />
+    <Parameter Name="Customer_no" Type="numeric" Mode="In" />
+    <Parameter Name="Booking_Status" Type="nvarchar" Mode="In" />
+    <Parameter Name="No_Of_Invitees" Type="numeric" Mode="In" />
+    <Parameter Name="Booking_calculated_Amt" Type="numeric" Mode="In" />
+    <Parameter Name="Discount" Type="numeric" Mode="In" />
+    <Parameter Name="Discount_Reason" Type="nvarchar" Mode="In" />
+    <Parameter Name="Booking_final_Amt" Type="numeric" Mode="In" />
+    <Parameter Name="RemarkOrComments" Type="nvarchar" Mode="In" />
+    <Parameter Name="Paid_Amt" Type="numeric" Mode="In" />
+    <Parameter Name="Balance_Amt" Type="numeric" Mode="In" />
+    <Parameter Name="created_By" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="AUD_YSG_Inventory_Master" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ACTION" Type="char" Mode="In" />
+    <Parameter Name="Item_no" Type="numeric" Mode="In" />
+    <Parameter Name="Item_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Related_Dept_No" Type="numeric" Mode="In" />
+    <Parameter Name="Available_Qty" Type="numeric" Mode="In" />
+    <Parameter Name="Rent_per_Qty" Type="numeric" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="created_By" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="GetTithiInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="endDate" Type="datetime" Mode="In" />
+  </Function>
+  <EntityContainer Name="YogiSabhaGruhModelStoreContainer">
+    <EntitySet Name="YSG_Booking_Catering_info" EntityType="Self.YSG_Booking_Catering_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Booking_Contact_Persons" EntityType="Self.YSG_Booking_Contact_Persons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Booking_Facilities" EntityType="Self.YSG_Booking_Facilities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Booking_Hall_Info" EntityType="Self.YSG_Booking_Hall_Info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Booking_Info" EntityType="Self.YSG_Booking_Info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Booking_Payment" EntityType="Self.YSG_Booking_Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Caterer_Master" EntityType="Self.YSG_Caterer_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Customer_Info" EntityType="Self.YSG_Customer_Info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Department_Master" EntityType="Self.YSG_Department_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Employee_Master" EntityType="Self.YSG_Employee_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Event_Master" EntityType="Self.YSG_Event_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Feedback" EntityType="Self.YSG_Feedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Hall_Master" EntityType="Self.YSG_Hall_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Inventory_Master" EntityType="Self.YSG_Inventory_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_My_To_Do_List" EntityType="Self.YSG_My_To_Do_List" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Role_Master" EntityType="Self.YSG_Role_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_User_Master" EntityType="Self.YSG_User_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YSG_Tithi_Info" EntityType="Self.YSG_Tithi_Info" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [YSG_Tithi_Info].[Tithi_Date] AS [Tithi_Date], 
+    [YSG_Tithi_Info].[Tithi] AS [Tithi], 
+    [YSG_Tithi_Info].[Description] AS [Description]
+    FROM [dbo].[YSG_Tithi_Info] AS [YSG_Tithi_Info]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__YSG_Booki__Booki__5070F446" Association="Self.FK__YSG_Booki__Booki__5070F446">
+      <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+      <End Role="YSG_Booking_Contact_Persons" EntitySet="YSG_Booking_Contact_Persons" />
+    </AssociationSet>
+    <AssociationSet Name="FK__YSG_Booki__Booki__5165187F" Association="Self.FK__YSG_Booki__Booki__5165187F">
+      <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+      <End Role="YSG_Booking_Facilities" EntitySet="YSG_Booking_Facilities" />
+    </AssociationSet>
+    <AssociationSet Name="FK__YSG_Booki__Booki__571DF1D5" Association="Self.FK__YSG_Booki__Booki__571DF1D5">
+      <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+      <End Role="YSG_Booking_Payment" EntitySet="YSG_Booking_Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__YSG_Booki__Event__5535A963" Association="Self.FK__YSG_Booki__Event__5535A963">
+      <End Role="YSG_Event_Master" EntitySet="YSG_Event_Master" />
+      <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK__YSG_Booki__Item___52593CB8" Association="Self.FK__YSG_Booki__Item___52593CB8">
+      <End Role="YSG_Inventory_Master" EntitySet="YSG_Inventory_Master" />
+      <End Role="YSG_Booking_Facilities" EntitySet="YSG_Booking_Facilities" />
+    </AssociationSet>
+    <AssociationSet Name="FK__YSG_Emplo__Dept___7A672E12" Association="Self.FK__YSG_Emplo__Dept___7A672E12">
+      <End Role="YSG_Department_Master" EntitySet="YSG_Department_Master" />
+      <End Role="YSG_Employee_Master" EntitySet="YSG_Employee_Master" />
+    </AssociationSet>
+    <AssociationSet Name="FK__YSG_Feedb__Booki__59063A47" Association="Self.FK__YSG_Feedb__Booki__59063A47">
+      <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+      <End Role="YSG_Feedback" EntitySet="YSG_Feedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK__YSG_My_To__Booki__59FA5E80" Association="Self.FK__YSG_My_To__Booki__59FA5E80">
+      <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+      <End Role="YSG_My_To_Do_List" EntitySet="YSG_My_To_Do_List" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YSG_Booking_Catering_info_YSG_Booking_Info" Association="Self.FK_YSG_Booking_Catering_info_YSG_Booking_Info">
+      <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+      <End Role="YSG_Booking_Catering_info" EntitySet="YSG_Booking_Catering_info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YSG_Booking_Catering_info_YSG_Caterer_Master" Association="Self.FK_YSG_Booking_Catering_info_YSG_Caterer_Master">
+      <End Role="YSG_Caterer_Master" EntitySet="YSG_Caterer_Master" />
+      <End Role="YSG_Booking_Catering_info" EntitySet="YSG_Booking_Catering_info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YSG_Booking_Hall_Info_YSG_Booking_Info" Association="Self.FK_YSG_Booking_Hall_Info_YSG_Booking_Info">
+      <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+      <End Role="YSG_Booking_Hall_Info" EntitySet="YSG_Booking_Hall_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YSG_Booking_Hall_Info_YSG_Hall_Master" Association="Self.FK_YSG_Booking_Hall_Info_YSG_Hall_Master">
+      <End Role="YSG_Hall_Master" EntitySet="YSG_Hall_Master" />
+      <End Role="YSG_Booking_Hall_Info" EntitySet="YSG_Booking_Hall_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YSG_Booking_Info_YSG_Customer_Info" Association="Self.FK_YSG_Booking_Info_YSG_Customer_Info">
+      <End Role="YSG_Customer_Info" EntitySet="YSG_Customer_Info" />
+      <End Role="YSG_Booking_Info" EntitySet="YSG_Booking_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YSG_Hall_Master_YSG_Hall_Master" Association="Self.FK_YSG_Hall_Master_YSG_Hall_Master">
+      <End Role="YSG_Hall_Master" EntitySet="YSG_Hall_Master" />
+      <End Role="YSG_Hall_Master1" EntitySet="YSG_Hall_Master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YSG_Inventory_Master_YSG_Department_Master" Association="Self.FK_YSG_Inventory_Master_YSG_Department_Master">
+      <End Role="YSG_Department_Master" EntitySet="YSG_Department_Master" />
+      <End Role="YSG_Inventory_Master" EntitySet="YSG_Inventory_Master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YSG_User_Master_YSG_Role_Master" Association="Self.FK_YSG_User_Master_YSG_Role_Master">
+      <End Role="YSG_Role_Master" EntitySet="YSG_Role_Master" />
+      <End Role="YSG_User_Master" EntitySet="YSG_User_Master" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

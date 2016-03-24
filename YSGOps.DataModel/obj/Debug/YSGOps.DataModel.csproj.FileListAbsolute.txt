@@ -1,0 +1,9 @@
+E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.dll.config
+E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.dll
+E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.pdb
+E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.dll
+E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.xml
+E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.dll
+E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.pdb
