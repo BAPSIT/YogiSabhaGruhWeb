@@ -7,3 +7,13 @@ E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\Ent
 E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.xml
 E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.dll
 E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.pdb
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.csprojResolveAssemblyReference.cache
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.dll
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.pdb
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.dll.config
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.dll
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.pdb
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.dll
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.xml
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.xml

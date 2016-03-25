@@ -33,7 +33,7 @@
         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/Pages/AddBooking.aspx">Add Booking</a></li>
-                            <li><a href="#">Find Booking</a></li>
+                            <li><a href="/Pages/FindBooking.aspx">Find Booking</a></li>
                         </ul>
                     </li>
                     <li><a href="#">My Tasks</a></li>
@@ -45,7 +45,7 @@
                             <li><a href="#">Inventory Details</a></li>
                             <li><a href="#">Other Details</a></li>
                             <li><a href="#">Tithi Calendar</a></li>
-                            <li><a href="#">Mandir Events</a></li>
+                            <li><a href="/pages/TithiCalendar.aspx">Mandir Events</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Feedback</a></li>

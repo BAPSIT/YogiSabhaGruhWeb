@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YSGOpsWeb", "YSGOpsWeb\YSGOpsWeb.csproj", "{DB6F313A-7C68-44C9-A8CA-2FE9BF749635}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YSGServices", "YogisabhaGruhServices\YSGServices.csproj", "{0C0540ED-F46B-486A-8AE6-9ADAE483F78B}"
