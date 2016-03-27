@@ -53,129 +53,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="db.Context.cs">
-      <DependentUpon>db.Context.tt</DependentUpon>
-      <SubType>Code</SubType>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="db.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="db.Designer.cs">
-      <DependentUpon>db.edmx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="GetTithiInfo_Result.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YSG_Booking_Catering_info.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Booking_Contact_Persons.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Booking_Facilities.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Booking_Hall_Info.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Booking_Info.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Booking_Payment.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Caterer_Master.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Customer_Info.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Department_Master.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Employee_Master.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Event_Master.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Feedback.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Hall_Master.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Inventory_Master.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_My_To_Do_List.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Role_Master.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_Tithi_Info.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="YSG_User_Master.cs">
-      <DependentUpon>db.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="db.edmx.diagram">
-      <DependentUpon>db.edmx</DependentUpon>
-    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="db.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>db.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="db.Context.tt">
-      <DependentUpon>db.edmx</DependentUpon>
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>db.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="db.tt">
-      <DependentUpon>db.edmx</DependentUpon>
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>db.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

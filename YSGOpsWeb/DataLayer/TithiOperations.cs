@@ -18,10 +18,16 @@ namespace YSGOpsWeb.DataLayer
             var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
             return GetTithiFor(firstDayOfMonth, lastDayOfMonth);
         }
+        /// <summary>
+        /// "Initial Catalog=YogiSabhaGruh;Data Source=192.168.0.101;User ID=sa;Password=Pass@123"
+        /// </summary>
+        /// <param name="From"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
 
         public IEnumerable<Tithi> GetTithiFor(DateTime From, DateTime to)
         {
-            IDbConnection conn = new SqlConnection("Initial Catalog=YogiSabhaGruh;Data Source=192.168.0.101;User ID=sa;Password=Pass@123");
+            IDbConnection conn = new SqlConnection(ConfigurationManager.AppSettings["YogiSabhaGruhConnectionString"]);
             return conn.Query<Tithi>(sql: "GetTithiInfo", param: new { StartDate = From, EndDate = to }, commandType: CommandType.StoredProcedure);
         }
     }

@@ -32,14 +32,14 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="form-group">
                         <label for="inpBookingFrom">From</label><span class="text-danger">*</span>
-                        <input type="text" class="form-control timepicker" id="inpBookingFrom" placeholder="From" />
+                        <input type="text" runat="server" class="form-control timepicker" id="inpBookingFrom" placeholder="From" />
                     </div>
 
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="form-group">
                         <label for="inpBookingTo">To</label><span class="text-danger">*</span>
-                        <input type="text" class="form-control timepicker" id="inpBookingTo" placeholder="To" />
+                        <input type="text" runat="server" class="form-control timepicker" id="inpBookingTo" placeholder="To" />
                     </div>
 
                 </div>
@@ -148,14 +148,16 @@
     </div>
     <div class="row">
         <div class="col-md-1 col-sm-2">
-            <button class="btn btn-primary" type="button">Save</button>
+            <asp:Button Text="Save" ID="btnSave" CssClass="btn btn-primary" OnClick="btnSave_Click" runat="server" />
         </div>
         <div class="col-md-1 col-sm-2">
-            <button class="btn btn-warning" type="button">Cancel</button>
+            <asp:Button Text="Cancel" OnClick="btnCancel_Click" ID="btnCancel" CssClass="btn btn-warning" runat="server" />
         </div>
 
         <div class="col-md-1 col-sm-2">
-            <button class="btn btn-success" type="button">CONFIRM BOOKING</button>
+            
+            <asp:Button Text="Confirm Booking" CssClass="btn btn-success" ID="btnConfirmBooking" OnClick="btnConfirmBooking_Click" runat="server" />
+            <asp:Button Text="Cancel Booking" CssClass="btn btn-danger" ID="btnCancelBooking" OnClick="btnCancelBooking_Click" runat="server" />
         </div>
 
     </div>

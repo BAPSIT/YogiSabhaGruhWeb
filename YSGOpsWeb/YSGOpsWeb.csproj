@@ -222,14 +222,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Class\Common.cs" />
-    <Compile Include="Class\ServiceFactory.cs" />
+    <Compile Include="Managers\BookingManager.cs" />
     <Compile Include="Controller\AddBookingController.cs" />
     <Compile Include="Controller\TithiController.cs" />
+    <Compile Include="DataLayer\BookingOperations.cs" />
     <Compile Include="DataLayer\TithiOperations.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IBooking.cs" />
     <Compile Include="Master\YSGWeb.Master.cs">
       <DependentUpon>YSGWeb.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -237,6 +238,9 @@
     <Compile Include="Master\YSGWeb.Master.designer.cs">
       <DependentUpon>YSGWeb.Master</DependentUpon>
     </Compile>
+    <Compile Include="Models\BookingInfo.cs" />
+    <Compile Include="Models\CustomerDetails.cs" />
+    <Compile Include="Models\EventDetails.cs" />
     <Compile Include="Models\IAddBookingRepository.cs" />
     <Compile Include="Models\Tithi.cs" />
     <Compile Include="Pages\AddBooking.aspx.cs">
@@ -301,7 +305,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Class\" />
     <Folder Include="Views\AddBooking\" />
   </ItemGroup>
   <ItemGroup>
