@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,6 +21,8 @@ namespace YSGOpsWeb.Pages
             }
             else
             {
+                inpName.Value = "Jigar";
+                inpPrimaryPhone.Value = "9619003784";
             }
         }
 
@@ -51,7 +54,7 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                return DateTime.Parse(inpBookingDate.Value);
+                return DateTime.ParseExact(inpBookingDate.Value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             }
             set
             {
@@ -63,7 +66,7 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                return DateTime.Parse(inpBookingFrom.Value);
+                return DateTime.ParseExact(inpBookingDate.Value+" "+inpBookingFrom.Value, "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
             }
             set
             {
@@ -75,7 +78,7 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                return DateTime.Parse(inpBookingTo.Value);
+                return DateTime.ParseExact(inpBookingDate.Value + " " + inpBookingTo.Value, "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
             }
             set
             {

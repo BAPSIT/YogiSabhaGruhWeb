@@ -22,6 +22,15 @@ namespace YSGOpsWeb.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpBookingDate;
         
         /// <summary>
+        /// rfvBookingDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBookingDate;
+        
+        /// <summary>
         /// inpBookingFrom control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace YSGOpsWeb.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpBookingFrom;
         
         /// <summary>
+        /// rfvFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFrom;
+        
+        /// <summary>
         /// inpBookingTo control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,15 @@ namespace YSGOpsWeb.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpBookingTo;
+        
+        /// <summary>
+        /// rfvTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTo;
         
         /// <summary>
         /// ddlEventType control.
@@ -67,6 +94,15 @@ namespace YSGOpsWeb.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpName;
         
         /// <summary>
+        /// rfvCustomerName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCustomerName;
+        
+        /// <summary>
         /// inpPrimaryPhone control.
         /// </summary>
         /// <remarks>
@@ -74,6 +110,15 @@ namespace YSGOpsWeb.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrimaryPhone;
+        
+        /// <summary>
+        /// rfvPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPhone;
         
         /// <summary>
         /// inpEmail control.
@@ -110,6 +155,33 @@ namespace YSGOpsWeb.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpNGuests;
+        
+        /// <summary>
+        /// inpBookingFinal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpBookingFinal;
+        
+        /// <summary>
+        /// inpDiscount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpDiscount;
+        
+        /// <summary>
+        /// inpDiscountReason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpDiscountReason;
         
         /// <summary>
         /// btnSave control.
