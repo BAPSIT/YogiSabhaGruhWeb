@@ -248,3 +248,9 @@ paket-files/
 .vs/YSGOps/v14/.suo
 .vs/YSGOps/v14/.suo
 *.suo
+YSGOpsWeb/obj/Debug/YSGOpsWeb.csproj.FileListAbsolute.txt
+*.cache
+*.dll
+YSGOpsWeb/obj/Debug/YSGOpsWeb.csprojResolveAssemblyReference.cache
+YSGOpsWeb/obj/Debug/YSGOpsWeb.csproj.FileListAbsolute.txt
+*.cache

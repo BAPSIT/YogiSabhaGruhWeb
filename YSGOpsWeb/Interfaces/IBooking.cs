@@ -14,15 +14,19 @@ namespace YSGOpsWeb.Interfaces
         DateTime Booking_Date { get; set; }
         DateTime Booking_FromTime { get; set; }
         DateTime Booking_ToTime { get; set; }
-        EventDetails Event_Details { get; set; }
+
         char Booking_Status { get; set; }
         int No_Of_Invitees { get; set; }
-        int Booking_Calculated_Amount { get; set; }
+        int Booking_Calculated_Amt { get; set; }
         int Discount { get; set; }
-        string Discoutn_Reason { get; set; }
+        string Discount_Reason { get; set; }
         int Booking_final_Amt { get; set; }
-        string RemarksOrComments { get; set; }
+        string RemarkOrComments { get; set; }
         int Paid_Amt { get; set; }
         int Balance_Amt { get; set; }
+        int Event_No { get; set; }
+        string Event_Class { get; set; }
+        int Created_By { get; set; }
+
     }
 }

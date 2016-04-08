@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using YSGOpsWeb.Interfaces;
+using YSGOpsWeb.Models;
 //using YSGOpsWeb.Class;
 
 namespace YSGOpsWeb.Pages
@@ -30,11 +31,11 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                throw new NotImplementedException();
+                return Int32.Parse(hdnBookingId.Value);
             }
             set
             {
-                throw new NotImplementedException();
+                hdnBookingId.Value = value.ToString();
             }
         }
 
@@ -42,11 +43,11 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                throw new NotImplementedException();
+                return Int32.Parse(hdnBookingId.Value);
             }
             set
             {
-                throw new NotImplementedException();
+                hdnBookingId.Value = value.ToString();
             }
         }
 
@@ -66,7 +67,7 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                return DateTime.ParseExact(inpBookingDate.Value+" "+inpBookingFrom.Value, "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
+                return DateTime.ParseExact(inpBookingDate.Value + " " + inpBookingFrom.Value, "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
             }
             set
             {
@@ -86,28 +87,42 @@ namespace YSGOpsWeb.Pages
             }
         }
 
-        public Models.EventDetails Event_Details
+        public char Booking_Status
         {
+            //I - Inquiry / F - Confirmed / C - Cancelled / R - Refused / M - Completed
             get
             {
-                throw new NotImplementedException();
+                return hdnBookingStatus.Value[0];
             }
             set
             {
-                throw new NotImplementedException();
+                hdnBookingStatus.Value = value.ToString();
+                toggleBookingBtn(value);
             }
         }
 
-        public char Booking_Status
+        private void toggleBookingBtn(char Status)
         {
-            get
+            switch (Status)
             {
-                throw new NotImplementedException();
+                case 'R':
+                case 'C':
+                case 'I':
+                    btnConfirmBooking.Visible = true;
+                    btnCancel.Visible = false;
+                    break;
+                case 'F':
+                    btnConfirmBooking.Visible = false;
+                    btnCancel.Visible = true;
+                    break;
+                case 'M':
+                    btnConfirmBooking.Visible = false;
+                    btnCancel.Visible = false;
+                    break;
+                default:
+                    break;
             }
-            set
-            {
-                throw new NotImplementedException();
-            }
+
         }
 
         public int No_Of_Invitees
@@ -122,15 +137,15 @@ namespace YSGOpsWeb.Pages
             }
         }
 
-        public int Booking_Calculated_Amount
+        public int Booking_Calculated_Amt
         {
             get
             {
-                throw new NotImplementedException();
+                return Int32.Parse(inpBookingFinal.Value);
             }
             set
             {
-                throw new NotImplementedException();
+                inpBookingFinal.Value = value.ToString();
             }
         }
 
@@ -138,23 +153,23 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                throw new NotImplementedException();
+                return Int32.Parse(inpDiscount.Value);
             }
             set
             {
-                throw new NotImplementedException();
+                inpDiscount.Value = value.ToString();
             }
         }
 
-        public string Discoutn_Reason
+        public string Discount_Reason
         {
             get
             {
-                throw new NotImplementedException();
+                return inpDiscountReason.Value;
             }
             set
             {
-                throw new NotImplementedException();
+                inpDiscountReason.Value = value;
             }
         }
 
@@ -162,23 +177,23 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                throw new NotImplementedException();
+                return Booking_Calculated_Amt - Discount;
             }
             set
             {
-                throw new NotImplementedException();
+
             }
         }
 
-        public string RemarksOrComments
+        public string RemarkOrComments
         {
             get
             {
-                throw new NotImplementedException();
+                return inpRemarks.Value;
             }
             set
             {
-                throw new NotImplementedException();
+                inpRemarks.Value = value;
             }
         }
 
@@ -186,11 +201,11 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                throw new NotImplementedException();
+                return Int32.Parse(inpPaidAmt.Value);
             }
             set
             {
-                throw new NotImplementedException();
+                inpPaidAmt.Value = value.ToString();
             }
         }
 
@@ -198,11 +213,36 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                throw new NotImplementedException();
+                return Booking_final_Amt - Paid_Amt;
             }
             set
             {
-                throw new NotImplementedException();
+
+            }
+        }
+
+        public int Event_No
+        {
+            get
+            {
+                return Int32.Parse(ddlEventType.SelectedItem.Value);
+            }
+            set
+            {
+                ddlEventType.SelectedValue = value.ToString();
+            }
+
+        }
+
+        public string Event_Class
+        {
+            get
+            {
+                return ddlEventType.SelectedItem.Text;
+            }
+            set
+            {
+                //do Nothing
             }
         }
 
@@ -211,7 +251,7 @@ namespace YSGOpsWeb.Pages
             manager.Save();
         }
 
-       
+
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/pages/home.aspx");
@@ -225,6 +265,24 @@ namespace YSGOpsWeb.Pages
         protected void btnCancelBooking_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+
+
+
+
+
+        public int Created_By
+        {
+            get
+            {
+                return 1;
+            }
+            set
+            {
+
+            }
         }
     }
 }

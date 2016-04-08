@@ -2,6 +2,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="head">
     <link href="../Content/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
+    <link href="../Content/ui.jqgrid.css" rel="stylesheet" />
     <link href="../Content/bootstrap-timepicker.css" rel="stylesheet" />
     <script src="../Scripts/bootstrap-datepicker.min.js"></script>
     <script src="../Scripts/bootstrap-timepicker.js"></script>
@@ -25,7 +26,7 @@
                     <div class="form-inline">
                         <label for="inpBookingDate">Booking Date</label><span class="text-danger">*</span>
                         <input type="text" runat="server" class="form-control datepicker" id="inpBookingDate" placeholder="Booking Date" />
-                        <asp:requiredfieldvalidator setfocusonerror="True" id="rfvBookingDate" runat="server" cssclass="text-danger" errormessage="Booking Date is compulsory" controltovalidate="inpBookingDate"></asp:requiredfieldvalidator>
+                        <asp:RequiredFieldValidator  ID="rfvBookingDate" runat="server" CssClass="text-danger" ErrorMessage="Booking Date is compulsory" ControlToValidate="inpBookingDate"></asp:RequiredFieldValidator>
                     </div>
 
 
@@ -34,7 +35,7 @@
                     <div class="form-inline">
                         <label for="inpBookingFrom">From</label><span class="text-danger">*</span>
                         <input type="text" runat="server" class="form-control timepicker" id="inpBookingFrom" placeholder="From" />
-                        <asp:requiredfieldvalidator setfocusonerror="True" id="rfvFrom" runat="server" cssclass="text-danger" errormessage="From is compulsory" controltovalidate="inpBookingFrom"></asp:requiredfieldvalidator>
+                        <asp:RequiredFieldValidator SetFocusOnError="True" ID="rfvFrom" runat="server" CssClass="text-danger" ErrorMessage="From is compulsory" ControlToValidate="inpBookingFrom"></asp:RequiredFieldValidator>
                     </div>
 
                 </div>
@@ -42,7 +43,7 @@
                     <div class="form-inline">
                         <label for="inpBookingTo">To</label><span class="text-danger">*</span>
                         <input type="text" runat="server" class="form-control timepicker" id="inpBookingTo" placeholder="To" />
-                        <asp:requiredfieldvalidator setfocusonerror="True" id="rfvTo" runat="server" cssclass="text-danger" errormessage="To is compulsory" controltovalidate="inpBookingTo"></asp:requiredfieldvalidator>
+                        <asp:RequiredFieldValidator SetFocusOnError="True" ID="rfvTo" runat="server" CssClass="text-danger" ErrorMessage="To is compulsory" ControlToValidate="inpBookingTo"></asp:RequiredFieldValidator>
                     </div>
 
                 </div>
@@ -51,22 +52,22 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
                         <label>Type Of Event</label>
-                        <asp:dropdownlist cssclass="form-control" id="ddlEventType" runat="server">
-                            <asp:ListItem Value="">Charitable</asp:ListItem>
-                            <asp:ListItem Value="">Prarthna Sabha</asp:ListItem>
-                            <asp:ListItem Value="">Educational</asp:ListItem>
-                        </asp:dropdownlist>
+                        <asp:DropDownList CssClass="form-control" ID="ddlEventType" runat="server">
+                            <asp:ListItem Value="1">Charitable</asp:ListItem>
+                            <asp:ListItem Value="2">Prarthna Sabha</asp:ListItem>
+                            <asp:ListItem Value="3">Educational</asp:ListItem>
+                        </asp:DropDownList>
 
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
                         <label>Category Event</label>
-                        <asp:dropdownlist cssclass="form-control" id="ddlEventCategory" runat="server">
+                        <asp:DropDownList CssClass="form-control" ID="ddlEventCategory" runat="server">
                             <asp:ListItem Value="">A</asp:ListItem>
                             <asp:ListItem Value="">B </asp:ListItem>
                             <asp:ListItem Value="">C</asp:ListItem>
-                        </asp:dropdownlist>
+                        </asp:DropDownList>
 
                     </div>
                 </div>
@@ -84,15 +85,15 @@
                     <div class="form-inline">
                         <label for="inpName">Customer Name</label><span class="text-danger">*</span>
                         <input type="text" runat="server" class="form-control" id="inpName" placeholder="Name" />
-                        <asp:requiredfieldvalidator setfocusonerror="True" id="rfvCustomerName" runat="server" cssclass="text-danger" errormessage="Customer Name is compulsory" controltovalidate="inpName"></asp:requiredfieldvalidator>
+                        <asp:RequiredFieldValidator SetFocusOnError="True" ID="rfvCustomerName" runat="server" CssClass="text-danger" ErrorMessage="Customer Name is compulsory" ControlToValidate="inpName"></asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
                         <label for="inpPrimaryPhone">Phone Number</label><span class="text-danger">*</span>
                         <input type="text" runat="server" class="form-control" id="inpPrimaryPhone" placeholder="Mobile Number" />
-                        <asp:requiredfieldvalidator setfocusonerror="True" id="rfvPhone" runat="server" cssclass="text-danger" display="Dynamic" errormessage="Phone Number is compulsory" controltovalidate="inpPrimaryPhone"></asp:requiredfieldvalidator>
-                        <asp:regularexpressionvalidator runat="server" controltovalidate="inpPrimaryPhone" cssclass="text-danger" validationexpression="\d{10}" display="Dynamic" errormessage="Phone number should of 10 digits only"></asp:regularexpressionvalidator>
+                        <asp:RequiredFieldValidator SetFocusOnError="True" ID="rfvPhone" runat="server" CssClass="text-danger" Display="Dynamic" ErrorMessage="Phone Number is compulsory" ControlToValidate="inpPrimaryPhone"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator runat="server" ControlToValidate="inpPrimaryPhone" CssClass="text-danger" ValidationExpression="\d{10}" Display="Dynamic" ErrorMessage="Phone number should of 10 digits only"></asp:RegularExpressionValidator>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
@@ -121,18 +122,20 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
                         <label>Hall </label>
-                        <asp:dropdownlist cssclass="form-control" id="DropDownList1" runat="server">
+                        <asp:DropDownList CssClass="form-control" ID="ddlHall" runat="server">
                             <asp:ListItem Value="">Yogi Mandapam</asp:ListItem>
                             <asp:ListItem Value="">Yogi Hall </asp:ListItem>
                             <asp:ListItem Value="">Yogi Hall + Balcony</asp:ListItem>
-                        </asp:dropdownlist>
+                        </asp:DropDownList>
 
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
                         <label for="inpGuests"># of Guests</label>
-                        <input type="text" runat="server" class="form-control" id="inpNGuests" placeholder="No. of Guests" />
+                        <input type="text" runat="server" class="form-control" id="inpNGuests" value="0" placeholder="No. of Guests" />
+                        <asp:RegularExpressionValidator ID="rfvGuests" runat="server" ControlToValidate="inpNGuests" CssClass="text-danger" ValidationExpression="\d+" Display="Dynamic" ErrorMessage="# of Guests should be a number"></asp:RegularExpressionValidator>
+
                     </div>
                 </div>
 
@@ -150,6 +153,14 @@
                     </p>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="form-inline">
+                        <label>Hall </label>
+                        <textarea id="inpRemarks" runat="server" rows="4" cols="20" ></textarea>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="panel panel-default">
@@ -160,7 +171,7 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
                         <label for="inpBookingFinal">Final Booking Amount</label>
-                        <input type="text" runat="server" readonly="" class="form-control" id="inpBookingFinal" />
+                        <input type="text" runat="server" readonly="" value="0" class="form-control" id="inpBookingFinal" />
                     </div>
 
                 </div>
@@ -168,7 +179,8 @@
                     <div class="form-inline">
 
                         <label for="inpBookingFinal">Discount</label>
-                        <input type="text" runat="server" class="form-control" id="inpDiscount" />
+                        <input type="text" runat="server" value="0" class="form-control" id="inpDiscount" /><br />
+                        <asp:RegularExpressionValidator ID="rfvDiscount" runat="server" ControlToValidate="inpDiscount" CssClass="text-danger" ValidationExpression="\d+" Display="Dynamic" ErrorMessage="Discount should be a number"></asp:RegularExpressionValidator>
 
                     </div>
                 </div>
@@ -185,6 +197,10 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
+                        <label>Paid Amount</label>
+                        <input type="text" runat="server" class="form-control" id="inpPaidAmt" value="0" /><br />
+                        <asp:RegularExpressionValidator ID="rfvPaidAmount" runat="server" ControlToValidate="inpPaidAmt" CssClass="text-danger" ValidationExpression="\d+" Display="Dynamic" ErrorMessage="Amount should be a number"></asp:RegularExpressionValidator>
+
                     </div>
                 </div>
             </div>
@@ -192,17 +208,21 @@
     </div>
     <div class="row">
         <div class="col-md-1 col-sm-2">
-            <asp:button text="Save" id="btnSave" onclientclick="Page_ClientValidate()" cssclass="btn btn-primary" onclick="btnSave_Click" runat="server" />
+            <asp:Button Text="Save" ID="btnSave" OnClientClick="Page_ClientValidate()" CssClass="btn btn-primary" OnClick="btnSave_Click" runat="server" />
         </div>
         <div class="col-md-1 col-sm-2">
-            <asp:button text="Cancel" onclick="btnCancel_Click" id="btnCancel" cssclass="btn btn-warning" runat="server" />
+            <asp:Button Text="Cancel" OnClick="btnCancel_Click" ID="btnCancel" CssClass="btn btn-warning" runat="server" />
         </div>
 
         <div class="col-md-1 col-sm-2">
 
-            <asp:button text="Confirm Booking" cssclass="btn btn-success" id="btnConfirmBooking" onclick="btnConfirmBooking_Click" runat="server" />
-            <asp:button text="Cancel Booking" cssclass="btn btn-danger" id="btnCancelBooking" onclick="btnCancelBooking_Click" runat="server" />
+            <asp:Button Text="Confirm Booking" CssClass="btn btn-success" ID="btnConfirmBooking" OnClick="btnConfirmBooking_Click" runat="server" />
+            <asp:Button Text="Cancel Booking" CssClass="btn btn-danger" ID="btnCancelBooking" OnClick="btnCancelBooking_Click" runat="server" />
         </div>
 
     </div>
+    <!--Hidden Fields-->
+    <asp:HiddenField ID="hdnBookingStatus" Value="I" runat="server" />
+    <asp:HiddenField ID="hdnBookingId" Value="-1" runat="server" />
+    <asp:HiddenField ID="hdnBookingAction" Value="-1" runat="server" />
 </asp:Content>

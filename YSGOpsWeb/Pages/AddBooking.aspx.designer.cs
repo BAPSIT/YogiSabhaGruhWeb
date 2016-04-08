@@ -139,13 +139,13 @@ namespace YSGOpsWeb.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea textAreaAddress;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlHall control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHall;
         
         /// <summary>
         /// inpNGuests control.
@@ -155,6 +155,24 @@ namespace YSGOpsWeb.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpNGuests;
+        
+        /// <summary>
+        /// rfvGuests control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvGuests;
+        
+        /// <summary>
+        /// inpRemarks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea inpRemarks;
         
         /// <summary>
         /// inpBookingFinal control.
@@ -175,6 +193,15 @@ namespace YSGOpsWeb.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpDiscount;
         
         /// <summary>
+        /// rfvDiscount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvDiscount;
+        
+        /// <summary>
         /// inpDiscountReason control.
         /// </summary>
         /// <remarks>
@@ -182,6 +209,24 @@ namespace YSGOpsWeb.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpDiscountReason;
+        
+        /// <summary>
+        /// inpPaidAmt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPaidAmt;
+        
+        /// <summary>
+        /// rfvPaidAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvPaidAmount;
         
         /// <summary>
         /// btnSave control.
@@ -218,5 +263,32 @@ namespace YSGOpsWeb.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelBooking;
+        
+        /// <summary>
+        /// hdnBookingStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnBookingStatus;
+        
+        /// <summary>
+        /// hdnBookingId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnBookingId;
+        
+        /// <summary>
+        /// hdnBookingAction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnBookingAction;
     }
 }
