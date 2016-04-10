@@ -31,7 +31,7 @@ namespace YSGOpsWeb
         public void ConfirmBooking()
         {
             BookingInfo info = BookingInfo.fromIBooking(view);
-            info.Booking_Status = 'F'
+            info.Booking_Status = 'F';
             BookingOperations bOps = new BookingOperations();
             bOps.AddOrUpdateBooking(info);
         }
