@@ -28,6 +28,10 @@ namespace YSGOpsWeb.Models
         public char Action { get; set; }
         public int Created_By { get; set; }
 
+        public DateTime Search_Booking_FromDate { get; set; }
+        public DateTime Search_Booking_ToDate { get; set; }
+
+
         public static BookingInfo fromIBooking(IBooking view)
         {
             BookingInfo info = new BookingInfo();
@@ -54,7 +58,15 @@ namespace YSGOpsWeb.Models
             return info;
         }
 
+        public static BookingInfo SearchBooking(SBooking Searchview)
+        {
+            BookingInfo info = new BookingInfo();
 
+            info.Search_Booking_FromDate = Searchview.Search_Booking_FromDate;
+            info.Search_Booking_ToDate = Searchview.Search_Booking_ToDate;
+  
+            return info;
+        }
 
     }
 }

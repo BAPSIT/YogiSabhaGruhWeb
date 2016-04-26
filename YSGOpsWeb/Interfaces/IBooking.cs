@@ -27,6 +27,12 @@ namespace YSGOpsWeb.Interfaces
         int Event_No { get; set; }
         string Event_Class { get; set; }
         int Created_By { get; set; }
+    }
+
+    public interface SBooking
+    {
+        DateTime Search_Booking_FromDate { get; set; }
+        DateTime Search_Booking_ToDate { get; set; }
 
     }
 }

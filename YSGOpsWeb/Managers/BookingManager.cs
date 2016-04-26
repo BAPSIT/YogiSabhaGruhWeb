@@ -11,10 +11,15 @@ namespace YSGOpsWeb
     public class BookingManager
     {
         private IBooking view;
+        private SBooking sview;
         public BookingManager(IBooking bookingView)
         {
             this.view = bookingView;
-           
+        }
+
+        public BookingManager(SBooking Searchbooking)
+        {
+            this.sview = Searchbooking;
         }
 
         public void Fetch()
@@ -35,5 +40,13 @@ namespace YSGOpsWeb
             BookingOperations bOps = new BookingOperations();
             bOps.AddOrUpdateBooking(info);
         }
+
+        public void Search()
+        {
+            BookingInfo info = BookingInfo.SearchBooking(sview);
+            BookingOperations bOps = new BookingOperations();
+            bOps.SearchBooking(info);
+        }
+
     }
 }

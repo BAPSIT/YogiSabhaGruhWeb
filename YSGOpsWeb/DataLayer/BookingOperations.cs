@@ -38,5 +38,11 @@ namespace YSGOpsWeb.DataLayer
 
         }
 
+        public void SearchBooking(BookingInfo Searchbooking)
+        {
+            IDbConnection db = new SqlConnection(this.ConnectionString);
+            db.Query("LIST_YSG_Booking_Info", param: Searchbooking, commandType: CommandType.StoredProcedure);
+
+        }
     }
 }

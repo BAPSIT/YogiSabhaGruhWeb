@@ -251,7 +251,6 @@ namespace YSGOpsWeb.Pages
             manager.Save();
         }
 
-
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/pages/home.aspx");
@@ -266,13 +265,7 @@ namespace YSGOpsWeb.Pages
         {
 
         }
-
-
-
-
-
-
-
+        
         public int Created_By
         {
             get
