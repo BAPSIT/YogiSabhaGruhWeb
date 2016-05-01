@@ -27,8 +27,8 @@ namespace YSGOpsWeb.DataLayer
 
         public IEnumerable<Tithi> GetTithiFor(DateTime From, DateTime to)
         {
-            IDbConnection conn = new SqlConnection(ConfigurationManager.AppSettings["YogiSabhaGruhConnectionString"]);
-            return conn.Query<Tithi>(sql: "GetTithiInfo", param: new { StartDate = From, EndDate = to }, commandType: CommandType.StoredProcedure);
+            IDbConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["YogiSabhaGruhConnectionString"].ConnectionString);
+            return conn.Query<Tithi>(sql: "Get_TithiInfo", param: new { StartDate = From, EndDate = to }, commandType: CommandType.StoredProcedure);
         }
     }
 }

@@ -26,7 +26,7 @@
                     <div class="form-inline">
                         <label for="inpBookingDate">Booking Date</label><span class="text-danger">*</span>
                         <input type="text" runat="server" class="form-control datepicker" id="inpBookingDate" placeholder="Booking Date" />
-                        <asp:RequiredFieldValidator  ID="rfvBookingDate" runat="server" CssClass="text-danger" ErrorMessage="Booking Date is compulsory" ControlToValidate="inpBookingDate"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvBookingDate" runat="server" CssClass="text-danger" ErrorMessage="Booking Date is compulsory" ControlToValidate="inpBookingDate"></asp:RequiredFieldValidator>
                     </div>
 
 
@@ -53,9 +53,12 @@
                     <div class="form-inline">
                         <label>Type Of Event</label>
                         <asp:DropDownList CssClass="form-control" ID="ddlEventType" runat="server">
-                            <asp:ListItem Value="1">Charitable</asp:ListItem>
-                            <asp:ListItem Value="2">Prarthna Sabha</asp:ListItem>
-                            <asp:ListItem Value="3">Educational</asp:ListItem>
+                            <asp:ListItem Value="1">Mandir Event</asp:ListItem>
+                            <asp:ListItem Value="2">Charitable</asp:ListItem>
+                            <asp:ListItem Value="3">Prarthna Sabha</asp:ListItem>
+                            <asp:ListItem Value="4">Educational</asp:ListItem>
+                            <asp:ListItem Value="5">Political</asp:ListItem>
+                            <asp:ListItem Value="6">Other</asp:ListItem>
                         </asp:DropDownList>
 
                     </div>
@@ -64,9 +67,9 @@
                     <div class="form-inline">
                         <label>Category Event</label>
                         <asp:DropDownList CssClass="form-control" ID="ddlEventCategory" runat="server">
-                            <asp:ListItem Value="">A</asp:ListItem>
-                            <asp:ListItem Value="">B </asp:ListItem>
-                            <asp:ListItem Value="">C</asp:ListItem>
+                            <asp:ListItem Value="A">A</asp:ListItem>
+                            <asp:ListItem Value="B">B </asp:ListItem>
+                            <asp:ListItem Value="C">C</asp:ListItem>
                         </asp:DropDownList>
 
                     </div>
@@ -123,9 +126,9 @@
                     <div class="form-inline">
                         <label>Hall </label>
                         <asp:DropDownList CssClass="form-control" ID="ddlHall" runat="server">
-                            <asp:ListItem Value="">Yogi Mandapam</asp:ListItem>
-                            <asp:ListItem Value="">Yogi Hall </asp:ListItem>
-                            <asp:ListItem Value="">Yogi Hall + Balcony</asp:ListItem>
+                            <asp:ListItem Value="1">Yogi Mandapam</asp:ListItem>
+                            <asp:ListItem Value="2">Yogi Hall </asp:ListItem>
+                            <asp:ListItem Value="3">Yogi Hall + Balcony</asp:ListItem>
                         </asp:DropDownList>
 
                     </div>
@@ -157,7 +160,7 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
                         <label>Hall </label>
-                        <textarea id="inpRemarks" runat="server" rows="4" cols="20" ></textarea>
+                        <textarea id="inpRemarks" runat="server" rows="4" cols="20"></textarea>
                     </div>
                 </div>
             </div>
@@ -171,7 +174,7 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
                         <label for="inpBookingFinal">Final Booking Amount</label>
-                        <input type="text" runat="server" readonly="" value="0" class="form-control" id="inpBookingFinal" />
+                        <input type="text" runat="server" value="0" class="form-control" id="inpBookingFinal" />
                     </div>
 
                 </div>
@@ -225,4 +228,6 @@
     <asp:HiddenField ID="hdnBookingStatus" Value="I" runat="server" />
     <asp:HiddenField ID="hdnBookingId" Value="-1" runat="server" />
     <asp:HiddenField ID="hdnBookingAction" Value="-1" runat="server" />
+    <asp:HiddenField ID="hdnBookingNo" Value="-1" runat="server" />
+    <asp:HiddenField ID="hdnCustomerNo" Value="-1" runat="server" />
 </asp:Content>

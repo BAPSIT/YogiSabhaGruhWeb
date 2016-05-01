@@ -17,25 +17,30 @@ namespace YSGOpsWeb.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             manager = new BookingManager(this);
-            if (this.IsPostBack)
+
+            if (!this.IsPostBack)
             {
+                if (Request.QueryString["booking_id"] != null)
+                {
+                    hdnBookingId.Value = Request.QueryString["booking_id"].ToString();
+                    SetBookingDetails();
+                    SetCustomerDetails();
+                }
             }
-            else
-            {
-                inpName.Value = "Jigar";
-                inpPrimaryPhone.Value = "9619003784";
-            }
+
         }
 
+
+        #region #Public Properties
         public int Booking_No
         {
             get
             {
-                return Int32.Parse(hdnBookingId.Value);
+                return Int32.Parse(hdnBookingNo.Value);
             }
             set
             {
-                hdnBookingId.Value = value.ToString();
+                hdnBookingNo.Value = value.ToString();
             }
         }
 
@@ -71,7 +76,7 @@ namespace YSGOpsWeb.Pages
             }
             set
             {
-                inpBookingFrom.Value = value.ToString("hh:mm");
+                inpBookingFrom.Value = value.ToString("hh:mm tt");
             }
         }
 
@@ -83,7 +88,7 @@ namespace YSGOpsWeb.Pages
             }
             set
             {
-                inpBookingTo.Value = value.ToString("hh:mm");
+                inpBookingTo.Value = value.ToString("hh:mm tt");
             }
         }
 
@@ -133,7 +138,7 @@ namespace YSGOpsWeb.Pages
             }
             set
             {
-                throw new NotImplementedException();
+                inpNGuests.Value = value.ToString();
             }
         }
 
@@ -225,7 +230,7 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                return Int32.Parse(ddlEventType.SelectedItem.Value);
+                return Int32.Parse(ddlEventType.SelectedItem.Value.Trim());
             }
             set
             {
@@ -238,19 +243,98 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                return ddlEventType.SelectedItem.Text;
+                return ddlEventCategory.SelectedValue.Trim();
             }
             set
             {
-                //do Nothing
+                ddlEventCategory.SelectedValue = value.ToString();
             }
         }
 
+
+        public int Created_By
+        {
+            get
+            {
+                return 1;
+            }
+            set
+            {
+
+            }
+        }
+
+        public int Customer_no
+        {
+            get
+            {
+                return Int32.Parse(hdnCustomerNo.Value);
+            }
+            set
+            {
+                hdnCustomerNo.Value = value.ToString();
+            }
+        }
+
+        public string Customer_name
+        {
+            get
+            {
+                return inpName.Value;
+            }
+            set
+            {
+                inpName.Value = value.ToString();
+            }
+        }
+        public string Customer_Address
+        {
+            get
+            {
+                return textAreaAddress.Value;
+            }
+            set
+            {
+                textAreaAddress.Value = value;
+            }
+        }
+        public string Landline_No { get; set; }
+        public string Fax_No { get; set; }
+        public string Mobile_No
+        {
+            get
+            {
+                return inpPrimaryPhone.Value;
+            }
+            set
+            {
+                inpPrimaryPhone.Value = value;
+            }
+        }
+        public string Email_id
+        {
+            get
+            {
+                return inpEmail.Value;
+            }
+            set
+            {
+                inpEmail.Value = value;
+            }
+        }
+        public string Customer_Status { get; set; }
+        public string Referred_By { get; set; }
+        public string Customer_Type { get; set; }
+        public string Comments { get; set; }
+        // public int Created_By { get; set; }
+
+        #endregion
+
+        #region #Event Handlers
         protected void btnSave_Click(object sender, EventArgs e)
         {
             manager.Save();
         }
-
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
@@ -266,23 +350,51 @@ namespace YSGOpsWeb.Pages
         {
 
         }
+        #endregion
 
-
-
-
-
-
-
-        public int Created_By
+        #region #Private Methods
+        private void SetBookingDetails()
         {
-            get
+            var booking = manager.GetBookingInfoById();
+            if (booking != null)
             {
-                return 1;
-            }
-            set
-            {
+                Booking_Id = booking.Booking_Id;
+                Booking_No = booking.Booking_No;
+                Booking_Date = booking.Booking_Date;
+                Booking_FromTime = booking.Booking_FromTime;
+                Booking_ToTime = booking.Booking_ToTime;
+                Booking_Status = booking.Booking_Status;
 
+                Event_No = booking.Event_No;
+                Event_Class = booking.Event_Class;
+                No_Of_Invitees = booking.No_Of_Invitees;
+
+                Booking_Calculated_Amt = booking.Booking_Calculated_Amt;
+                Discount = booking.Discount;
+                Discount_Reason = booking.Discount_Reason;
+                Booking_final_Amt = booking.Booking_final_Amt;
+                RemarkOrComments = booking.RemarkOrComments;
+                Paid_Amt = booking.Paid_Amt;
+                Balance_Amt = booking.Balance_Amt;
+                Created_By = booking.Created_By;
+
+                Customer_no = booking.Customer_No;
             }
         }
+
+        private void SetCustomerDetails()
+        {
+            var customer = manager.GetCustomerInfoById();
+            if (customer != null)
+            {
+                Customer_no = customer.Customer_no;
+                Customer_name = customer.Customer_name;
+                Customer_Address = customer.Customer_Address;
+                Landline_No = customer.Landline_No;
+                Mobile_No = customer.Mobile_No;
+                Email_id = customer.Email_id;
+            }
+        }
+        #endregion
     }
 }

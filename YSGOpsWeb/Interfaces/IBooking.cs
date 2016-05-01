@@ -15,6 +15,8 @@ namespace YSGOpsWeb.Interfaces
         DateTime Booking_FromTime { get; set; }
         DateTime Booking_ToTime { get; set; }
 
+        int Event_No { get; set; }
+        string Event_Class { get; set; }
         char Booking_Status { get; set; }
         int No_Of_Invitees { get; set; }
         int Booking_Calculated_Amt { get; set; }
@@ -24,8 +26,19 @@ namespace YSGOpsWeb.Interfaces
         string RemarkOrComments { get; set; }
         int Paid_Amt { get; set; }
         int Balance_Amt { get; set; }
-        int Event_No { get; set; }
-        string Event_Class { get; set; }
+
+
+        int Customer_no { get; set; }
+        string Customer_name { get; set; }
+        string Customer_Address { get; set; }
+        string Landline_No { get; set; }
+        string Fax_No { get; set; }
+        string Mobile_No { get; set; }
+        string Email_id { get; set; }
+        string Customer_Status { get; set; }
+        string Referred_By { get; set; }
+        string Customer_Type { get; set; }
+        string Comments { get; set; }
         int Created_By { get; set; }
 
     }

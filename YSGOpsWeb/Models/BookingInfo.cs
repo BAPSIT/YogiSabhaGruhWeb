@@ -6,7 +6,7 @@ using YSGOpsWeb.Interfaces;
 
 namespace YSGOpsWeb.Models
 {
-    public class BookingInfo : IBooking
+    public class BookingInfo 
     {
         public int Booking_No { get; set; }
         public int Booking_Id { get; set; }
@@ -28,6 +28,9 @@ namespace YSGOpsWeb.Models
         public char Action { get; set; }
         public int Created_By { get; set; }
 
+      
+        public EventDetails EventDetails;
+
         public static BookingInfo fromIBooking(IBooking view)
         {
             BookingInfo info = new BookingInfo();
@@ -36,7 +39,7 @@ namespace YSGOpsWeb.Models
             info.Booking_Date = view.Booking_Date;
             info.Booking_FromTime = view.Booking_FromTime;
             info.Booking_ToTime = view.Booking_ToTime;
-            //info.Event_Details                     = view.Event_Details                  ;
+            //info.Event_Details           
             info.Booking_Status = view.Booking_Status;
             info.No_Of_Invitees = view.No_Of_Invitees;
             info.Booking_Calculated_Amt = view.Booking_Calculated_Amt;
@@ -49,10 +52,12 @@ namespace YSGOpsWeb.Models
             info.Event_No = view.Event_No;
             info.Event_Class = view.Event_Class;
             info.Created_By = view.Created_By;
-            info.Customer_No = 1;
+
 
             return info;
         }
+
+        
 
 
 
