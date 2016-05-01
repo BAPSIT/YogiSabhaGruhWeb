@@ -4,17 +4,14 @@
     <link href="../Content/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
     <link href="../Content/ui.jqgrid.css" rel="stylesheet" />
     <link href="../Content/bootstrap-timepicker.css" rel="stylesheet" />
+    <link href="../Content/cupertino/jquery-ui.min.css" rel="stylesheet" />
+
     <script src="../Scripts/bootstrap-datepicker.min.js"></script>
     <script src="../Scripts/bootstrap-timepicker.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".datepicker").datepicker({
-                format: 'dd/mm/yyyy'
-            });
-            $(".timepicker").timepicker();
-        });
-
-    </script>
+    <script src="../Scripts/jquery-ui-1.11.4.min.js"></script>
+    <script src="../Scripts/jquery.jqGrid.min.js"></script>
+    <script src="../Scripts/AddBooking.js"></script>
+    
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
@@ -152,14 +149,15 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <p>
-                        Event Facilities grid to come here 
+                        <table id="tblFacility" cellpadding="0" cellspacing="0">
+                        </table>
                     </p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
-                        <label>Hall </label>
+                        <label>Remarks </label>
                         <textarea id="inpRemarks" runat="server" rows="4" cols="20"></textarea>
                     </div>
                 </div>
@@ -219,8 +217,8 @@
 
         <div class="col-md-1 col-sm-2">
 
-            <asp:Button Text="Confirm Booking" CssClass="btn btn-success" ID="btnConfirmBooking" OnClick="btnConfirmBooking_Click" runat="server" />
-            <asp:Button Text="Cancel Booking" CssClass="btn btn-danger" ID="btnCancelBooking" OnClick="btnCancelBooking_Click" runat="server" />
+            <asp:Button Text="Confirm Booking" CssClass="btn btn-success" ID="btnConfirmBooking" OnClick="btnConfirmBooking_Click" runat="server" visible = "false" />
+            <asp:Button Text="Cancel Booking" CssClass="btn btn-danger" ID="btnCancelBooking" OnClick="btnCancelBooking_Click" runat="server"  visible = "false" />
         </div>
 
     </div>
@@ -231,3 +229,5 @@
     <asp:HiddenField ID="hdnBookingNo" Value="-1" runat="server" />
     <asp:HiddenField ID="hdnCustomerNo" Value="-1" runat="server" />
 </asp:Content>
+
+

@@ -16,17 +16,19 @@ namespace YSGOpsWeb.Controller
             return new BookingOperations().GetBookingByDate(DateTime.Parse(from), DateTime.Parse(to));
         }
 
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+
+        public IEnumerable<BookingFacilityInfo> GetBookingFacilities(string bookingNo)
         {
-            return new string[] { "value1", "value2" };
+            var bookingFacilityList =  new FacilityOperations().GetBookingFacilities(int.Parse(bookingNo)).ToList();
+            return bookingFacilityList;
         }
 
-        // GET api/<controller>/5
-        public BookingInfo Get(int id)
-        {
-            return new BookingOperations().GetBooking(id);
-        }
+       
+        //// GET api/<controller>/5
+        //public BookingInfo Get(int id)
+        //{
+        //    return new BookingOperations().GetBooking(id);
+        //}
 
         // POST api/<controller>
         public void Post([FromBody]string value)
