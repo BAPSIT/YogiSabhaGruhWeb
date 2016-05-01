@@ -6,7 +6,7 @@ using YSGOpsWeb.Interfaces;
 
 namespace YSGOpsWeb.Models
 {
-    public class BookingInfo 
+    public class BookingInfo
     {
         public int Booking_No { get; set; }
         public int Booking_Id { get; set; }
@@ -28,8 +28,14 @@ namespace YSGOpsWeb.Models
         public char Action { get; set; }
         public int Created_By { get; set; }
 
-      
+
+
         public EventDetails EventDetails;
+
+        public DateTime Search_Booking_FromDate;
+        public DateTime Search_Booking_ToDate;
+
+
 
         public static BookingInfo fromIBooking(IBooking view)
         {
@@ -57,9 +63,16 @@ namespace YSGOpsWeb.Models
             return info;
         }
 
-        
+        public static BookingInfo SearchBooking(SBooking Searchview)
+        {
+            BookingInfo info = new BookingInfo();
 
 
+            info.Search_Booking_FromDate = Searchview.Search_Booking_FromDate;
+            info.Search_Booking_ToDate = Searchview.Search_Booking_ToDate;
+
+            return info;
+        }
 
     }
 }

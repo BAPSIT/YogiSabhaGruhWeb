@@ -38,6 +38,7 @@ namespace YSGOpsWeb.DataLayer
 
         }
 
+
         public IEnumerable<BookingInfo> GetBookingByDate(DateTime From, DateTime to)
         {
             IDbConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["YogiSabhaGruhConnectionString"].ConnectionString);
@@ -66,6 +67,15 @@ namespace YSGOpsWeb.DataLayer
                    ).AsQueryable();
 
             return bookingList;
+        }
+
+
+        public void SearchBooking(BookingInfo Searchbooking)
+        {
+            IDbConnection db = new SqlConnection(this.ConnectionString);
+            db.Query("LIST_YSG_Booking_Info", param: Searchbooking, commandType: CommandType.StoredProcedure);
+
+
         }
     }
 }

@@ -11,18 +11,29 @@ namespace YSGOpsWeb
 {
     public class BookingManager
     {
+
         private IBooking _bookingView;
-        //private ICustomerDetails _customerView;
+
+
         public BookingManager(IBooking bookingView)
         {
             this._bookingView = bookingView;
-            //this._customerView = customerView;
         }
 
         public BookingInfo GetBookingInfoById()
         {
             BookingOperations bOps = new BookingOperations();
-           return bOps.GetBooking(_bookingView.Booking_Id);
+            return bOps.GetBooking(_bookingView.Booking_Id);
+        }
+
+
+
+        private SBooking sview;
+        public CustomerOperations Ops { get; set; }
+
+        public BookingManager(SBooking Searchbooking)
+        {
+            this.sview = Searchbooking;
 
         }
 
@@ -45,6 +56,7 @@ namespace YSGOpsWeb
             bOps.AddOrUpdateBooking(info);
         }
 
+
         public void ConfirmBooking()
         {
             BookingInfo info = BookingInfo.fromIBooking(_bookingView);
@@ -52,6 +64,13 @@ namespace YSGOpsWeb
             BookingOperations bOps = new BookingOperations();
             bOps.AddOrUpdateBooking(info);
         }
-    
-public  CustomerOperations Ops { get; set; }}
+        public void Search()
+        {
+            BookingInfo info = BookingInfo.SearchBooking(sview);
+            BookingOperations bOps = new BookingOperations();
+            bOps.SearchBooking(info);
+        }
+
+    }
+
 }

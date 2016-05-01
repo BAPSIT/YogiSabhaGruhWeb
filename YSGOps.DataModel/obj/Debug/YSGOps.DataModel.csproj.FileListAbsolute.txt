@@ -17,3 +17,13 @@ F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\Ent
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.dll
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.xml
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jigar.bhatt\Documents\GitHub\yogisabhagruhweb\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.dll.config
+C:\Users\jigar.bhatt\Documents\GitHub\yogisabhagruhweb\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.dll
+C:\Users\jigar.bhatt\Documents\GitHub\yogisabhagruhweb\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.pdb
+C:\Users\jigar.bhatt\Documents\GitHub\yogisabhagruhweb\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.dll
+C:\Users\jigar.bhatt\Documents\GitHub\yogisabhagruhweb\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jigar.bhatt\Documents\GitHub\yogisabhagruhweb\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.xml
+C:\Users\jigar.bhatt\Documents\GitHub\yogisabhagruhweb\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jigar.bhatt\Documents\GitHub\yogisabhagruhweb\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.csprojResolveAssemblyReference.cache
+C:\Users\jigar.bhatt\Documents\GitHub\yogisabhagruhweb\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.dll
+C:\Users\jigar.bhatt\Documents\GitHub\yogisabhagruhweb\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.pdb
