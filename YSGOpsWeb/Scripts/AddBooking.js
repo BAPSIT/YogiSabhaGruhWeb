@@ -4,7 +4,7 @@
     });
     $(".timepicker").timepicker();
 });
-
+/*
 $(function () {
     $("#tblFacility").jqGrid({
         datatype: function (pdata) { getData(pdata); },
@@ -55,3 +55,28 @@ function getMain(dObj) {
     else
         return dObj;
 }
+var sendData = function ()
+{
+    var localGridData1 = $("#tblFacility");
+    var localGridData = $("Facility").jqGrid("getGridParam", "data");
+    var dataToSend = JSON.stringify(localGridData);
+    alert("The following data are sending to the server:\n" + dataToSend);
+    $.ajax({
+        type: "POST",
+        url: "/api/AddBooking/SaveGridData",
+        dataType: "json",
+        data: dataToSend,
+        contentType: "application/json; charset=utf-8",
+        success: function (response, textStatus, jqXHR) {
+            // display an success message if needed
+            alert("success");
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // display an error message in any way
+            alert("error");
+        }
+    });
+};
+
+*/
+

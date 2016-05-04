@@ -25,9 +25,15 @@ namespace YSGOpsWeb.Pages
                     hdnBookingId.Value = Request.QueryString["booking_id"].ToString();
                     SetBookingDetails();
                     SetCustomerDetails();
+                    SetBookingFacility();
                 }
             }
 
+        }
+
+        private void SetBookingFacility()
+        {
+            manager.BindBookingFacilities(Booking_No);
         }
 
 
@@ -328,6 +334,12 @@ namespace YSGOpsWeb.Pages
         public string Comments { get; set; }
         // public int Created_By { get; set; }
 
+
+        public GridView FacilityGrid
+        {
+            get { return gridFacilty; }
+        }
+
         #endregion
 
         #region #Event Handlers
@@ -343,7 +355,8 @@ namespace YSGOpsWeb.Pages
 
         protected void btnConfirmBooking_Click(object sender, EventArgs e)
         {
-
+            Booking_Status = 'F';
+            manager.Save();
         }
 
         protected void btnCancelBooking_Click(object sender, EventArgs e)
@@ -361,8 +374,12 @@ namespace YSGOpsWeb.Pages
             {
                 Booking_Id = booking.Booking_Id;
                 Booking_No = booking.Booking_No;
+
+                //TODO: Parse dattime to dd/MM/yyyy format
+                //Booking_Date = Convert.ToDateTime(booking.Booking_Date.ToString("dd/MM/yyyy"));
+                //Booking_FromTime = DateTime.ParseExact(Booking_Date + " " + booking.Booking_FromTime.ToString(), "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
+                //Booking_ToTime = DateTime.ParseExact(Booking_Date + " " + booking.Booking_ToTime.ToString(), "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
                 Booking_Date = booking.Booking_Date;
-                Booking_FromTime = booking.Booking_FromTime;
                 Booking_ToTime = booking.Booking_ToTime;
                 Booking_Status = booking.Booking_Status;
 
@@ -397,5 +414,8 @@ namespace YSGOpsWeb.Pages
             }
         }
         #endregion
+
+
+        
     }
 }

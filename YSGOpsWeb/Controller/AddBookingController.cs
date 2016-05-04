@@ -13,54 +13,13 @@ namespace YSGOpsWeb.Controller
 {
     public class AddBookingController  : ApiController
     {
-        //IAddBookingRepository repository;
-
-        //public AddBookingController(IAddBookingRepository repository)
-        //{
-        //    this.repository = repository;
-        //}
-
-        //#region GET
-        //public IQueryable<YSG_Booking_Info> GetComments()
-        //{
-        //    return repository.Get().AsQueryable();
-        //}
-
-        //public YSG_Booking_Info GetComment(int id)
-        //{
-        //    YSG_Booking_Info comment;
-        //    if (!repository.TryGet(id, out comment))
-        //        throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
-        //    return comment;
-        //}
-        //#endregion
-
-        //#region POST
-        //public HttpResponseMessage PostComment(YSG_Booking_Info info)
-        //{
-        //    info = repository.Add(info);
-        //    var response = Request.CreateResponse<YSG_Booking_Info>(HttpStatusCode.Created, info);
-        //    response.Headers.Location = new Uri(Request.RequestUri, "/api/Bookings/" + info.Booking_ID.ToString());
-        //    return response;
-        //}
-        //#endregion
-
-        //#region DELETE
-        //public YSG_Booking_Info DeleteInfo(int id)
-        //{
-        //    YSG_Booking_Info comment;
-        //    if (!repository.TryGet(id, out comment))
-        //        throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
-        //    repository.Delete(id);
-        //    return comment;
-        //}
-        //#endregion
-
-        //#region Paging GET
-        //public IEnumerable<YSG_Booking_Info> GetComments(int pageIndex, int pageSize)
-        //{
-        //    return repository.Get().Skip(pageIndex * pageSize).Take(pageSize);
-        //}
-        //#endregion
+      
+         // POST api/<controller>
+        public void SaveGridData(object data)
+        {
+            //BookingFacilityInfo bookingFacilityInfo = BookingFacilityInfo.fromICustomerDetails(_bookingView);
+            //bOps.AddOrUpdateBookingFacility(bookingFacilityInfo);
+        }
+       
     }
 }

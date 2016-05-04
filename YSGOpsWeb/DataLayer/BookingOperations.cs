@@ -77,5 +77,24 @@ namespace YSGOpsWeb.DataLayer
 
 
         }
+
+
+        public void AddOrUpdateBookingFacility(BookingFacilityInfo bookingFacilityInfo)
+        {
+
+            if (bookingFacilityInfo.Booking_Facility_No == -1)
+            {
+                bookingFacilityInfo.Action = 'A';
+            }
+            else
+            {
+                bookingFacilityInfo.Action = 'U';
+            }
+
+
+            IDbConnection db = new SqlConnection(this.ConnectionString);
+            db.Query("AUD_YSG_Booking_Facilities", param: bookingFacilityInfo, commandType: CommandType.StoredProcedure);
+
+        }
     }
 }

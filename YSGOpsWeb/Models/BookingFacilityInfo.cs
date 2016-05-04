@@ -14,26 +14,26 @@ namespace YSGOpsWeb.Models
         public int Required_Qty { get; set; }
         public float Calculated_Amount { get; set; }
         public string Remarks { get; set; }
-        //public char IsActive { get; set; }
-        //public int created_By { get; set; }   
-        //public char Action { get; set; }
+        public char IsActive { get; set; }
+        public int created_By { get; set; }
+        public char Action { get; set; }
 
 
-        public InventoryInfo InventoryInfo;
+        public InventoryInfo InventoryInfo { get; set; }
 
-        //public static InventoryInfo fromICustomerDetails(IBooking view)
-        //{
-        //    InventoryInfo info = new InventoryInfo();
-        //    //info.Item_no = view.Item_no;
-        //    //info.Item_name = view.Item_name;
-        //    //info.Related_Dept_No = view.Related_Dept_No;
-        //    //info.Available_Qty = view.Available_Qty;
-        //    //info.Rent_per_Qty = view.Rent_per_Qty;
-        //    //info.Description = view.Description;           
-        //    //info.Created_By = view.Created_By;
-            
+        public static BookingFacilityInfo fromICustomerDetails(IBooking view)
+        {
+            BookingFacilityInfo info = new BookingFacilityInfo();
+            //info.Item_no = view.Item_no;
+            //info.Item_name = view.Item_name;
+            //info.Related_Dept_No = view.Related_Dept_No;
+            //info.Available_Qty = view.Available_Qty;
+            //info.Rent_per_Qty = view.Rent_per_Qty;
+            //info.Description = view.Description;           
+            //info.Created_By = view.Created_By;
 
-        //    return info;
-        //}
+
+            return info;
+        }
     }
 }

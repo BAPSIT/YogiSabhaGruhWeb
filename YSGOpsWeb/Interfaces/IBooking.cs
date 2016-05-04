@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using YSGOpsWeb.Models;
 
 namespace YSGOpsWeb.Interfaces
@@ -40,6 +41,9 @@ namespace YSGOpsWeb.Interfaces
         string Customer_Type { get; set; }
         string Comments { get; set; }
         int Created_By { get; set; }
+
+        GridView FacilityGrid { get;  }
+        //List<BookingFacilityInfo> bookingFacility { get; set; }
     }
 
     public interface SBooking

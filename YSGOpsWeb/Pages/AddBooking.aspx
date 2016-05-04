@@ -11,7 +11,7 @@
     <script src="../Scripts/jquery-ui-1.11.4.min.js"></script>
     <script src="../Scripts/jquery.jqGrid.min.js"></script>
     <script src="../Scripts/AddBooking.js"></script>
-    
+
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
@@ -149,8 +149,52 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <p>
-                        <table id="tblFacility" cellpadding="0" cellspacing="0">
-                        </table>
+                        <%--<table id="tblFacility" cellpadding="0" cellspacing="0">
+                        </table>--%>
+                        <asp:GridView ID="gridFacilty" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" ShowHeaderWhenEmpty="True">
+                            <Columns>
+                               <asp:TemplateField HeaderText="Item">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblItem" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Available_Qty")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                              <asp:TemplateField HeaderText="Available Qty">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblItem" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Available_Qty")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Rate Per Qty">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblRentPerQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Rent_per_Qty") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Required Qty">
+                                    <ItemTemplate>
+                                        <asp:TextBox ID="txtRequiredQty" runat="server" Text='<%# Eval("Required_Qty") %>'></asp:TextBox>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Amount">
+                                    <ItemTemplate>
+                                        <asp:TextBox ID="txtAmount" runat="server" Text='<%# Eval("Calculated_Amount") %>'></asp:TextBox>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                  <asp:TemplateField HeaderText="Remarks">
+                                    <ItemTemplate>
+                                        <asp:TextBox ID="txtRemarks" runat="server" Text='<%# Eval("Remarks") %>'></asp:TextBox>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+                            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+                            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#FFF1D4" />
+                            <SortedAscendingHeaderStyle BackColor="#B95C30" />
+                            <SortedDescendingCellStyle BackColor="#F1E5CE" />
+                            <SortedDescendingHeaderStyle BackColor="#93451F" />
+                        </asp:GridView>
+
                     </p>
                 </div>
             </div>
@@ -216,9 +260,9 @@
         </div>
 
         <div class="col-md-1 col-sm-2">
-
-            <asp:Button Text="Confirm Booking" CssClass="btn btn-success" ID="btnConfirmBooking" OnClick="btnConfirmBooking_Click" runat="server" visible = "false" />
-            <asp:Button Text="Cancel Booking" CssClass="btn btn-danger" ID="btnCancelBooking" OnClick="btnCancelBooking_Click" runat="server"  visible = "false" />
+            <asp:Button Text="Save Facilityg" CssClass="btn btn-success" ID="btnSaveFacility" OnClientClick="sendData()" runat="server" />
+            <asp:Button Text="Confirm Booking" CssClass="btn btn-success" ID="btnConfirmBooking" OnClick="btnConfirmBooking_Click" runat="server" />
+            <asp:Button Text="Cancel Booking" CssClass="btn btn-danger" ID="btnCancelBooking" OnClick="btnCancelBooking_Click" runat="server" Visible="false" />
         </div>
 
     </div>

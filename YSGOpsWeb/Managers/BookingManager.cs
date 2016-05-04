@@ -44,6 +44,23 @@ namespace YSGOpsWeb
 
         }
 
+        public void BindBookingFacilities(int bookingNo)
+        {
+            if (bookingNo > 0)
+            {
+                var bookingFacilityList = new FacilityOperations().GetBookingFacilities(bookingNo).ToList();
+                //return bookingFacilityList;
+                _bookingView.FacilityGrid.DataSource = bookingFacilityList;
+                _bookingView.FacilityGrid.DataBind();
+            }
+            else
+            {
+                List<BookingFacilityInfo> list = new List<BookingFacilityInfo>();
+                _bookingView.FacilityGrid.DataSource = list;
+                _bookingView.FacilityGrid.DataBind();
+            }
+        }
+
         public void Save()
         {
             CustomerDetails customerDetails = CustomerDetails.fromICustomerDetails(_bookingView);
@@ -54,6 +71,18 @@ namespace YSGOpsWeb
             info.Customer_No = customerNo;
             BookingOperations bOps = new BookingOperations();
             bOps.AddOrUpdateBooking(info);
+
+            //TODO : set it  booking
+            _bookingView.Booking_No = 1;
+
+            // Add booking facilities
+
+            //FOREACH row
+            BookingFacilityInfo bookingFacilityInfo = BookingFacilityInfo.fromICustomerDetails(_bookingView);
+            bOps.AddOrUpdateBookingFacility(bookingFacilityInfo);
+
+
+
         }
 
 
