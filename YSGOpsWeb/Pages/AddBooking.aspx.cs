@@ -27,6 +27,10 @@ namespace YSGOpsWeb.Pages
                     SetCustomerDetails();
                     SetBookingFacility();
                 }
+                else
+                {
+                    SetBookingFacility();
+                }
             }
 
         }

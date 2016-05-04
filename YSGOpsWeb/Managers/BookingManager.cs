@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using YSGOpsWeb.DataLayer;
 using YSGOpsWeb.Interfaces;
-
 using YSGOpsWeb.Models;
 
 namespace YSGOpsWeb
@@ -13,7 +12,6 @@ namespace YSGOpsWeb
     {
 
         private IBooking _bookingView;
-
 
         public BookingManager(IBooking bookingView)
         {
@@ -26,39 +24,35 @@ namespace YSGOpsWeb
             return bOps.GetBooking(_bookingView.Booking_Id);
         }
 
-
-
         private SBooking sview;
         public CustomerOperations Ops { get; set; }
 
         public BookingManager(SBooking Searchbooking)
         {
             this.sview = Searchbooking;
-
         }
 
         public CustomerDetails GetCustomerInfoById()
         {
             CustomerOperations cOps = new CustomerOperations();
             return cOps.GetCustomer(_bookingView.Customer_no);
-
         }
 
         public void BindBookingFacilities(int bookingNo)
         {
-            if (bookingNo > 0)
-            {
+            //if (bookingNo > 0)
+            //{
                 var bookingFacilityList = new FacilityOperations().GetBookingFacilities(bookingNo).ToList();
                 //return bookingFacilityList;
                 _bookingView.FacilityGrid.DataSource = bookingFacilityList;
                 _bookingView.FacilityGrid.DataBind();
-            }
-            else
-            {
-                List<BookingFacilityInfo> list = new List<BookingFacilityInfo>();
-                _bookingView.FacilityGrid.DataSource = list;
-                _bookingView.FacilityGrid.DataBind();
-            }
+            //}
+            //else
+            //{
+            //    List<BookingFacilityInfo> list = new List<BookingFacilityInfo>();
+            //    _bookingView.FacilityGrid.DataSource = list;
+            //    _bookingView.FacilityGrid.DataBind();
+            //}
         }
 
         public void Save()
@@ -80,9 +74,6 @@ namespace YSGOpsWeb
             //FOREACH row
             BookingFacilityInfo bookingFacilityInfo = BookingFacilityInfo.fromICustomerDetails(_bookingView);
             bOps.AddOrUpdateBookingFacility(bookingFacilityInfo);
-
-
-
         }
 
 
@@ -93,13 +84,12 @@ namespace YSGOpsWeb
             BookingOperations bOps = new BookingOperations();
             bOps.AddOrUpdateBooking(info);
         }
+
         public void Search()
         {
             BookingInfo info = BookingInfo.SearchBooking(sview);
             BookingOperations bOps = new BookingOperations();
             bOps.SearchBooking(info);
         }
-
     }
-
 }

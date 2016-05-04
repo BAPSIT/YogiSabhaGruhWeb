@@ -155,12 +155,12 @@
                             <Columns>
                                <asp:TemplateField HeaderText="Item">
                                     <ItemTemplate>
-                                        <asp:Label ID="lblItem" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Available_Qty")%>'></asp:Label>
+                                        <asp:Label ID="lblItem" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Item_name")%>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                               <asp:TemplateField HeaderText="Available Qty">
                                     <ItemTemplate>
-                                        <asp:Label ID="lblItem" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Available_Qty")%>'></asp:Label>
+                                        <asp:Label ID="lblAvailableQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Available_Qty")%>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Rate Per Qty">
@@ -175,7 +175,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Amount">
                                     <ItemTemplate>
-                                        <asp:TextBox ID="txtAmount" runat="server" Text='<%# Eval("Calculated_Amount") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtAmount" runat="server" Text='<%# Eval("Calculated_Amount") %>'></asp:TextBox>                                                                                
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                   <asp:TemplateField HeaderText="Remarks">
@@ -260,7 +260,7 @@
         </div>
 
         <div class="col-md-1 col-sm-2">
-            <asp:Button Text="Save Facilityg" CssClass="btn btn-success" ID="btnSaveFacility" OnClientClick="sendData()" runat="server" />
+            <asp:Button Text="Save Facility" CssClass="btn btn-success" ID="btnSaveFacility" OnClientClick="sendData()" runat="server" />
             <asp:Button Text="Confirm Booking" CssClass="btn btn-success" ID="btnConfirmBooking" OnClick="btnConfirmBooking_Click" runat="server" />
             <asp:Button Text="Cancel Booking" CssClass="btn btn-danger" ID="btnCancelBooking" OnClick="btnCancelBooking_Click" runat="server" Visible="false" />
         </div>
@@ -270,7 +270,7 @@
     <asp:HiddenField ID="hdnBookingStatus" Value="I" runat="server" />
     <asp:HiddenField ID="hdnBookingId" Value="-1" runat="server" />
     <asp:HiddenField ID="hdnBookingAction" Value="-1" runat="server" />
-    <asp:HiddenField ID="hdnBookingNo" Value="-1" runat="server" />
+    <asp:HiddenField ID="hdnBookingNo" Value="0" runat="server" />
     <asp:HiddenField ID="hdnCustomerNo" Value="-1" runat="server" />
 </asp:Content>
 
