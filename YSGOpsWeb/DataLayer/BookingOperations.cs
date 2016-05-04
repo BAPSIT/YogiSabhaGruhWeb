@@ -91,9 +91,19 @@ namespace YSGOpsWeb.DataLayer
                 bookingFacilityInfo.Action = 'U';
             }
 
+            BookingFacilityInfoParam param1 = new BookingFacilityInfoParam();
+            
+            //param1.Booking_Facility_No = bookingFacilityInfo.Booking_Facility_No;
+            //param1.Action = bookingFacilityInfo.Action;
+            param1.Calculated_Amount = bookingFacilityInfo.Calculated_Amount;
+            param1.Booking_No = bookingFacilityInfo.Booking_No;
+            param1.Item_no = bookingFacilityInfo.Item_no;
+            param1.Required_Qty = bookingFacilityInfo.Required_Qty;
+            //set other properties
+           
 
             IDbConnection db = new SqlConnection(this.ConnectionString);
-            db.Query("AUD_YSG_Booking_Facilities", param: bookingFacilityInfo, commandType: CommandType.StoredProcedure);
+            db.Query("AUD_YSG_Booking_Facilities", param: param1, commandType: CommandType.StoredProcedure);
 
         }
     }

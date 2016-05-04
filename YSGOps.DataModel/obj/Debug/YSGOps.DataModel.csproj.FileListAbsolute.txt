@@ -27,3 +27,17 @@ C:\Users\jigar.bhatt\Documents\GitHub\yogisabhagruhweb\YogiSabhaGruhWeb\YSGOps.D
 C:\Users\jigar.bhatt\Documents\GitHub\yogisabhagruhweb\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.csprojResolveAssemblyReference.cache
 C:\Users\jigar.bhatt\Documents\GitHub\yogisabhagruhweb\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.dll
 C:\Users\jigar.bhatt\Documents\GitHub\yogisabhagruhweb\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.pdb
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.dll.config
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.dll
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.pdb
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\Dapper.dll
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\DapperExtensions.dll
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.dll
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\Dapper.pdb
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\DapperExtensions.pdb
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.xml
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.csprojResolveAssemblyReference.cache
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.dll
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.pdb

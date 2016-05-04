@@ -214,3 +214,8 @@ G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\bin\System.Web.WebP
 G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\YSGOpsWeb.csprojResolveAssemblyReference.cache
 G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\YSGOpsWeb.dll
 G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\YSGOpsWeb.pdb
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\bin\DapperExtensions.dll
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\bin\DapperExtensions.pdb
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.Contrib.dll
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.Contrib.pdb
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.Contrib.xml

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using YSGOpsWeb.Interfaces;
-
+using DapperExtensions;
+using DapperExtensions.Mapper;
+using DapperAttribute = Dapper.Contrib.Extensions;
 namespace YSGOpsWeb.Models
 {
     public class BookingFacilityInfo
@@ -18,7 +20,7 @@ namespace YSGOpsWeb.Models
         public int created_By { get; set; }
         public char Action { get; set; }
 
-
+       [DapperAttribute.Write(false)]
         public InventoryInfo InventoryInfo { get; set; }
 
         public static BookingFacilityInfo fromICustomerDetails(IBooking view)
@@ -36,4 +38,21 @@ namespace YSGOpsWeb.Models
             return info;
         }
     }
+
+
+    public class BookingFacilityInfoParam
+    {
+       // public int Booking_Facility_No { get; set; }
+        public int Booking_No { get; set; }
+        public int Item_no { get; set; }
+        public int Required_Qty { get; set; }
+        public float Calculated_Amount { get; set; }
+        public string Remarks { get; set; }
+      //  public char IsActive { get; set; }
+        public int created_By { get; set; }
+        //public char Action { get; set; }
+
+       
+    }
+    
 }
