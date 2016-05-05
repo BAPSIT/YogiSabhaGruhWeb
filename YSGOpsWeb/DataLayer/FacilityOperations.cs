@@ -16,33 +16,46 @@ namespace YSGOpsWeb.DataLayer
         public IEnumerable<BookingFacilityInfo> GetBookingFacilities(int bookingNo)
         {
             IDbConnection db = new SqlConnection(this.conn);
+          
             //var bookingFacilityList = db.Query<BookingFacilityInfo>("Get_Booking_Facilities", param: new { Booking_No = bookingNo }, commandType: CommandType.StoredProcedure);
 
-            var bookingFacilityList = db.Query<BookingFacilityInfo, InventoryInfo, BookingFacilityInfo>("Get_Booking_Facilities",
-              (a, s) =>
-              {
-                  a.InventoryInfo = s;
-                  return a;
-              },
-              new { Booking_No = bookingNo }, null, true,
-              splitOn: "Item_no",
-               commandTimeout: null, commandType: CommandType.StoredProcedure
-                 ).AsQueryable();
+            if (bookingNo > 0)
+            {
+                var bookingFacilityList = db.Query<BookingFacilityInfo, InventoryInfo, BookingFacilityInfo>("Get_Booking_Facilities",
+            (a, s) =>
+            {
+                a.InventoryInfo = s;
+                return a;
+            },
+            new { Booking_No = bookingNo }, null, true,
+            splitOn: "Item_no",
+             commandTimeout: null, commandType: CommandType.StoredProcedure
+               ).AsQueryable();
+
+                return bookingFacilityList;
+            }
+            else
+            {
+                List<BookingFacilityInfo> facilityList = new List<BookingFacilityInfo>();
+
+                var inventoryList = db.Query<InventoryInfo>("Get_Booking_Facilities", param: new { Booking_No = 0 }, commandType: CommandType.StoredProcedure).AsQueryable(); ;
+
+                foreach (var inventory in inventoryList)
+                {
+                    BookingFacilityInfo facilityInfo = new BookingFacilityInfo();
+                    facilityInfo.InventoryInfo = inventory;
+                    facilityList.Add(facilityInfo);
+                }
+
+                return facilityList;
+
+            }
 
 
-            //var bookingList = conn.Query<BookingInfo, EventDetails, BookingInfo>("Get_BookingInfoByDate",
-            //  (a, s) =>
-            //  {
-            //      a.EventDetails = s;
-            //      return a;
-            //  },
-            //  new { StartDate = From, EndDate = to }, null, true,
-            //  splitOn: "Event_no", commandTimeout: null, commandType: CommandType.StoredProcedure
-            //     ).AsQueryable();
-
-
-            return bookingFacilityList;
+           
         }
+
+
 
         public int AddOrUpdateFaciltiy(CustomerDetails Customer)
         {

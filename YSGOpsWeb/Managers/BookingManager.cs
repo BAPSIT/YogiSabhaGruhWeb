@@ -25,6 +25,12 @@ namespace YSGOpsWeb
             return bOps.GetBooking(_bookingView.Booking_Id);
         }
 
+        public BookingInfo GetBookingInfoByNo()
+        {
+            BookingOperations bOps = new BookingOperations();
+            return bOps.GetBookingByNo(_bookingView.Booking_No);
+        }
+
         private SBooking sview;
         public CustomerOperations Ops { get; set; }
 
@@ -65,10 +71,7 @@ namespace YSGOpsWeb
             BookingInfo info = BookingInfo.fromIBooking(_bookingView);
             info.Customer_No = customerNo;
             BookingOperations bOps = new BookingOperations();
-            bOps.AddOrUpdateBooking(info);
-
-            //TODO : set it  booking
-            _bookingView.Booking_No = 20011;
+             _bookingView.Booking_No = bOps.AddOrUpdateBooking(info);
 
             // Add booking facilities
 

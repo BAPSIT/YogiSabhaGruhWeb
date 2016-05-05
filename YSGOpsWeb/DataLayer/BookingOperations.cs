@@ -19,12 +19,18 @@ namespace YSGOpsWeb.DataLayer
             return db.Query<BookingInfo>("Get_BookingInfoById", param: new { booking_id = id }, commandType: CommandType.StoredProcedure).FirstOrDefault<BookingInfo>();
         }
 
-        public void AddOrUpdateBooking(BookingInfo booking)
+        public BookingInfo GetBookingByNo(int id)
+        {
+            IDbConnection db = new SqlConnection(this.ConnectionString);
+            return db.Query<BookingInfo>("Get_BookingInfoByNo", param: new { booking_no = id }, commandType: CommandType.StoredProcedure).FirstOrDefault<BookingInfo>();
+        }
+
+        public int AddOrUpdateBooking(BookingInfo booking)
         {
 
             if (booking.Booking_Id == -1)
             {
-                booking.Booking_Id = booking.Booking_Date.Year * 10000 + booking.Booking_Date.Month * 100 + booking.Booking_Date.Day;
+                booking.Booking_Id = int.Parse(booking.Booking_Date.ToString("yyMMdd") + DateTime.Now.ToString("hhmm"));
                 booking.Action = 'A';
             }
             else
@@ -34,7 +40,7 @@ namespace YSGOpsWeb.DataLayer
 
 
             IDbConnection db = new SqlConnection(this.ConnectionString);
-            db.Query("AUD_YSG_Booking_Info", param: booking, commandType: CommandType.StoredProcedure);
+            return db.Query<int>("AUD_YSG_Booking_Info", param: booking, commandType: CommandType.StoredProcedure).FirstOrDefault();
 
         }
 
@@ -42,19 +48,6 @@ namespace YSGOpsWeb.DataLayer
         public IEnumerable<BookingInfo> GetBookingByDate(DateTime From, DateTime to)
         {
             IDbConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["YogiSabhaGruhConnectionString"].ConnectionString);
-            //var bookingList = conn.Query<BookingInfo>(sql: "Get_BookingInfo", param: new { StartDate = From, EndDate = to }, commandType: CommandType.StoredProcedure);
-            //var bookingList = conn.Query<BookingInfo>(sql: "Get_BookingInfo", param: new { StartDate = From, EndDate = to }, commandType: CommandType.StoredProcedure);
-
-            //            var resultList = conn.Query<BookingInfo, EventDetails, BookingInfo>(@"
-            //                    SELECT b.*, e.*   FROM YSG_Booking_Info b JOIN YSG_Event_Master e ON b.Event_no = e.Event_no                   
-            //                    ", (a, s) =>
-            //                     {
-            //                         a.EventDetails = s;
-            //                         return a;
-            //                     },
-            //                     splitOn: "Event_no"
-            //                     ).AsQueryable();
-
 
             var bookingList = conn.Query<BookingInfo, EventDetails, BookingInfo>("Get_BookingInfoByDate",
                 (a, s) =>
@@ -82,7 +75,7 @@ namespace YSGOpsWeb.DataLayer
         public void AddOrUpdateBookingFacility(BookingFacilityInfo bookingFacilityInfo)
         {
 
-            if (bookingFacilityInfo.Booking_Facility_No == -1)
+            if (bookingFacilityInfo.Booking_Facility_No < 1)
             {
                 bookingFacilityInfo.Action = 'A';
             }
@@ -92,15 +85,15 @@ namespace YSGOpsWeb.DataLayer
             }
 
             BookingFacilityInfoParam param1 = new BookingFacilityInfoParam();
-            
-            //param1.Booking_Facility_No = bookingFacilityInfo.Booking_Facility_No;
-            //param1.Action = bookingFacilityInfo.Action;
+
+          
             param1.Calculated_Amount = bookingFacilityInfo.Calculated_Amount;
             param1.Booking_No = bookingFacilityInfo.Booking_No;
             param1.Item_no = bookingFacilityInfo.Item_no;
             param1.Required_Qty = bookingFacilityInfo.Required_Qty;
-            //set other properties
-           
+            param1.Remarks = bookingFacilityInfo.Remarks;
+         
+
 
             IDbConnection db = new SqlConnection(this.ConnectionString);
             db.Query("AUD_YSG_Booking_Facilities", param: param1, commandType: CommandType.StoredProcedure);

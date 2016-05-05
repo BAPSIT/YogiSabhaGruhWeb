@@ -70,19 +70,20 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                return DateTime.ParseExact(inpBookingDate.Value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                return DateTime.ParseExact(inpBookingDate.Value, "MM/dd/yyyy",CultureInfo.InvariantCulture);
             }
             set
             {
-                inpBookingDate.Value = value.ToString("dd/MM/yyyy");
+                inpBookingDate.Value = value.ToString("MM/dd/yyyy");
             }
+
         }
 
         public DateTime Booking_FromTime
         {
             get
             {
-                return DateTime.ParseExact(inpBookingDate.Value + " " + inpBookingFrom.Value, "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
+                return DateTime.ParseExact(inpBookingDate.Value + " " + inpBookingFrom.Value, "MM/dd/yyyy h:mm tt", CultureInfo.InvariantCulture);
             }
             set
             {
@@ -94,7 +95,7 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                return DateTime.ParseExact(inpBookingDate.Value + " " + inpBookingTo.Value, "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
+                return DateTime.ParseExact(inpBookingDate.Value + " " + inpBookingTo.Value, "MM/dd/yyyy h:mm tt", CultureInfo.InvariantCulture);
             }
             set
             {
@@ -388,6 +389,8 @@ namespace YSGOpsWeb.Pages
                 //Booking_Date = Convert.ToDateTime(booking.Booking_Date.ToString("dd/MM/yyyy"));
                 //Booking_FromTime = DateTime.ParseExact(Booking_Date + " " + booking.Booking_FromTime.ToString(), "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
                 //Booking_ToTime = DateTime.ParseExact(Booking_Date + " " + booking.Booking_ToTime.ToString(), "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
+                //Booking_Date = DateTime.ParseExact(booking.Booking_Date.ToString("MM-dd-yyyy").Replace('-', '/'), "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                
                 Booking_Date = booking.Booking_Date;
                 Booking_ToTime = booking.Booking_ToTime;
                 Booking_Status = booking.Booking_Status;
