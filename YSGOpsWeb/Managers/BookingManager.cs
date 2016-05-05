@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 using YSGOpsWeb.DataLayer;
 using YSGOpsWeb.Interfaces;
 using YSGOpsWeb.Models;
@@ -67,13 +68,31 @@ namespace YSGOpsWeb
             bOps.AddOrUpdateBooking(info);
 
             //TODO : set it  booking
-            _bookingView.Booking_No = 1;
+            _bookingView.Booking_No = 20011;
 
             // Add booking facilities
 
             //FOREACH row
-            BookingFacilityInfo bookingFacilityInfo = BookingFacilityInfo.fromICustomerDetails(_bookingView);
-            bOps.AddOrUpdateBookingFacility(bookingFacilityInfo);
+            foreach(GridViewRow row in _bookingView.FacilityGrid.Rows)
+            {
+                //_bookingView.Item_no = Convert.ToInt32(_bookingView.FacilityGrid.DataKeys[row.RowIndex].Values["Item_no"].ToString());
+                //_bookingView.Item_no = Convert.ToInt32(Item_no);
+
+                Label Item_no = (Label)row.Cells[0].FindControl("lblItemNo");
+                _bookingView.Item_no = Convert.ToInt32(Item_no.Text);
+
+                TextBox Required_Qty = (TextBox)row.Cells[0].FindControl("txtRequiredQty");
+                _bookingView.Required_Qty = Convert.ToInt32(Required_Qty.Text);
+
+                TextBox Calculated_Amount = (TextBox)row.Cells[0].FindControl("txtAmount");
+                _bookingView.Calculated_Amount = Convert.ToInt64(Calculated_Amount.Text);
+
+                TextBox Remarks = (TextBox)row.Cells[0].FindControl("txtRemarks");
+                _bookingView.Remarks = Convert.ToString(Remarks.Text);
+
+                BookingFacilityInfo bookingFacilityInfo = BookingFacilityInfo.fromICustomerDetails(_bookingView);
+                bOps.AddOrUpdateBookingFacility(bookingFacilityInfo);
+            }            
         }
 
 

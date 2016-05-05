@@ -344,6 +344,11 @@ namespace YSGOpsWeb.Pages
             get { return gridFacilty; }
         }
 
+        public int Item_no { get; set; }
+        public int Required_Qty { get; set; }
+        public float Calculated_Amount { get; set; }
+        public string Remarks { get; set; }
+
         #endregion
 
         #region #Event Handlers

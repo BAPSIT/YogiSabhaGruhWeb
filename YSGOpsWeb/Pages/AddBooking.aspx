@@ -153,6 +153,11 @@
                         </table>--%>
                         <asp:GridView ID="gridFacilty" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" ShowHeaderWhenEmpty="True">
                             <Columns>
+                                <asp:TemplateField HeaderText="Item" Visible="false">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblItemNo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Item_no")%>' Visible="false"></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                <asp:TemplateField HeaderText="Item">
                                     <ItemTemplate>
                                         <asp:Label ID="lblItem" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Item_name")%>'></asp:Label>

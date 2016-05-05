@@ -20,18 +20,20 @@ namespace YSGOpsWeb.Models
         public int created_By { get; set; }
         public char Action { get; set; }
 
+
        [DapperAttribute.Write(false)]
         public InventoryInfo InventoryInfo { get; set; }
 
         public static BookingFacilityInfo fromICustomerDetails(IBooking view)
         {
             BookingFacilityInfo info = new BookingFacilityInfo();
-            //info.Item_no = view.Item_no;
+            info.Booking_No = view.Booking_No;
+            info.Item_no = view.Item_no;
             //info.Item_name = view.Item_name;
             //info.Related_Dept_No = view.Related_Dept_No;
-            //info.Available_Qty = view.Available_Qty;
-            //info.Rent_per_Qty = view.Rent_per_Qty;
-            //info.Description = view.Description;           
+            info.Required_Qty = view.Required_Qty;
+            info.Calculated_Amount = view.Calculated_Amount;
+            info.Remarks = view.Remarks;           
             //info.Created_By = view.Created_By;
 
 

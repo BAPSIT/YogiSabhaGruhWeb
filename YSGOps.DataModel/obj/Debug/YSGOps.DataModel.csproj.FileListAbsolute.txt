@@ -41,3 +41,13 @@ G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\En
 G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.csprojResolveAssemblyReference.cache
 G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.dll
 G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.pdb
+D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.dll.config
+D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.dll
+D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.pdb
+D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.dll
+D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.xml
+D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.csprojResolveAssemblyReference.cache
+D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.dll
+D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.pdb

@@ -44,12 +44,16 @@ namespace YSGOpsWeb.Interfaces
 
         GridView FacilityGrid { get;  }
         //List<BookingFacilityInfo> bookingFacility { get; set; }
+
+        int Item_no { get; set; }
+        int Required_Qty { get; set; }
+        float Calculated_Amount { get; set; }
+        string Remarks { get; set; }
     }
 
     public interface SBooking
     {
         DateTime Search_Booking_FromDate { get; set; }
         DateTime Search_Booking_ToDate { get; set; }
-
     }
 }
