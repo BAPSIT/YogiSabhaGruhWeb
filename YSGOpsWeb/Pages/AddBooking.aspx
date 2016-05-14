@@ -16,7 +16,8 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <div class="panel panel-default">
-        <div class="panel-heading">Event Info</div>
+       <div class="alert alert-danger">  <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label></div>
+         <div class="panel-heading">Event Info</div>
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-4 col-sm-6">

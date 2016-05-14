@@ -16,21 +16,28 @@ namespace YSGOpsWeb.Pages
         private BookingManager manager;
         protected void Page_Load(object sender, EventArgs e)
         {
-            manager = new BookingManager(this);
-
-            if (!this.IsPostBack)
+            try
             {
-                if (Request.QueryString["booking_id"] != null)
+                manager = new BookingManager(this);
+
+                if (!this.IsPostBack)
                 {
-                    hdnBookingId.Value = Request.QueryString["booking_id"].ToString();
-                    SetBookingDetails();
-                    SetCustomerDetails();
-                    SetBookingFacility();
+                    if (Request.QueryString["booking_id"] != null)
+                    {
+                        hdnBookingId.Value = Request.QueryString["booking_id"].ToString();
+                        SetBookingDetails();
+                        SetCustomerDetails();
+                        SetBookingFacility();
+                    }
+                    else
+                    {
+                        SetBookingFacility();
+                    }
                 }
-                else
-                {
-                    SetBookingFacility();
-                }
+            }
+            catch (Exception)
+            {
+                lblMessage.Text = "Sorry! Something went wrong while loading the page. Please refresh the page or try again later.";
             }
 
         }
@@ -70,11 +77,12 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                return DateTime.ParseExact(inpBookingDate.Value, "MM/dd/yyyy",CultureInfo.InvariantCulture);
+                return DateTime.ParseExact(inpBookingDate.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
             }
             set
             {
-                inpBookingDate.Value = value.ToString("MM/dd/yyyy");
+                //inpBookingDate.Value = value.ToString("MM/dd/yyyy");
+                inpBookingDate.Value =  value.ToString("MM/dd/yyyy").Replace('-', '/');
             }
 
         }
@@ -355,7 +363,16 @@ namespace YSGOpsWeb.Pages
         #region #Event Handlers
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            manager.Save();
+            try
+            {
+                manager.Save();
+                Response.Redirect("~/Pages/Home.aspx?transactionStatus=success");
+                lblMessage.Text = string.Empty;
+            }
+            catch (Exception)
+            {
+                lblMessage.Text = "Sorry! something went wrong. Please try again later.";
+            }
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
@@ -390,7 +407,7 @@ namespace YSGOpsWeb.Pages
                 //Booking_FromTime = DateTime.ParseExact(Booking_Date + " " + booking.Booking_FromTime.ToString(), "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
                 //Booking_ToTime = DateTime.ParseExact(Booking_Date + " " + booking.Booking_ToTime.ToString(), "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
                 //Booking_Date = DateTime.ParseExact(booking.Booking_Date.ToString("MM-dd-yyyy").Replace('-', '/'), "MM/dd/yyyy", CultureInfo.InvariantCulture);
-                
+
                 Booking_Date = booking.Booking_Date;
                 Booking_ToTime = booking.Booking_ToTime;
                 Booking_Status = booking.Booking_Status;
@@ -428,6 +445,6 @@ namespace YSGOpsWeb.Pages
         #endregion
 
 
-        
+
     }
 }
