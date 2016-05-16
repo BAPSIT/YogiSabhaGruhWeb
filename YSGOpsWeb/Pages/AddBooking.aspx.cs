@@ -415,6 +415,7 @@ namespace YSGOpsWeb.Pages
 
                
                 Booking_Date = booking.Booking_Date;
+                Booking_FromTime = booking.Booking_FromTime;
                 Booking_ToTime = booking.Booking_ToTime;
                 Booking_Status = booking.Booking_Status;
 
