@@ -16,8 +16,10 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <div class="panel panel-default">
-       <div class="alert alert-danger">  <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label></div>
-         <div class="panel-heading">Event Info</div>
+        <div class="alert alert-danger">
+            <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+        </div>
+        <div class="panel-heading">Event Info</div>
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-4 col-sm-6">
@@ -171,17 +173,17 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Rate Per Qty">
                                     <ItemTemplate>
-                                        <asp:Label ID="lblRentPerQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Rent_per_Qty") %>'></asp:Label>
+                                        <asp:Label ID="lblRatePerQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Rent_per_Qty") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Required Qty">
                                     <ItemTemplate>
-                                        <asp:TextBox ID="txtRequiredQty" runat="server" Text='<%# Eval("Required_Qty") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtRequiredQty" runat="server" onchange="CalAmount(this)" Text=""></asp:TextBox>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Amount">
                                     <ItemTemplate>
-                                        <asp:TextBox ID="txtAmount" runat="server" Text='<%# Eval("Calculated_Amount") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtAmount" runat="server" Text=""></asp:TextBox>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Remarks">
@@ -277,6 +279,28 @@
     <asp:HiddenField ID="hdnBookingAction" Value="-1" runat="server" />
     <asp:HiddenField ID="hdnBookingNo" Value="0" runat="server" />
     <asp:HiddenField ID="hdnCustomerNo" Value="-1" runat="server" />
+
+    <script type="text/javascript">
+        function CalAmount(requiredQuantity) {
+            var gridRow = requiredQuantity.parentNode.parentNode;
+
+            var inputs = gridRow.getElementsByTagName("input");
+            var spans = gridRow.getElementsByTagName("span");
+            var rate;
+            var amount;
+
+            for (var i = 0; i < spans.length; i++) {
+                if (spans[i].id.indexOf("lblRatePerQty") != -1) {
+                    rate = spans[i].innerHTML;
+                }
+            }
+            amount = requiredQuantity.value * rate;
+
+            gridRow.cells[4].innerText = amount;
+        }
+
+    </script>
+
 </asp:Content>
 
 

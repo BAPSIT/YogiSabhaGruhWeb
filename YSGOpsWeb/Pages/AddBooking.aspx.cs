@@ -27,7 +27,7 @@ namespace YSGOpsWeb.Pages
                         hdnBookingId.Value = Request.QueryString["booking_id"].ToString();
                         SetBookingDetails();
                         SetCustomerDetails();
-                        SetBookingFacility();
+                        SetBookingFacility();                        
                     }
                     else
                     {
@@ -450,8 +450,5 @@ namespace YSGOpsWeb.Pages
             }
         }
         #endregion
-
-
-
     }
 }

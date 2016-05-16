@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
@@ -78,9 +79,6 @@ namespace YSGOpsWeb
             //FOREACH row
             foreach(GridViewRow row in _bookingView.FacilityGrid.Rows)
             {
-                //_bookingView.Item_no = Convert.ToInt32(_bookingView.FacilityGrid.DataKeys[row.RowIndex].Values["Item_no"].ToString());
-                //_bookingView.Item_no = Convert.ToInt32(Item_no);
-
                 Label Item_no = (Label)row.Cells[0].FindControl("lblItemNo");
                 _bookingView.Item_no = Convert.ToInt32(Item_no.Text);
 
@@ -88,7 +86,11 @@ namespace YSGOpsWeb
                 _bookingView.Required_Qty = Convert.ToInt32(Required_Qty.Text);
 
                 TextBox Calculated_Amount = (TextBox)row.Cells[0].FindControl("txtAmount");
-                _bookingView.Calculated_Amount = Convert.ToInt64(Calculated_Amount.Text);
+                if (Calculated_Amount.Text != string.Empty)
+                {
+                    _bookingView.Calculated_Amount = Convert.ToInt64(Calculated_Amount.Text);
+                }
+                _bookingView.Calculated_Amount = 0;
 
                 TextBox Remarks = (TextBox)row.Cells[0].FindControl("txtRemarks");
                 _bookingView.Remarks = Convert.ToString(Remarks.Text);
@@ -113,5 +115,7 @@ namespace YSGOpsWeb
             BookingOperations bOps = new BookingOperations();
             bOps.SearchBooking(info);
         }
+
+        
     }
 }
