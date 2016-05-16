@@ -19,6 +19,7 @@ namespace YSGOpsWeb.Pages
             try
             {
                 manager = new BookingManager(this);
+                pnlMessage.Visible = false;
 
                 if (!this.IsPostBack)
                 {
@@ -37,6 +38,7 @@ namespace YSGOpsWeb.Pages
             }
             catch (Exception)
             {
+                pnlMessage.Visible = true;
                 lblMessage.Text = "Sorry! Something went wrong while loading the page. Please refresh the page or try again later.";
             }
 
@@ -70,6 +72,7 @@ namespace YSGOpsWeb.Pages
             set
             {
                 hdnBookingId.Value = value.ToString();
+                inpBookingID.Value =  value.ToString();
             }
         }
 
@@ -121,6 +124,26 @@ namespace YSGOpsWeb.Pages
             set
             {
                 hdnBookingStatus.Value = value.ToString();
+                switch (value)
+                {
+                    case 'I':
+                        inpBookingStatus.Value = "Inquiry";
+                        break;
+
+                    case 'F':
+                        inpBookingStatus.Value = "Confirmed";
+                        break;
+
+                    case 'C':
+                        inpBookingStatus.Value = "Cancelled";
+                        break;                  
+
+                    default:
+                        inpBookingStatus.Value = string.Empty;
+                        break;
+                }
+
+
                 toggleBookingBtn(value);
             }
         }
@@ -378,10 +401,12 @@ namespace YSGOpsWeb.Pages
             {
                 manager.Save();
                 Response.Redirect("~/Pages/Home.aspx?transactionStatus=success");
+                pnlMessage.Visible = false;
                 lblMessage.Text = string.Empty;
             }
             catch (Exception)
             {
+                pnlMessage.Visible = true;
                 lblMessage.Text = "Sorry! something went wrong. Please try again later.";
             }
         }
@@ -415,6 +440,7 @@ namespace YSGOpsWeb.Pages
 
                
                 Booking_Date = booking.Booking_Date;
+                Booking_FromTime = booking.Booking_FromTime;
                 Booking_ToTime = booking.Booking_ToTime;
                 Booking_Status = booking.Booking_Status;
 

@@ -16,11 +16,38 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <div class="panel panel-default">
+
         <div class="alert alert-danger">
             <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
         </div>
+
+        <asp:Panel runat="server" Visible="false" ID="pnlMessage">
+            <div class="alert alert-danger">
+                <asp:Label ID="lblMessage" runat="server"></asp:Label>
+            </div>
+        </asp:Panel>
+
         <div class="panel-heading">Event Info</div>
         <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="form-inline">
+                        <label>Booking ID</label>
+                        <input type="text" runat="server" class="form-control" id="inpBookingID" placeholder="Booking ID" readonly="true" /><br />
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="form-inline">
+                        <label>Booking Status</label>
+                        <input type="text" runat="server" class="form-control" id="inpBookingStatus" placeholder="Booking Status" readonly="true" /><br />
+                        &nbsp;
+                    </div>
+                </div>
+
+
+            </div>
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
@@ -110,10 +137,19 @@
                 <div class="col-md-4">
                     <div class="form-inline">
                         <label for="inpEmail">Address</label>
-                        <textarea runat="server" class="form-control" id="textAreaAddress" cols="20" rows="4"></textarea>
+                        <textarea runat="server" class="form-control" id="textAreaAddress" cols="30" rows="4"></textarea>
+                        <br />
                     </div>
                 </div>
-
+                <div class="col-md-4">
+                    <div class="form-inline">
+                        <label>Remarks </label>
+                        <textarea id="inpRemarks" runat="server" rows="4" cols="30"  class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                
             </div>
         </div>
     </div>
@@ -154,7 +190,8 @@
                     <p>
                         <%--<table id="tblFacility" cellpadding="0" cellspacing="0">
                         </table>--%>
-                        <asp:GridView ID="gridFacilty" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" ShowHeaderWhenEmpty="True">
+                        <asp:GridView ID="gridFacilty" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ShowHeaderWhenEmpty="True" ForeColor="Black" GridLines="Vertical">
+                            <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="Item" Visible="false">
                                     <ItemTemplate>
@@ -192,28 +229,21 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
-                            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-                            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-                            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-                            <SortedAscendingCellStyle BackColor="#FFF1D4" />
-                            <SortedAscendingHeaderStyle BackColor="#B95C30" />
-                            <SortedDescendingCellStyle BackColor="#F1E5CE" />
-                            <SortedDescendingHeaderStyle BackColor="#93451F" />
+                            <FooterStyle BackColor="#CCCC99" />
+                            <HeaderStyle BackColor="#F3EFEE" Font-Bold="True" ForeColor="Black" />
+                            <PagerStyle ForeColor="Black" HorizontalAlign="Right" BackColor="#F7F7DE" />
+                            <RowStyle BackColor="#F7F7DE" />
+                            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#FBFBF2" />
+                            <SortedAscendingHeaderStyle BackColor="#848384" />
+                            <SortedDescendingCellStyle BackColor="#EAEAD3" />
+                            <SortedDescendingHeaderStyle BackColor="#575357" />
                         </asp:GridView>
 
                     </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="form-inline">
-                        <label>Remarks </label>
-                        <textarea id="inpRemarks" runat="server" rows="4" cols="20"></textarea>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
     <div class="panel panel-default">
@@ -260,15 +290,17 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-1 col-sm-2">
+        <div class="col-md-2 col-sm-2">
             <asp:Button Text="Save" ID="btnSave" OnClientClick="Page_ClientValidate()" CssClass="btn btn-primary" OnClick="btnSave_Click" runat="server" />
         </div>
-        <div class="col-md-1 col-sm-2">
-            <asp:Button Text="Cancel" OnClick="btnCancel_Click" ID="btnCancel" CssClass="btn btn-warning" runat="server" />
+        <div class="col-md-2 col-sm-2">
+            <asp:Button Text="Confirm Booking" CssClass="btn btn-success" ID="btnConfirmBooking" OnClick="btnConfirmBooking_Click" runat="server" />
+        </div>
+        <div class="col-md-2 col-sm-2">
+            <asp:Button Text="Cancel" OnClick="btnCancel_Click" ID="btnCancel" CssClass="btn btn-warning" runat="server"  Visible="false"/>
         </div>
 
-        <div class="col-md-1 col-sm-2">
-            <asp:Button Text="Confirm Booking" CssClass="btn btn-success" ID="btnConfirmBooking" OnClick="btnConfirmBooking_Click" runat="server" />
+        <div class="col-md-2 col-sm-2">
             <asp:Button Text="Cancel Booking" CssClass="btn btn-danger" ID="btnCancelBooking" OnClick="btnCancelBooking_Click" runat="server" Visible="false" />
         </div>
 
