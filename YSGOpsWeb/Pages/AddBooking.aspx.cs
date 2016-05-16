@@ -72,6 +72,7 @@ namespace YSGOpsWeb.Pages
             set
             {
                 hdnBookingId.Value = value.ToString();
+                inpBookingID.Value =  value.ToString();
             }
         }
 
@@ -123,6 +124,26 @@ namespace YSGOpsWeb.Pages
             set
             {
                 hdnBookingStatus.Value = value.ToString();
+                switch (value)
+                {
+                    case 'I':
+                        inpBookingStatus.Value = "Inquiry";
+                        break;
+
+                    case 'F':
+                        inpBookingStatus.Value = "Confirmed";
+                        break;
+
+                    case 'C':
+                        inpBookingStatus.Value = "Cancelled";
+                        break;                  
+
+                    default:
+                        inpBookingStatus.Value = string.Empty;
+                        break;
+                }
+
+
                 toggleBookingBtn(value);
             }
         }
