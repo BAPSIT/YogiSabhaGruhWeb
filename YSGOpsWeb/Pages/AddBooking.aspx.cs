@@ -19,6 +19,7 @@ namespace YSGOpsWeb.Pages
             try
             {
                 manager = new BookingManager(this);
+                pnlMessage.Visible = false;
 
                 if (!this.IsPostBack)
                 {
@@ -37,6 +38,7 @@ namespace YSGOpsWeb.Pages
             }
             catch (Exception)
             {
+                pnlMessage.Visible = true;
                 lblMessage.Text = "Sorry! Something went wrong while loading the page. Please refresh the page or try again later.";
             }
 
@@ -378,10 +380,12 @@ namespace YSGOpsWeb.Pages
             {
                 manager.Save();
                 Response.Redirect("~/Pages/Home.aspx?transactionStatus=success");
+                pnlMessage.Visible = false;
                 lblMessage.Text = string.Empty;
             }
             catch (Exception)
             {
+                pnlMessage.Visible = true;
                 lblMessage.Text = "Sorry! something went wrong. Please try again later.";
             }
         }

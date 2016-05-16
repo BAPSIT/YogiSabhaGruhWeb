@@ -15,14 +15,19 @@ namespace YSGOpsWeb.Pages
             {
                 if (Request.QueryString["transactionStatus"] != null)
                 {
+                    pnlMessage.Visible = true;
                     lblMessage.Text = "Booking Details Saved Successfully!";
-                    Request.QueryString.Clear();
+                  
                 }
                 else
+                {
+                    pnlMessage.Visible = false;
                     lblMessage.Text = string.Empty;
+                }
             }
             catch (Exception)
             {
+                pnlMessage.Visible = true;
                 lblMessage.Text = "Sorry! Something went wrong while loading the page. Please refresh the page or try again later.";
             }
         }

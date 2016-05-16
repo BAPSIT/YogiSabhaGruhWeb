@@ -16,7 +16,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <div class="panel panel-default">
-       <div class="alert alert-danger">  <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label></div>
+     <asp:Panel runat="server" Visible="false" ID="pnlMessage"> <div class="alert alert-danger">  <asp:Label ID="lblMessage" runat="server"></asp:Label></div></asp:Panel>
          <div class="panel-heading">Event Info</div>
         <div class="panel-body">
             <div class="row">
@@ -152,7 +152,8 @@
                     <p>
                         <%--<table id="tblFacility" cellpadding="0" cellspacing="0">
                         </table>--%>
-                        <asp:GridView ID="gridFacilty" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" ShowHeaderWhenEmpty="True">
+                        <asp:GridView ID="gridFacilty" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ShowHeaderWhenEmpty="True" ForeColor="Black" GridLines="Vertical">
+                            <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="Item" Visible="false">
                                     <ItemTemplate>
@@ -190,15 +191,15 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
-                            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-                            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-                            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-                            <SortedAscendingCellStyle BackColor="#FFF1D4" />
-                            <SortedAscendingHeaderStyle BackColor="#B95C30" />
-                            <SortedDescendingCellStyle BackColor="#F1E5CE" />
-                            <SortedDescendingHeaderStyle BackColor="#93451F" />
+                            <FooterStyle BackColor="#CCCC99" />
+                            <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle ForeColor="Black" HorizontalAlign="Right" BackColor="#F7F7DE" />
+                            <RowStyle BackColor="#F7F7DE" />
+                            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#FBFBF2" />
+                            <SortedAscendingHeaderStyle BackColor="#848384" />
+                            <SortedDescendingCellStyle BackColor="#EAEAD3" />
+                            <SortedDescendingHeaderStyle BackColor="#575357" />
                         </asp:GridView>
 
                     </p>
