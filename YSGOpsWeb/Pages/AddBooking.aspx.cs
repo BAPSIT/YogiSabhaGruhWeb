@@ -357,7 +357,18 @@ namespace YSGOpsWeb.Pages
         public int Required_Qty { get; set; }
         public float Calculated_Amount { get; set; }
         public string Remarks { get; set; }
+        public int Hall_no
+        {
+            get
+            {
+                return Int32.Parse(ddlHall.SelectedItem.Value.Trim());
+            }
+            set
+            {
+                ddlHall.SelectedValue = value.ToString();
+            }
 
+        }
         #endregion
 
         #region #Event Handlers
@@ -402,12 +413,7 @@ namespace YSGOpsWeb.Pages
                 Booking_Id = booking.Booking_Id;
                 Booking_No = booking.Booking_No;
 
-                //TODO: Parse dattime to dd/MM/yyyy format
-                //Booking_Date = Convert.ToDateTime(booking.Booking_Date.ToString("dd/MM/yyyy"));
-                //Booking_FromTime = DateTime.ParseExact(Booking_Date + " " + booking.Booking_FromTime.ToString(), "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
-                //Booking_ToTime = DateTime.ParseExact(Booking_Date + " " + booking.Booking_ToTime.ToString(), "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
-                //Booking_Date = DateTime.ParseExact(booking.Booking_Date.ToString("MM-dd-yyyy").Replace('-', '/'), "MM/dd/yyyy", CultureInfo.InvariantCulture);
-
+               
                 Booking_Date = booking.Booking_Date;
                 Booking_ToTime = booking.Booking_ToTime;
                 Booking_Status = booking.Booking_Status;
@@ -426,6 +432,7 @@ namespace YSGOpsWeb.Pages
                 Created_By = booking.Created_By;
 
                 Customer_no = booking.Customer_No;
+                Hall_no = booking.Hall_no;
             }
         }
 

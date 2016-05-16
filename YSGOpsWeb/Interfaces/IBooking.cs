@@ -42,13 +42,14 @@ namespace YSGOpsWeb.Interfaces
         string Comments { get; set; }
         int Created_By { get; set; }
 
-        GridView FacilityGrid { get;  }
+        GridView FacilityGrid { get; }
         //List<BookingFacilityInfo> bookingFacility { get; set; }
 
         int Item_no { get; set; }
         int Required_Qty { get; set; }
         float Calculated_Amount { get; set; }
         string Remarks { get; set; }
+        int Hall_no { get; set; }
     }
 
     public interface SBooking
