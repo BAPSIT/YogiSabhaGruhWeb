@@ -4,12 +4,15 @@
 <asp:Content runat="server" ContentPlaceHolderID="head">
     <link href="../Content/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
     <link href="../Content/ui.jqgrid.css" rel="stylesheet" />
-    <%--    <link href="../Content/bootstrap.min.css" rel="stylesheet" />--%>
+    <link href="../Content/bootstrap-timepicker.css" rel="stylesheet" />
     <script src="../Scripts/bootstrap-datepicker.min.js"></script>
+   
+    <%--    <link href="../Content/bootstrap.min.css" rel="stylesheet" />--%>
+   
     <%--    <script src="../Scripts/bootstrap.min.js"></script>--%>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <%--  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>--%>
     <script>
         $(document).ready(function () {
             $(".datepicker").datepicker({
