@@ -48,15 +48,25 @@
                             <li><a href="/pages/TithiCalendar.aspx">Mandir Events</a></li>
                         </ul>
                     </li>
+                     <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports
+        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/pages/booking_datewise.aspx">Booking Between Datewise</a></li>
+                            <li><a href="/pages/Hall_Utilization.aspx">Hall Utilization</a></li>
+                            <li><a href="/pages/Item_list_rpt.aspx">Item list</a></li>
+                            <li><a href="/pages/Cancellation_datewise.aspx">Cancellation Between Datewise</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#">Feedback</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome, Jigar Gandhi
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome, BAPS ADMIN
         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Change Password</a></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="/pages/login.aspx">Logout</a></li>
                         </ul>
                     </li>
                 </ul>

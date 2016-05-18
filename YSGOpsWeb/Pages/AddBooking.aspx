@@ -17,9 +17,6 @@
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <div class="panel panel-default">
 
-        <div class="alert alert-danger">
-            <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
-        </div>
 
         <asp:Panel runat="server" Visible="false" ID="pnlMessage">
             <div class="alert alert-danger">

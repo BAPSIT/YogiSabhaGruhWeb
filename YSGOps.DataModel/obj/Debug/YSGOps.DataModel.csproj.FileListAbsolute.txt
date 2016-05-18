@@ -51,3 +51,17 @@ D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.Sq
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.csprojResolveAssemblyReference.cache
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.dll
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.pdb
+I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.dll.config
+I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.dll
+I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.pdb
+I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\bin\Debug\Dapper.dll
+I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\bin\Debug\DapperExtensions.dll
+I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\bin\Debug\EntityFramework.dll
+I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\bin\Debug\Dapper.pdb
+I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\bin\Debug\DapperExtensions.pdb
+I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\bin\Debug\EntityFramework.xml
+I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.dll
+I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.pdb
+I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.csprojResolveAssemblyReference.cache
