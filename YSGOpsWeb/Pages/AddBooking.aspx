@@ -16,7 +16,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <div class="panel panel-default">
-
+        <asp:ScriptManager runat="server"></asp:ScriptManager>
         <asp:Panel runat="server" Visible="false" ID="pnlMessage">
             <div class="alert alert-danger">
                 <asp:Label ID="lblMessage" runat="server"></asp:Label>
@@ -181,90 +181,98 @@
         <div class="panel-heading">Event Facilities</div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <p>
-                        <%--<table id="tblFacility" cellpadding="0" cellspacing="0">
+                <asp:UpdatePanel runat="server">
+                    <ContentTemplate>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <p>
+                                <%--<table id="tblFacility" cellpadding="0" cellspacing="0">
                         </table>--%>
-                        <asp:GridView ID="gridFacilty" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ShowHeaderWhenEmpty="True" ForeColor="Black" GridLines="Vertical" ShowFooter="true">
-                            <AlternatingRowStyle BackColor="White" />
-                            <Columns>
-                                <asp:TemplateField HeaderText="Item" Visible="false">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblItemNo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Item_no")%>' Visible="false"></asp:Label>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        <asp:Label ID="lblItemNo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Item_no")%>' Visible="false"></asp:Label>
-                                    </FooterTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Item">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblItem" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Item_name")%>'></asp:Label>
-                                    </ItemTemplate>
+                                <asp:GridView ID="gridFacilty" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ShowHeaderWhenEmpty="True" ForeColor="Black" GridLines="Vertical" ShowFooter="true">
+                                    <AlternatingRowStyle BackColor="White" />
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="Item" Visible="false">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblItemNo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Item_no")%>' Visible="false"></asp:Label>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                <asp:Label ID="lblItemNo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Item_no")%>' Visible="false"></asp:Label>
+                                            </FooterTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Item">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblItem" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Item_name")%>'></asp:Label>
+                                            </ItemTemplate>
 
-                                    <FooterTemplate>
-                                        <asp:DropDownList CssClass="form-control" ID="ddlFacility" runat="server">
+                                            <FooterTemplate>
+                                                <%--<asp:DropDownList CssClass="form-control" ID="ddlFacility" runat="server">
                                             <asp:ListItem Value="5">Plastic Chairs</asp:ListItem>
                                             <asp:ListItem Value="102">Food Packets</asp:ListItem>
                                             <asp:ListItem Value="103">Others - 1</asp:ListItem>
                                             <asp:ListItem Value="104">Others - 2</asp:ListItem>
                                             <asp:ListItem Value="105">Others -3</asp:ListItem>
-                                        </asp:DropDownList>
+                                        </asp:DropDownList>--%>
+                                                <asp:DropDownList CssClass="form-control" ID="ddlFacility" runat="server">
+                                                </asp:DropDownList>
+                                            </FooterTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Available Qty">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblAvailableQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Available_Qty")%>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Rate Per Qty">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblRatePerQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Rent_per_Qty") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Required Qty">
+                                            <ItemTemplate>
+                                                <asp:TextBox ID="txtRequiredQty" runat="server" onchange="CalAmount(this)" Text='<%# DataBinder.Eval(Container.DataItem, "Required_Qty") %>' TextMode="Number" MaxLength="6"></asp:TextBox>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                <asp:TextBox ID="txtRequiredQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Required_Qty") %>' TextMode="Number" MaxLength="6"></asp:TextBox>
+                                            </FooterTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Amount">
+                                            <ItemTemplate>
+                                                <asp:TextBox ID="txtAmount" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Calculated_Amount") %>' TextMode="Number" MaxLength="10"></asp:TextBox>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                <asp:TextBox ID="txtAmount" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Calculated_Amount") %>' TextMode="Number" MaxLength="10"></asp:TextBox>
+                                            </FooterTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Remarks">
+                                            <ItemTemplate>
+                                                <asp:TextBox ID="txtRemarks" runat="server" Text='<%# Eval("Remarks") %>'></asp:TextBox>
+                                            </ItemTemplate>
+                                            <FooterStyle HorizontalAlign="Right" />
+                                            <FooterTemplate>
+                                                <asp:TextBox ID="txtRemarks" runat="server" Text='<%# Eval("Remarks") %>'></asp:TextBox>
+                                            </FooterTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                    <FooterStyle BackColor="#F3EFEE" />
+                                    <HeaderStyle BackColor="#F3EFEE" Font-Bold="True" ForeColor="Black" />
+                                    <PagerStyle ForeColor="Black" HorizontalAlign="Right" BackColor="#F7F7DE" />
+                                    <RowStyle BackColor="#F7F7DE" />
+                                    <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                                    <SortedAscendingCellStyle BackColor="#FBFBF2" />
+                                    <SortedAscendingHeaderStyle BackColor="#848384" />
+                                    <SortedDescendingCellStyle BackColor="#EAEAD3" />
+                                    <SortedDescendingHeaderStyle BackColor="#575357" />
+                                </asp:GridView>
+                            </p>
 
-                                    </FooterTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Available Qty">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblAvailableQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Available_Qty")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Rate Per Qty">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblRatePerQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Rent_per_Qty") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Required Qty">
-                                    <ItemTemplate>
-                                        <asp:TextBox ID="txtRequiredQty" runat="server" onchange="CalAmount(this)" Text='<%# DataBinder.Eval(Container.DataItem, "Required_Qty") %>' TextMode="Number" MaxLength="6"></asp:TextBox>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        <asp:TextBox ID="txtRequiredQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Required_Qty") %>' TextMode="Number" MaxLength="6"></asp:TextBox>
-                                    </FooterTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Amount">
-                                    <ItemTemplate>
-                                        <asp:TextBox ID="txtAmount" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Calculated_Amount") %>' TextMode="Number" MaxLength="10"></asp:TextBox>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        <asp:TextBox ID="txtAmount" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Calculated_Amount") %>' TextMode="Number" MaxLength="10"></asp:TextBox>
-                                    </FooterTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Remarks">
-                                    <ItemTemplate>
-                                        <asp:TextBox ID="txtRemarks" runat="server" Text='<%# Eval("Remarks") %>'></asp:TextBox>
-                                    </ItemTemplate>
-                                    <FooterStyle HorizontalAlign="Right" />
-                                    <FooterTemplate>
-                                        <asp:TextBox ID="txtRemarks" runat="server" Text='<%# Eval("Remarks") %>'></asp:TextBox>
-                                    </FooterTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                            <FooterStyle BackColor="#F3EFEE" />
-                            <HeaderStyle BackColor="#F3EFEE" Font-Bold="True" ForeColor="Black" />
-                            <PagerStyle ForeColor="Black" HorizontalAlign="Right" BackColor="#F7F7DE" />
-                            <RowStyle BackColor="#F7F7DE" />
-                            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-                            <SortedAscendingCellStyle BackColor="#FBFBF2" />
-                            <SortedAscendingHeaderStyle BackColor="#848384" />
-                            <SortedDescendingCellStyle BackColor="#EAEAD3" />
-                            <SortedDescendingHeaderStyle BackColor="#575357" />
-                        </asp:GridView>
-                    </p>
+                            <div class="">
+                                <asp:Button ID="btnAddFacility" runat="server" Text="Add Other Facility" OnClick="btnAddFacility_Click" CausesValidation="False" />
 
-                    <div class="col-lg-10 col-md-10 col-sm-10">
-                        <asp:Button ID="btnAddFacility" runat="server" Text="Add Other Facility" OnClick="btnAddFacility_Click" CausesValidation="False" />
-
-                    </div>
-                </div>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="btnAddFacility" EventName="Click" />
+                    </Triggers>
+                </asp:UpdatePanel>
             </div>
 
         </div>

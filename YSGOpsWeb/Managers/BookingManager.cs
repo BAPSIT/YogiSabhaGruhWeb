@@ -144,6 +144,11 @@ namespace YSGOpsWeb
             bOps.SearchBooking(info);
         }
 
+        public List<InventoryInfo> GetInventoryMaster()
+        {
+            BookingOperations bOps = new BookingOperations();
+            return bOps.GetInventoryMaster();
+        }
 
     }
 }

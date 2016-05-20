@@ -30,10 +30,12 @@ namespace YSGOpsWeb.Pages
                         SetBookingDetails();
                         SetCustomerDetails();
                         SetBookingFacility();
+                        SetInventoryList();
                     }
                     else
                     {
                         SetBookingFacility();
+                        SetInventoryList();
                     }
                 }
             }
@@ -59,6 +61,7 @@ namespace YSGOpsWeb.Pages
                 gridFacilty.DataSource = dtCurrentTable;
                 gridFacilty.DataBind();
             }
+            SetInventoryList();
         }
 
         private List<BookingFacilityInfo> SetPreviousData()
@@ -549,6 +552,21 @@ namespace YSGOpsWeb.Pages
                 Mobile_No = customer.Mobile_No;
                 Email_id = customer.Email_id;
             }
+        }
+
+        private void SetInventoryList()
+        {
+            var inventoryList = manager.GetInventoryMaster();
+            if (inventoryList != null)
+            {
+                DropDownList ddlFacility = (DropDownList)FacilityGrid.FooterRow.Cells[0].FindControl("ddlFacility");
+                ddlFacility.DataSource = inventoryList;
+                ddlFacility.DataTextField = "Item_name";
+                ddlFacility.DataValueField = "Item_no";
+                ddlFacility.DataBind();
+            }
+
+
         }
         #endregion
     }
