@@ -92,6 +92,10 @@ namespace YSGOpsWeb
                 {
                     _bookingView.Calculated_Amount = Convert.ToInt64(Calculated_Amount.Text);
                 }
+                else
+                {
+                    _bookingView.Calculated_Amount = 0;
+                }
 
                 TextBox Remarks = (TextBox)row.Cells[0].FindControl("txtRemarks");
                 _bookingView.Remarks = Convert.ToString(Remarks.Text);

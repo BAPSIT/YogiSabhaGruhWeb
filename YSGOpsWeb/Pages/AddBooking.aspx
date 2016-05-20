@@ -360,7 +360,11 @@
             }
             amount = requiredQuantity.value * rate;
 
-            gridRow.cells[4].innerText = amount;
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].id.indexOf("txtAmount") != -1) {
+                    inputs[i].value = amount;
+                }
+            }
         }
 
     </script>
