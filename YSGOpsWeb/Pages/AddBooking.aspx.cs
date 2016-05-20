@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Web;
@@ -28,7 +29,7 @@ namespace YSGOpsWeb.Pages
                         hdnBookingId.Value = Request.QueryString["booking_id"].ToString();
                         SetBookingDetails();
                         SetCustomerDetails();
-                        SetBookingFacility();                        
+                        SetBookingFacility();
                     }
                     else
                     {
@@ -46,9 +47,83 @@ namespace YSGOpsWeb.Pages
 
         private void SetBookingFacility()
         {
-            manager.BindBookingFacilities(Booking_No);
+            var facilityList = manager.BindBookingFacilities(Booking_No);
+
         }
 
+        private void AddNewRowToGrid()
+        {
+            List<BookingFacilityInfo> dtCurrentTable = SetPreviousData();
+            if (dtCurrentTable.Any())
+            {
+                gridFacilty.DataSource = dtCurrentTable;
+                gridFacilty.DataBind();
+            }
+        }
+
+        private List<BookingFacilityInfo> SetPreviousData()
+        {
+            List<BookingFacilityInfo> facilityList = new List<BookingFacilityInfo>();
+
+            foreach (GridViewRow row in FacilityGrid.Rows)
+            {
+                var bookingFacilityInfo = new BookingFacilityInfo { Booking_No = this.Booking_No, InventoryInfo = new InventoryInfo() };
+
+                Label Item_no = (Label)row.Cells[0].FindControl("lblItemNo");
+                bookingFacilityInfo.Item_no = Convert.ToInt32(Item_no.Text.Trim().Equals(string.Empty) ? "0" : Item_no.Text.Trim());
+                bookingFacilityInfo.InventoryInfo.Item_no = Convert.ToInt32(Item_no.Text.Trim().Equals(string.Empty) ? "0" : Item_no.Text.Trim());
+
+                Label Item_name = (Label)row.Cells[0].FindControl("lblItem");
+                bookingFacilityInfo.InventoryInfo.Item_name = Item_name.Text.Trim();
+
+                Label Available_qty = (Label)row.Cells[0].FindControl("lblAvailableQty");
+                bookingFacilityInfo.InventoryInfo.Available_Qty = Convert.ToInt32(Available_qty.Text.Trim().Equals(string.Empty) ? "0" : Available_qty.Text.Trim());
+
+                Label Rent_per_Qty = (Label)row.Cells[0].FindControl("lblRatePerQty");
+                bookingFacilityInfo.InventoryInfo.Rent_per_Qty = Convert.ToInt32(Rent_per_Qty.Text.Trim().Equals(string.Empty) ? "0" : Rent_per_Qty.Text.Trim());
+
+                TextBox Required_Qty = (TextBox)row.Cells[0].FindControl("txtRequiredQty");
+                bookingFacilityInfo.Required_Qty = Convert.ToInt32(Required_Qty.Text.Trim().Equals(string.Empty) ? "0" : Required_Qty.Text.Trim());
+
+                TextBox Calculated_Amount = (TextBox)row.Cells[0].FindControl("txtAmount");
+                bookingFacilityInfo.Calculated_Amount = Convert.ToInt64(Calculated_Amount.Text.Trim().Equals(string.Empty) ? "0" : Calculated_Amount.Text.Trim());
+
+                TextBox Remarks = (TextBox)row.Cells[0].FindControl("txtRemarks");
+                bookingFacilityInfo.Remarks = Convert.ToString(Remarks.Text);
+                facilityList.Add(bookingFacilityInfo);
+
+            }
+
+            {
+                var footerRow = FacilityGrid.FooterRow;
+                var bookingFacilityInfo = new BookingFacilityInfo { Booking_No = this.Booking_No, InventoryInfo = new InventoryInfo() };
+
+                DropDownList ddlFacility = (DropDownList)footerRow.Cells[0].FindControl("ddlFacility");
+                bookingFacilityInfo.InventoryInfo.Item_name = ddlFacility.SelectedItem.Text.Trim();
+                bookingFacilityInfo.Item_no = Convert.ToInt32(ddlFacility.SelectedValue.Trim().Equals(string.Empty) ? "0" : ddlFacility.SelectedValue.Trim());
+                bookingFacilityInfo.InventoryInfo.Item_no = Convert.ToInt32(ddlFacility.SelectedValue.Trim().Equals(string.Empty) ? "0" : ddlFacility.SelectedValue.Trim());
+
+                TextBox Required_Qty = (TextBox)footerRow.Cells[0].FindControl("txtRequiredQty");
+                bookingFacilityInfo.Required_Qty = Convert.ToInt32(Required_Qty.Text.Trim().Equals(string.Empty) ? "0" : Required_Qty.Text.Trim());
+
+                TextBox Calculated_Amount = (TextBox)footerRow.Cells[0].FindControl("txtAmount");
+                bookingFacilityInfo.Calculated_Amount = Convert.ToInt64(Calculated_Amount.Text.Trim().Equals(string.Empty) ? "0" : Calculated_Amount.Text.Trim());
+
+                TextBox Remarks = (TextBox)footerRow.Cells[0].FindControl("txtRemarks");
+                bookingFacilityInfo.Remarks = Convert.ToString(Remarks.Text);
+
+
+                facilityList.Add(bookingFacilityInfo);
+            }
+
+            //ViewState["CurrentTable"] = facilityList;
+            return facilityList;
+        }
+
+        protected void btnAddFacility_Click(object sender, EventArgs e)
+        {
+            AddNewRowToGrid();
+        }
 
         #region #Public Properties
         public int Booking_No
@@ -72,7 +147,7 @@ namespace YSGOpsWeb.Pages
             set
             {
                 hdnBookingId.Value = value.ToString();
-                inpBookingID.Value =  value.ToString();
+                inpBookingID.Value = value.ToString();
             }
         }
 
@@ -85,7 +160,7 @@ namespace YSGOpsWeb.Pages
             set
             {
                 //inpBookingDate.Value = value.ToString("MM/dd/yyyy");
-                inpBookingDate.Value =  value.ToString("MM/dd/yyyy").Replace('-', '/');
+                inpBookingDate.Value = value.ToString("MM/dd/yyyy").Replace('-', '/');
             }
 
         }
@@ -136,7 +211,7 @@ namespace YSGOpsWeb.Pages
 
                     case 'C':
                         inpBookingStatus.Value = "Cancelled";
-                        break;                  
+                        break;
 
                     default:
                         inpBookingStatus.Value = string.Empty;
@@ -438,7 +513,7 @@ namespace YSGOpsWeb.Pages
                 Booking_Id = booking.Booking_Id;
                 Booking_No = booking.Booking_No;
 
-               
+
                 Booking_Date = booking.Booking_Date;
                 Booking_FromTime = booking.Booking_FromTime;
                 Booking_ToTime = booking.Booking_ToTime;

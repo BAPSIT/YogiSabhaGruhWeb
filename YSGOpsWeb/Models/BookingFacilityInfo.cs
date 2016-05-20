@@ -8,6 +8,7 @@ using DapperExtensions.Mapper;
 using DapperAttribute = Dapper.Contrib.Extensions;
 namespace YSGOpsWeb.Models
 {
+ [Serializable]
     public class BookingFacilityInfo
     {
         public int Booking_Facility_No { get; set; }

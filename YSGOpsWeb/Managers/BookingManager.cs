@@ -46,14 +46,14 @@ namespace YSGOpsWeb
             return cOps.GetCustomer(_bookingView.Customer_no);
         }
 
-        public void BindBookingFacilities(int bookingNo)
+        public IEnumerable<BookingFacilityInfo> BindBookingFacilities(int bookingNo)
         {
             //if (bookingNo > 0)
             //{
-                var bookingFacilityList = new FacilityOperations().GetBookingFacilities(bookingNo).ToList();
-                //return bookingFacilityList;
-                _bookingView.FacilityGrid.DataSource = bookingFacilityList;
-                _bookingView.FacilityGrid.DataBind();
+            var bookingFacilityList = new FacilityOperations().GetBookingFacilities(bookingNo).ToList();
+            //return bookingFacilityList;
+            _bookingView.FacilityGrid.DataSource = bookingFacilityList;
+            _bookingView.FacilityGrid.DataBind();
             //}
             //else
             //{
@@ -61,6 +61,8 @@ namespace YSGOpsWeb
             //    _bookingView.FacilityGrid.DataSource = list;
             //    _bookingView.FacilityGrid.DataBind();
             //}
+
+            return bookingFacilityList;
         }
 
         public void Save()
@@ -72,12 +74,12 @@ namespace YSGOpsWeb
             BookingInfo info = BookingInfo.fromIBooking(_bookingView);
             info.Customer_No = customerNo;
             BookingOperations bOps = new BookingOperations();
-             _bookingView.Booking_No = bOps.AddOrUpdateBooking(info);
+            _bookingView.Booking_No = bOps.AddOrUpdateBooking(info);
 
             // Add booking facilities
 
             //FOREACH row
-            foreach(GridViewRow row in _bookingView.FacilityGrid.Rows)
+            foreach (GridViewRow row in _bookingView.FacilityGrid.Rows)
             {
                 Label Item_no = (Label)row.Cells[0].FindControl("lblItemNo");
                 _bookingView.Item_no = Convert.ToInt32(Item_no.Text);
@@ -90,14 +92,40 @@ namespace YSGOpsWeb
                 {
                     _bookingView.Calculated_Amount = Convert.ToInt64(Calculated_Amount.Text);
                 }
-                _bookingView.Calculated_Amount = 0;
 
                 TextBox Remarks = (TextBox)row.Cells[0].FindControl("txtRemarks");
                 _bookingView.Remarks = Convert.ToString(Remarks.Text);
 
                 BookingFacilityInfo bookingFacilityInfo = BookingFacilityInfo.fromICustomerDetails(_bookingView);
                 bOps.AddOrUpdateBookingFacility(bookingFacilityInfo);
-            }            
+            }
+            SaveFooterRowData(bOps);
+        }
+
+        private void SaveFooterRowData(BookingOperations bOps)
+        {
+            var footerRow = _bookingView.FacilityGrid.FooterRow;
+           
+           
+            TextBox txtRequiredQty = (TextBox)footerRow.Cells[0].FindControl("txtRequiredQty");
+            var requiredQty = Convert.ToInt32(txtRequiredQty.Text.Trim().Equals(string.Empty) ? "0" : txtRequiredQty.Text.Trim());
+            if (requiredQty > 0)
+            {
+                var bookingFacilityInfo = new BookingFacilityInfo { Booking_No = _bookingView.Booking_No, InventoryInfo = new InventoryInfo() };
+                DropDownList ddlFacility = (DropDownList)footerRow.Cells[0].FindControl("ddlFacility");
+                bookingFacilityInfo.InventoryInfo.Item_name = ddlFacility.SelectedItem.Text.Trim();
+                bookingFacilityInfo.Item_no = Convert.ToInt32(ddlFacility.SelectedValue.Trim().Equals(string.Empty) ? "0" : ddlFacility.SelectedValue.Trim());
+
+                bookingFacilityInfo.Required_Qty = requiredQty;
+
+                TextBox Calculated_Amount = (TextBox)footerRow.Cells[0].FindControl("txtAmount");
+                bookingFacilityInfo.Calculated_Amount = Convert.ToInt64(Calculated_Amount.Text.Trim().Equals(string.Empty) ? "0" : Calculated_Amount.Text.Trim());
+
+                TextBox Remarks = (TextBox)footerRow.Cells[0].FindControl("txtRemarks");
+                bookingFacilityInfo.Remarks = Convert.ToString(Remarks.Text);
+              
+                bOps.AddOrUpdateBookingFacility(bookingFacilityInfo);
+            }
         }
 
 
@@ -116,6 +144,6 @@ namespace YSGOpsWeb
             bOps.SearchBooking(info);
         }
 
-        
+
     }
 }

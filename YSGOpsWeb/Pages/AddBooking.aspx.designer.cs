@@ -220,6 +220,15 @@ namespace YSGOpsWeb.Pages {
         protected global::System.Web.UI.WebControls.GridView gridFacilty;
         
         /// <summary>
+        /// btnAddFacility control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddFacility;
+        
+        /// <summary>
         /// inpBookingFinal control.
         /// </summary>
         /// <remarks>

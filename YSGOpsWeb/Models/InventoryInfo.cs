@@ -6,6 +6,7 @@ using YSGOpsWeb.Interfaces;
 
 namespace YSGOpsWeb.Models
 {
+    [Serializable]
     public class InventoryInfo
     {
         public int Item_no { get; set; }
