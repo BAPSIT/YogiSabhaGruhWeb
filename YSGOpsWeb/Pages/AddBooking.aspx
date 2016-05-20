@@ -16,6 +16,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <div class="panel panel-default">
+
         <asp:ScriptManager runat="server"></asp:ScriptManager>
         <asp:Panel runat="server" Visible="false" ID="pnlMessage">
             <div class="alert alert-danger">
