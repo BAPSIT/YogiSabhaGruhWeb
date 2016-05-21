@@ -186,8 +186,7 @@
                     <ContentTemplate>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <p>
-                                <%--<table id="tblFacility" cellpadding="0" cellspacing="0">
-                        </table>--%>
+                               
                                 <asp:GridView ID="gridFacilty" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ShowHeaderWhenEmpty="True" ForeColor="Black" GridLines="Vertical" ShowFooter="true">
                                     <AlternatingRowStyle BackColor="White" />
                                     <Columns>
@@ -205,13 +204,7 @@
                                             </ItemTemplate>
 
                                             <FooterTemplate>
-                                                <%--<asp:DropDownList CssClass="form-control" ID="ddlFacility" runat="server">
-                                            <asp:ListItem Value="5">Plastic Chairs</asp:ListItem>
-                                            <asp:ListItem Value="102">Food Packets</asp:ListItem>
-                                            <asp:ListItem Value="103">Others - 1</asp:ListItem>
-                                            <asp:ListItem Value="104">Others - 2</asp:ListItem>
-                                            <asp:ListItem Value="105">Others -3</asp:ListItem>
-                                        </asp:DropDownList>--%>
+                                               
                                                 <asp:DropDownList CssClass="form-control" ID="ddlFacility" runat="server">
                                                 </asp:DropDownList>
                                             </FooterTemplate>
@@ -253,7 +246,7 @@
                                         </asp:TemplateField>
                                     </Columns>
                                     <FooterStyle BackColor="#F3EFEE" />
-                                    <HeaderStyle BackColor="#F3EFEE" Font-Bold="True" ForeColor="Black" />
+                                    <HeaderStyle BackColor="#F3EFEE" ForeColor="Black"  HorizontalAlign="Center"/>
                                     <PagerStyle ForeColor="Black" HorizontalAlign="Right" BackColor="#F7F7DE" />
                                     <RowStyle BackColor="#F7F7DE" />
                                     <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
@@ -286,11 +279,23 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
                         <label for="inpBookingFinal">Final Booking Amount</label>
-                        <input type="text" runat="server" value="0" class="form-control" id="inpBookingFinal" />
-                    </div>
+                        <input type="text" runat="server" value="0" class="form-control" id="inpBookingFinal" /><br />
+&nbsp;</div>
 
                 </div>
-                <div class="col-md-4 col-sm-6">
+                 <div class="col-md-4 col-sm-6">
+                    <div class="form-inline">
+                        <label>Paid Amount</label>
+                        <input type="text" runat="server" class="form-control" id="inpPaidAmt" value="0" /><asp:RegularExpressionValidator ID="rfvPaidAmount" runat="server" ControlToValidate="inpPaidAmt" CssClass="text-danger" ValidationExpression="\d+" Display="Dynamic" ErrorMessage="Amount should be a number"></asp:RegularExpressionValidator>
+
+                        <br />
+
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+               <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
 
                         <label for="inpBookingFinal">Discount</label>
@@ -305,16 +310,6 @@
                         <label for="inpBookingFinal">Discount Reason</label>
                         <input type="text" runat="server" class="form-control" id="inpDiscountReason" />
 
-
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="form-inline">
-                        <label>Paid Amount</label>
-                        <input type="text" runat="server" class="form-control" id="inpPaidAmt" value="0" /><br />
-                        <asp:RegularExpressionValidator ID="rfvPaidAmount" runat="server" ControlToValidate="inpPaidAmt" CssClass="text-danger" ValidationExpression="\d+" Display="Dynamic" ErrorMessage="Amount should be a number"></asp:RegularExpressionValidator>
 
                     </div>
                 </div>
