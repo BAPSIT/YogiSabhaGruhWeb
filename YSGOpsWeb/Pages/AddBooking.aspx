@@ -193,10 +193,10 @@
                                     <Columns>
                                         <asp:TemplateField HeaderText="Item" Visible="false">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblItemNo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Item_no")%>' Visible="false"></asp:Label>
+                                                <asp:Label ID="lblItemNo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Item_no")%>' Visible="false"></asp:Label>
                                             </ItemTemplate>
                                             <FooterTemplate>
-                                                <asp:Label ID="lblItemNo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Item_no")%>' Visible="false"></asp:Label>
+                                                <asp:Label ID="lblItemNo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Item_no")%>' Visible="false"></asp:Label>
                                             </FooterTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Item">
