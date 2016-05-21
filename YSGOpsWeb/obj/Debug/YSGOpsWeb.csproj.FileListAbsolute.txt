@@ -216,11 +216,9 @@ G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.Contrib.
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\YSGOpsWeb.csprojResolveAssemblyReference.cache
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\YSGOpsWeb.dll
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\YSGOpsWeb.pdb
-D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\ApplicationInsights.config
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\YSGOpsWeb.dll
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\YSGOpsWeb.pdb
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\Antlr3.Runtime.dll
-D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.dll
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\Microsoft.AspNet.Identity.Core.dll
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\Microsoft.AspNet.Identity.Owin.dll
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\Microsoft.Owin.dll
@@ -241,8 +239,6 @@ D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\System.Web.WebPages.Deployment.
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\System.Web.WebPages.dll
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\System.Web.WebPages.Razor.dll
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\WebGrease.dll
-D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\YSGServices.dll
-D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\YSGServices.pdb
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\Antlr3.Runtime.pdb
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.pdb
 D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.xml
@@ -340,3 +336,5 @@ I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-maste
 I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOpsWeb\obj\Debug\YSGOpsWeb.csprojResolveAssemblyReference.cache
 G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\RdlCompile.cache
 G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\RdlCompile.compiled
+D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\RdlCompile.cache
+D:\Pranay\Imp\YSG\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\RdlCompile.compiled

@@ -28,7 +28,7 @@ namespace YSGOpsWeb.DataLayer
                 return a;
             },
             new { Booking_No = bookingNo }, null, true,
-            splitOn: "Item_no",
+            splitOn: "Item_name",
              commandTimeout: null, commandType: CommandType.StoredProcedure
                ).AsQueryable();
 
