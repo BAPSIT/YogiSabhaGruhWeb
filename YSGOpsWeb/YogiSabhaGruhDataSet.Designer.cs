@@ -32,6 +32,8 @@ namespace YSGOpsWeb {
         
         private RPT_BOOKING_CANCELLATION_DATE_WISEDataTable tableRPT_BOOKING_CANCELLATION_DATE_WISE;
         
+        private RPT_BOOKING_DETAILS_DATE_WISE1DataTable tableRPT_BOOKING_DETAILS_DATE_WISE1;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -71,6 +73,9 @@ namespace YSGOpsWeb {
                 }
                 if ((ds.Tables["RPT_BOOKING_CANCELLATION_DATE_WISE"] != null)) {
                     base.Tables.Add(new RPT_BOOKING_CANCELLATION_DATE_WISEDataTable(ds.Tables["RPT_BOOKING_CANCELLATION_DATE_WISE"]));
+                }
+                if ((ds.Tables["RPT_BOOKING_DETAILS_DATE_WISE1"] != null)) {
+                    base.Tables.Add(new RPT_BOOKING_DETAILS_DATE_WISE1DataTable(ds.Tables["RPT_BOOKING_DETAILS_DATE_WISE1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -127,6 +132,16 @@ namespace YSGOpsWeb {
         public RPT_BOOKING_CANCELLATION_DATE_WISEDataTable RPT_BOOKING_CANCELLATION_DATE_WISE {
             get {
                 return this.tableRPT_BOOKING_CANCELLATION_DATE_WISE;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public RPT_BOOKING_DETAILS_DATE_WISE1DataTable RPT_BOOKING_DETAILS_DATE_WISE1 {
+            get {
+                return this.tableRPT_BOOKING_DETAILS_DATE_WISE1;
             }
         }
         
@@ -209,6 +224,9 @@ namespace YSGOpsWeb {
                 if ((ds.Tables["RPT_BOOKING_CANCELLATION_DATE_WISE"] != null)) {
                     base.Tables.Add(new RPT_BOOKING_CANCELLATION_DATE_WISEDataTable(ds.Tables["RPT_BOOKING_CANCELLATION_DATE_WISE"]));
                 }
+                if ((ds.Tables["RPT_BOOKING_DETAILS_DATE_WISE1"] != null)) {
+                    base.Tables.Add(new RPT_BOOKING_DETAILS_DATE_WISE1DataTable(ds.Tables["RPT_BOOKING_DETAILS_DATE_WISE1"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -266,6 +284,12 @@ namespace YSGOpsWeb {
                     this.tableRPT_BOOKING_CANCELLATION_DATE_WISE.InitVars();
                 }
             }
+            this.tableRPT_BOOKING_DETAILS_DATE_WISE1 = ((RPT_BOOKING_DETAILS_DATE_WISE1DataTable)(base.Tables["RPT_BOOKING_DETAILS_DATE_WISE1"]));
+            if ((initTable == true)) {
+                if ((this.tableRPT_BOOKING_DETAILS_DATE_WISE1 != null)) {
+                    this.tableRPT_BOOKING_DETAILS_DATE_WISE1.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -284,6 +308,8 @@ namespace YSGOpsWeb {
             base.Tables.Add(this.tableRPT_ITEM_LIST);
             this.tableRPT_BOOKING_CANCELLATION_DATE_WISE = new RPT_BOOKING_CANCELLATION_DATE_WISEDataTable();
             base.Tables.Add(this.tableRPT_BOOKING_CANCELLATION_DATE_WISE);
+            this.tableRPT_BOOKING_DETAILS_DATE_WISE1 = new RPT_BOOKING_DETAILS_DATE_WISE1DataTable();
+            base.Tables.Add(this.tableRPT_BOOKING_DETAILS_DATE_WISE1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -307,6 +333,12 @@ namespace YSGOpsWeb {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeRPT_BOOKING_CANCELLATION_DATE_WISE() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeRPT_BOOKING_DETAILS_DATE_WISE1() {
             return false;
         }
         
@@ -376,6 +408,9 @@ namespace YSGOpsWeb {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void RPT_BOOKING_CANCELLATION_DATE_WISERowChangeEventHandler(object sender, RPT_BOOKING_CANCELLATION_DATE_WISERowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void RPT_BOOKING_DETAILS_DATE_WISE1RowChangeEventHandler(object sender, RPT_BOOKING_DETAILS_DATE_WISE1RowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2380,6 +2415,399 @@ namespace YSGOpsWeb {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "RPT_BOOKING_CANCELLATION_DATE_WISEDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class RPT_BOOKING_DETAILS_DATE_WISE1DataTable : global::System.Data.TypedTableBase<RPT_BOOKING_DETAILS_DATE_WISE1Row> {
+            
+            private global::System.Data.DataColumn columnBooking_ID;
+            
+            private global::System.Data.DataColumn columnBooking_Date;
+            
+            private global::System.Data.DataColumn columnBooking_FromTime;
+            
+            private global::System.Data.DataColumn columnBooking_ToTime;
+            
+            private global::System.Data.DataColumn columnEvent_no;
+            
+            private global::System.Data.DataColumn columnEvent_Class;
+            
+            private global::System.Data.DataColumn columnCustomer_name;
+            
+            private global::System.Data.DataColumn columnCustomer_Address;
+            
+            private global::System.Data.DataColumn columnMobile_No;
+            
+            private global::System.Data.DataColumn columnExpr1;
+            
+            private global::System.Data.DataColumn columnHall_name;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_BOOKING_DETAILS_DATE_WISE1DataTable() {
+                this.TableName = "RPT_BOOKING_DETAILS_DATE_WISE1";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal RPT_BOOKING_DETAILS_DATE_WISE1DataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected RPT_BOOKING_DETAILS_DATE_WISE1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Booking_IDColumn {
+                get {
+                    return this.columnBooking_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Booking_DateColumn {
+                get {
+                    return this.columnBooking_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Booking_FromTimeColumn {
+                get {
+                    return this.columnBooking_FromTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Booking_ToTimeColumn {
+                get {
+                    return this.columnBooking_ToTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Event_noColumn {
+                get {
+                    return this.columnEvent_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Event_ClassColumn {
+                get {
+                    return this.columnEvent_Class;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Customer_nameColumn {
+                get {
+                    return this.columnCustomer_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Customer_AddressColumn {
+                get {
+                    return this.columnCustomer_Address;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Mobile_NoColumn {
+                get {
+                    return this.columnMobile_No;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Expr1Column {
+                get {
+                    return this.columnExpr1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Hall_nameColumn {
+                get {
+                    return this.columnHall_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_BOOKING_DETAILS_DATE_WISE1Row this[int index] {
+                get {
+                    return ((RPT_BOOKING_DETAILS_DATE_WISE1Row)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event RPT_BOOKING_DETAILS_DATE_WISE1RowChangeEventHandler RPT_BOOKING_DETAILS_DATE_WISE1RowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event RPT_BOOKING_DETAILS_DATE_WISE1RowChangeEventHandler RPT_BOOKING_DETAILS_DATE_WISE1RowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event RPT_BOOKING_DETAILS_DATE_WISE1RowChangeEventHandler RPT_BOOKING_DETAILS_DATE_WISE1RowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event RPT_BOOKING_DETAILS_DATE_WISE1RowChangeEventHandler RPT_BOOKING_DETAILS_DATE_WISE1RowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddRPT_BOOKING_DETAILS_DATE_WISE1Row(RPT_BOOKING_DETAILS_DATE_WISE1Row row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_BOOKING_DETAILS_DATE_WISE1Row AddRPT_BOOKING_DETAILS_DATE_WISE1Row(decimal Booking_ID, System.DateTime Booking_Date, System.DateTime Booking_FromTime, System.DateTime Booking_ToTime, decimal Event_no, string Event_Class, string Customer_name, string Customer_Address, string Mobile_No, string Expr1, string Hall_name) {
+                RPT_BOOKING_DETAILS_DATE_WISE1Row rowRPT_BOOKING_DETAILS_DATE_WISE1Row = ((RPT_BOOKING_DETAILS_DATE_WISE1Row)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Booking_ID,
+                        Booking_Date,
+                        Booking_FromTime,
+                        Booking_ToTime,
+                        Event_no,
+                        Event_Class,
+                        Customer_name,
+                        Customer_Address,
+                        Mobile_No,
+                        Expr1,
+                        Hall_name};
+                rowRPT_BOOKING_DETAILS_DATE_WISE1Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowRPT_BOOKING_DETAILS_DATE_WISE1Row);
+                return rowRPT_BOOKING_DETAILS_DATE_WISE1Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                RPT_BOOKING_DETAILS_DATE_WISE1DataTable cln = ((RPT_BOOKING_DETAILS_DATE_WISE1DataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new RPT_BOOKING_DETAILS_DATE_WISE1DataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnBooking_ID = base.Columns["Booking_ID"];
+                this.columnBooking_Date = base.Columns["Booking_Date"];
+                this.columnBooking_FromTime = base.Columns["Booking_FromTime"];
+                this.columnBooking_ToTime = base.Columns["Booking_ToTime"];
+                this.columnEvent_no = base.Columns["Event_no"];
+                this.columnEvent_Class = base.Columns["Event_Class"];
+                this.columnCustomer_name = base.Columns["Customer_name"];
+                this.columnCustomer_Address = base.Columns["Customer_Address"];
+                this.columnMobile_No = base.Columns["Mobile_No"];
+                this.columnExpr1 = base.Columns["Expr1"];
+                this.columnHall_name = base.Columns["Hall_name"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnBooking_ID = new global::System.Data.DataColumn("Booking_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBooking_ID);
+                this.columnBooking_Date = new global::System.Data.DataColumn("Booking_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBooking_Date);
+                this.columnBooking_FromTime = new global::System.Data.DataColumn("Booking_FromTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBooking_FromTime);
+                this.columnBooking_ToTime = new global::System.Data.DataColumn("Booking_ToTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBooking_ToTime);
+                this.columnEvent_no = new global::System.Data.DataColumn("Event_no", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEvent_no);
+                this.columnEvent_Class = new global::System.Data.DataColumn("Event_Class", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEvent_Class);
+                this.columnCustomer_name = new global::System.Data.DataColumn("Customer_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer_name);
+                this.columnCustomer_Address = new global::System.Data.DataColumn("Customer_Address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer_Address);
+                this.columnMobile_No = new global::System.Data.DataColumn("Mobile_No", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMobile_No);
+                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExpr1);
+                this.columnHall_name = new global::System.Data.DataColumn("Hall_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHall_name);
+                this.columnEvent_Class.MaxLength = 50;
+                this.columnCustomer_name.MaxLength = 50;
+                this.columnCustomer_Address.MaxLength = 2000;
+                this.columnMobile_No.MaxLength = 50;
+                this.columnExpr1.MaxLength = 1;
+                this.columnHall_name.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_BOOKING_DETAILS_DATE_WISE1Row NewRPT_BOOKING_DETAILS_DATE_WISE1Row() {
+                return ((RPT_BOOKING_DETAILS_DATE_WISE1Row)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new RPT_BOOKING_DETAILS_DATE_WISE1Row(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(RPT_BOOKING_DETAILS_DATE_WISE1Row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.RPT_BOOKING_DETAILS_DATE_WISE1RowChanged != null)) {
+                    this.RPT_BOOKING_DETAILS_DATE_WISE1RowChanged(this, new RPT_BOOKING_DETAILS_DATE_WISE1RowChangeEvent(((RPT_BOOKING_DETAILS_DATE_WISE1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.RPT_BOOKING_DETAILS_DATE_WISE1RowChanging != null)) {
+                    this.RPT_BOOKING_DETAILS_DATE_WISE1RowChanging(this, new RPT_BOOKING_DETAILS_DATE_WISE1RowChangeEvent(((RPT_BOOKING_DETAILS_DATE_WISE1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.RPT_BOOKING_DETAILS_DATE_WISE1RowDeleted != null)) {
+                    this.RPT_BOOKING_DETAILS_DATE_WISE1RowDeleted(this, new RPT_BOOKING_DETAILS_DATE_WISE1RowChangeEvent(((RPT_BOOKING_DETAILS_DATE_WISE1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.RPT_BOOKING_DETAILS_DATE_WISE1RowDeleting != null)) {
+                    this.RPT_BOOKING_DETAILS_DATE_WISE1RowDeleting(this, new RPT_BOOKING_DETAILS_DATE_WISE1RowChangeEvent(((RPT_BOOKING_DETAILS_DATE_WISE1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveRPT_BOOKING_DETAILS_DATE_WISE1Row(RPT_BOOKING_DETAILS_DATE_WISE1Row row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                YogiSabhaGruhDataSet ds = new YogiSabhaGruhDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "RPT_BOOKING_DETAILS_DATE_WISE1DataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4558,6 +4986,340 @@ namespace YSGOpsWeb {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class RPT_BOOKING_DETAILS_DATE_WISE1Row : global::System.Data.DataRow {
+            
+            private RPT_BOOKING_DETAILS_DATE_WISE1DataTable tableRPT_BOOKING_DETAILS_DATE_WISE1;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal RPT_BOOKING_DETAILS_DATE_WISE1Row(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableRPT_BOOKING_DETAILS_DATE_WISE1 = ((RPT_BOOKING_DETAILS_DATE_WISE1DataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Booking_ID {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Booking_ID\' in table \'RPT_BOOKING_DETAILS_DATE_WISE1\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Booking_Date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Booking_Date\' in table \'RPT_BOOKING_DETAILS_DATE_WISE1\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Booking_FromTime {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_FromTimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Booking_FromTime\' in table \'RPT_BOOKING_DETAILS_DATE_WISE1\'" +
+                                " is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_FromTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Booking_ToTime {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_ToTimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Booking_ToTime\' in table \'RPT_BOOKING_DETAILS_DATE_WISE1\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_ToTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Event_no {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Event_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Event_no\' in table \'RPT_BOOKING_DETAILS_DATE_WISE1\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Event_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Event_Class {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Event_ClassColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Event_Class\' in table \'RPT_BOOKING_DETAILS_DATE_WISE1\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Event_ClassColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Customer_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Customer_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_name\' in table \'RPT_BOOKING_DETAILS_DATE_WISE1\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Customer_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Customer_Address {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Customer_AddressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_Address\' in table \'RPT_BOOKING_DETAILS_DATE_WISE1\'" +
+                                " is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Customer_AddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Mobile_No {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Mobile_NoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Mobile_No\' in table \'RPT_BOOKING_DETAILS_DATE_WISE1\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Mobile_NoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Expr1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Expr1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Expr1\' in table \'RPT_BOOKING_DETAILS_DATE_WISE1\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Expr1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Hall_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Hall_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Hall_name\' in table \'RPT_BOOKING_DETAILS_DATE_WISE1\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Hall_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBooking_IDNull() {
+                return this.IsNull(this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBooking_IDNull() {
+                this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBooking_DateNull() {
+                return this.IsNull(this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBooking_DateNull() {
+                this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBooking_FromTimeNull() {
+                return this.IsNull(this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_FromTimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBooking_FromTimeNull() {
+                this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_FromTimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBooking_ToTimeNull() {
+                return this.IsNull(this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_ToTimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBooking_ToTimeNull() {
+                this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Booking_ToTimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEvent_noNull() {
+                return this.IsNull(this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Event_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEvent_noNull() {
+                this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Event_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEvent_ClassNull() {
+                return this.IsNull(this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Event_ClassColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEvent_ClassNull() {
+                this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Event_ClassColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCustomer_nameNull() {
+                return this.IsNull(this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Customer_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCustomer_nameNull() {
+                this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Customer_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCustomer_AddressNull() {
+                return this.IsNull(this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Customer_AddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCustomer_AddressNull() {
+                this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Customer_AddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMobile_NoNull() {
+                return this.IsNull(this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Mobile_NoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMobile_NoNull() {
+                this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Mobile_NoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsExpr1Null() {
+                return this.IsNull(this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Expr1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetExpr1Null() {
+                this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Expr1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHall_nameNull() {
+                return this.IsNull(this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Hall_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHall_nameNull() {
+                this[this.tableRPT_BOOKING_DETAILS_DATE_WISE1.Hall_nameColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -4679,6 +5441,40 @@ namespace YSGOpsWeb {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RPT_BOOKING_CANCELLATION_DATE_WISERow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class RPT_BOOKING_DETAILS_DATE_WISE1RowChangeEvent : global::System.EventArgs {
+            
+            private RPT_BOOKING_DETAILS_DATE_WISE1Row eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_BOOKING_DETAILS_DATE_WISE1RowChangeEvent(RPT_BOOKING_DETAILS_DATE_WISE1Row row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RPT_BOOKING_DETAILS_DATE_WISE1Row Row {
                 get {
                     return this.eventRow;
                 }
@@ -5589,6 +6385,229 @@ namespace YSGOpsWeb.YogiSabhaGruhDataSetTableAdapters {
                 this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             YogiSabhaGruhDataSet.RPT_BOOKING_CANCELLATION_DATE_WISEDataTable dataTable = new YogiSabhaGruhDataSet.RPT_BOOKING_CANCELLATION_DATE_WISEDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class RPT_BOOKING_DETAILS_DATE_WISE1TableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public RPT_BOOKING_DETAILS_DATE_WISE1TableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "RPT_BOOKING_DETAILS_DATE_WISE1";
+            tableMapping.ColumnMappings.Add("Booking_ID", "Booking_ID");
+            tableMapping.ColumnMappings.Add("Booking_Date", "Booking_Date");
+            tableMapping.ColumnMappings.Add("Booking_FromTime", "Booking_FromTime");
+            tableMapping.ColumnMappings.Add("Booking_ToTime", "Booking_ToTime");
+            tableMapping.ColumnMappings.Add("Event_no", "Event_no");
+            tableMapping.ColumnMappings.Add("Event_Class", "Event_Class");
+            tableMapping.ColumnMappings.Add("Customer_name", "Customer_name");
+            tableMapping.ColumnMappings.Add("Customer_Address", "Customer_Address");
+            tableMapping.ColumnMappings.Add("Mobile_No", "Mobile_No");
+            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
+            tableMapping.ColumnMappings.Add("Hall_name", "Hall_name");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = "Data Source=208.91.198.196;Initial Catalog=YogiSabhaGruh;User ID=yogisabha;Passwo" +
+                "rd=YogI^321%;MultipleActiveResultSets=True;Application Name=EntityFramework";
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        dbo.YSG_Booking_Info.Booking_ID, dbo.YSG_Booking_Info.Booking_Date, dbo.YSG_Booking_Info.Booking_FromTime, dbo.YSG_Booking_Info.Booking_ToTime, dbo.YSG_Booking_Info.Event_no, 
+                         dbo.YSG_Booking_Info.Event_Class, dbo.YSG_Customer_Info.Customer_name, dbo.YSG_Customer_Info.Customer_Address, dbo.YSG_Customer_Info.Mobile_No, dbo.YSG_Booking_Info.IsActive AS Expr1, 
+                         dbo.YSG_Hall_Master.Hall_name
+FROM            dbo.YSG_Booking_Info INNER JOIN
+                         dbo.YSG_Hall_Master ON dbo.YSG_Booking_Info.Hall_no = dbo.YSG_Hall_Master.Hall_no LEFT OUTER JOIN
+                         dbo.YSG_Customer_Info ON dbo.YSG_Booking_Info.Customer_no = dbo.YSG_Customer_Info.Customer_no
+WHERE        (dbo.YSG_Booking_Info.Booking_Date >= @Start_Date) AND (dbo.YSG_Booking_Info.Booking_Date <= @End_Date) AND (dbo.YSG_Booking_Info.Hall_no = @Hall_No)";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Start_Date", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@End_Date", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hall_No", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 0, "Hall_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(YogiSabhaGruhDataSet.RPT_BOOKING_DETAILS_DATE_WISE1DataTable dataTable, global::System.Nullable<global::System.DateTime> Start_Date, global::System.Nullable<global::System.DateTime> End_Date, global::System.Nullable<decimal> Hall_No) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Start_Date.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Start_Date.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((End_Date.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(End_Date.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Hall_No.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((decimal)(Hall_No.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual YogiSabhaGruhDataSet.RPT_BOOKING_DETAILS_DATE_WISE1DataTable GetData(global::System.Nullable<global::System.DateTime> Start_Date, global::System.Nullable<global::System.DateTime> End_Date, global::System.Nullable<decimal> Hall_No) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Start_Date.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Start_Date.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((End_Date.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(End_Date.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Hall_No.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((decimal)(Hall_No.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            YogiSabhaGruhDataSet.RPT_BOOKING_DETAILS_DATE_WISE1DataTable dataTable = new YogiSabhaGruhDataSet.RPT_BOOKING_DETAILS_DATE_WISE1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

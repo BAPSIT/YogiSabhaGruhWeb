@@ -26,14 +26,14 @@
                 <a class="navbar-brand" href="/">YSG Operations</a>
             </div>
             <div class="collapse navbar-collapse" id="mainmenu">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" >
                     <li class="active"><a href="/Pages/Home.aspx">Home</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Booking
         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/Pages/AddBooking.aspx">Add Booking</a></li>
-                            <li><a href="/Pages/FindBooking.aspx">Find Booking</a></li>
+                            <li><a href="/Pages/FindBooking.aspx">Find / Cancellation Booking</a></li>
                         </ul>
                     </li>
                     <li><a href="#">My Tasks</a></li>
@@ -48,7 +48,7 @@
                             <li><a href="/pages/TithiCalendar.aspx">Mandir Events</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports
         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -62,10 +62,8 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome, BAPS ADMIN</li>
-
-                    <span class="caret"></span></a>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome, BAPS ADMIN
+        <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Change Password</a></li>
                             <li><a href="/pages/login.aspx">Logout</a></li>

@@ -18,8 +18,6 @@
       <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
           <img src="../images/logo.jpg" class="img-rounded center-block" alt="Responsive image">
-          <h1 class="text-center">YSG Management System</h1>
-          <h1 class="text-center">Login</h1>
       </div>
       <div class="modal-body">
             <div class="form-group">

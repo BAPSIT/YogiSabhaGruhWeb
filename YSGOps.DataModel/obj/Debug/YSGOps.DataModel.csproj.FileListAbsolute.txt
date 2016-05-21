@@ -65,3 +65,17 @@ I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-maste
 I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.dll
 I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.pdb
 I:\p\prgs\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YogiSabhaGruhWeb-master\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.csprojResolveAssemblyReference.cache
+I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.dll.config
+I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.dll
+I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\YSGOps.DataModel.pdb
+I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\Dapper.dll
+I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\DapperExtensions.dll
+I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.dll
+I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\Dapper.pdb
+I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\DapperExtensions.pdb
+I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.xml
+I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.csprojResolveAssemblyReference.cache
+I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.dll
+I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.pdb
