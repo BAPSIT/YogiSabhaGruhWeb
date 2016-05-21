@@ -496,8 +496,20 @@ namespace YSGOpsWeb.Pages
 
         protected void btnConfirmBooking_Click(object sender, EventArgs e)
         {
-            Booking_Status = 'F';
-            manager.Save();
+            try
+            {
+
+                Booking_Status = 'F';
+                manager.Save();
+                Response.Redirect("~/Pages/Home.aspx?transactionStatus=confirm");
+                pnlMessage.Visible = false;
+                lblMessage.Text = string.Empty;
+            }
+            catch (Exception)
+            {
+                 pnlMessage.Visible = true;
+                lblMessage.Text = "Sorry! something went wrong. Please try again later.";
+            }
         }
 
         protected void btnCancelBooking_Click(object sender, EventArgs e)

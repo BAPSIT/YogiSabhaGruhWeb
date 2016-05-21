@@ -3,7 +3,11 @@
 <asp:Content runat="server" ID="Body" ContentPlaceHolderID="ContentPlaceHolder1">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-           <asp:Panel ID="pnlMessage" runat="server" Visible="false">   <div class="alert alert-success">  <asp:Label ID="lblMessage" runat="server" ></asp:Label></div></asp:Panel>
+            <asp:Panel ID="pnlMessage" runat="server" Visible="false">
+                <div class="alert alert-success">
+                    <asp:Label ID="lblMessage" runat="server"></asp:Label>
+                </div>
+            </asp:Panel>
             <div id="calendar"></div>
         </div>
     </div>

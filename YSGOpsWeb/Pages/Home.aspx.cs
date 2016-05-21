@@ -15,11 +15,30 @@ namespace YSGOpsWeb.Pages
             {
                 if (Request.QueryString["transactionStatus"] != null)
                 {
-                    lblMessage.Text = "Booking Details Saved Successfully!";
-                    Request.QueryString.Clear();
+                    var status = Request.QueryString["transactionStatus"].ToString();
+                    var message = string.Empty;
+                    switch (status)
+                    {
+                        case "success":
+                            message = "Booking Details Saved Successfully!";
+                            break;
+
+                        case "confirm":
+                            message = "Booking Details confirmed Successfully!";
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    lblMessage.Text = message;
+                    pnlMessage.Visible = true;                   
                 }
                 else
+                {
                     lblMessage.Text = string.Empty;
+                    pnlMessage.Visible = false;
+                }
             }
             catch (Exception)
             {
