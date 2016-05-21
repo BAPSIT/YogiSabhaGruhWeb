@@ -41,7 +41,8 @@ function IntializeCalendar() {
                             title: e.Event_Class + ": " + e.EventDetails.Event_name,
                             start: e.Booking_FromTime,
                             end: e.Booking_ToTime,
-                            color: e.Booking_Status.toUpperCase() == "I" ? "#ff6600" : "#0F3CD1",
+                            //color: e.Booking_Status.toUpperCase() == "I" ? "#ff6600" : "#0F3CD1",
+                            color: getEventColor(e.Booking_Status.toUpperCase()),
                             id: e.Booking_Id
                         });
 
@@ -75,5 +76,21 @@ function IntializeCalendar() {
 function getMonth() {
     var date = new Date($('#calendar').fullCalendar('getDate'));
     return date.getMonth();
+}
 
+function getEventColor(status) {
+    var colorCode = "";
+    switch (status.toUpperCase()) {
+        case 'I':
+            colorCode = "#FF6600";
+            break;
+        case 'F':
+            colorCode = "#0F3CD1";
+            break;
+        case 'C':
+            colorCode = "#C2C2A3";
+            break;
+    
+    }
+    return colorCode;
 }
