@@ -255,8 +255,12 @@
     <Content Include="Images\logo.jpg" />
     <Content Include="packages.config" />
     <Content Include="Pages\AddBooking.aspx" />
+    <Content Include="Pages\booking_datewise.aspx" />
+    <Content Include="Pages\Cancellation_datewise.aspx" />
     <Content Include="Pages\FindBooking.aspx" />
+    <Content Include="Pages\Hall_Utilization.aspx" />
     <Content Include="Pages\Home.aspx" />
+    <Content Include="Pages\Item_list_rpt.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\TithiCalendar.aspx" />
     <Content Include="Scripts\AddBooking.js" />
@@ -341,6 +345,20 @@
     <Compile Include="Pages\AddBooking.aspx.designer.cs">
       <DependentUpon>AddBooking.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\booking_datewise.aspx.cs">
+      <DependentUpon>booking_datewise.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\booking_datewise.aspx.designer.cs">
+      <DependentUpon>booking_datewise.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Cancellation_datewise.aspx.cs">
+      <DependentUpon>Cancellation_datewise.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Cancellation_datewise.aspx.designer.cs">
+      <DependentUpon>Cancellation_datewise.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FindBooking.aspx.cs">
       <DependentUpon>FindBooking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -348,12 +366,26 @@
     <Compile Include="Pages\FindBooking.aspx.designer.cs">
       <DependentUpon>FindBooking.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Hall_Utilization.aspx.cs">
+      <DependentUpon>Hall_Utilization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Hall_Utilization.aspx.designer.cs">
+      <DependentUpon>Hall_Utilization.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Item_list_rpt.aspx.cs">
+      <DependentUpon>Item_list_rpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Item_list_rpt.aspx.designer.cs">
+      <DependentUpon>Item_list_rpt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
