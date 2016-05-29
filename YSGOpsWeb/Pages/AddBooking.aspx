@@ -77,12 +77,6 @@
                     <div class="form-inline">
                         <label>Type Of Event</label>
                         <asp:DropDownList CssClass="form-control" ID="ddlEventType" runat="server">
-                            <asp:ListItem Value="1">Mandir Event</asp:ListItem>
-                            <asp:ListItem Value="2">Charitable</asp:ListItem>
-                            <asp:ListItem Value="3">Prarthna Sabha</asp:ListItem>
-                            <asp:ListItem Value="4">Educational</asp:ListItem>
-                            <asp:ListItem Value="5">Political</asp:ListItem>
-                            <asp:ListItem Value="6">Other</asp:ListItem>
                         </asp:DropDownList>
 
                     </div>
@@ -186,7 +180,7 @@
                     <ContentTemplate>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <p>
-                               
+
                                 <asp:GridView ID="gridFacilty" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ShowHeaderWhenEmpty="True" ForeColor="Black" GridLines="Vertical" ShowFooter="true">
                                     <AlternatingRowStyle BackColor="White" />
                                     <Columns>
@@ -204,8 +198,8 @@
                                             </ItemTemplate>
 
                                             <FooterTemplate>
-                                               
-                                                <asp:DropDownList CssClass="form-control" ID="ddlFacility" runat="server">
+                                                <asp:DropDownList CssClass="form-control" ID="ddlFacility" runat="server" OnSelectedIndexChanged="ddlFacility_SelectedIndexChanged" AutoPostBack="true">
+                                                    <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                 </asp:DropDownList>
                                             </FooterTemplate>
                                         </asp:TemplateField>
@@ -213,11 +207,17 @@
                                             <ItemTemplate>
                                                 <asp:Label ID="lblAvailableQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Available_Qty")%>'></asp:Label>
                                             </ItemTemplate>
+                                            <FooterTemplate>
+                                                <asp:Label ID="lblAvailableQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Available_Qty")%>'></asp:Label>
+                                            </FooterTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Rate Per Qty">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblRatePerQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Rent_per_Qty") %>'></asp:Label>
                                             </ItemTemplate>
+                                            <FooterTemplate>
+                                                <asp:Label ID="lblRatePerQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "InventoryInfo.Rent_per_Qty") %>'></asp:Label>
+                                            </FooterTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Required Qty">
                                             <ItemTemplate>
@@ -246,7 +246,7 @@
                                         </asp:TemplateField>
                                     </Columns>
                                     <FooterStyle BackColor="#F3EFEE" />
-                                    <HeaderStyle BackColor="#F3EFEE" ForeColor="Black"  HorizontalAlign="Center"/>
+                                    <HeaderStyle BackColor="#F3EFEE" ForeColor="Black" HorizontalAlign="Center" />
                                     <PagerStyle ForeColor="Black" HorizontalAlign="Right" BackColor="#F7F7DE" />
                                     <RowStyle BackColor="#F7F7DE" />
                                     <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
@@ -280,10 +280,11 @@
                     <div class="form-inline">
                         <label for="inpBookingFinal">Final Booking Amount</label>
                         <input type="text" runat="server" value="0" class="form-control" id="inpBookingFinal" /><br />
-&nbsp;</div>
+                        &nbsp;
+                    </div>
 
                 </div>
-                 <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
                         <label>Paid Amount</label>
                         <input type="text" runat="server" class="form-control" id="inpPaidAmt" value="0" /><asp:RegularExpressionValidator ID="rfvPaidAmount" runat="server" ControlToValidate="inpPaidAmt" CssClass="text-danger" ValidationExpression="\d+" Display="Dynamic" ErrorMessage="Amount should be a number"></asp:RegularExpressionValidator>
@@ -292,25 +293,31 @@
 
                     </div>
                 </div>
-                
+
             </div>
             <div class="row">
-               <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-4">
                     <div class="form-inline">
-
                         <label for="inpBookingFinal">Discount</label>
                         <input type="text" runat="server" value="0" class="form-control" id="inpDiscount" /><br />
                         <asp:RegularExpressionValidator ID="rfvDiscount" runat="server" ControlToValidate="inpDiscount" CssClass="text-danger" ValidationExpression="\d+" Display="Dynamic" ErrorMessage="Discount should be a number"></asp:RegularExpressionValidator>
-
+                        <br />
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-4">
                     <div class="form-inline">
-
                         <label for="inpBookingFinal">Discount Reason</label>
                         <input type="text" runat="server" class="form-control" id="inpDiscountReason" />
+                        <br />
+                    </div>
+                </div>
 
-
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-inline">
+                        <label for="inpBookingFinal">Reference Person/ Discount By</label>
+                        <input type="text" runat="server" class="form-control" id="inpReferredBy" />
                     </div>
                 </div>
             </div>

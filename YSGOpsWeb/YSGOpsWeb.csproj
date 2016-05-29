@@ -333,6 +333,7 @@
     </Compile>
     <Compile Include="Models\BookingInfo.cs" />
     <Compile Include="Models\BookingFacilityInfo.cs" />
+    <Compile Include="Models\EventTypeInfo.cs" />
     <Compile Include="Models\FindBookingInfo.cs" />
     <Compile Include="Models\InventoryInfo.cs" />
     <Compile Include="Models\CustomerDetails.cs" />

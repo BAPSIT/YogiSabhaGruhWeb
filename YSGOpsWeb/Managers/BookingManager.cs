@@ -47,21 +47,12 @@ namespace YSGOpsWeb
         }
 
         public IEnumerable<BookingFacilityInfo> BindBookingFacilities(int bookingNo)
-        {
-            //if (bookingNo > 0)
-            //{
+        {           
             var bookingFacilityList = new FacilityOperations().GetBookingFacilities(bookingNo).ToList();
-            //return bookingFacilityList;
+           
             _bookingView.FacilityGrid.DataSource = bookingFacilityList;
             _bookingView.FacilityGrid.DataBind();
-            //}
-            //else
-            //{
-            //    List<BookingFacilityInfo> list = new List<BookingFacilityInfo>();
-            //    _bookingView.FacilityGrid.DataSource = list;
-            //    _bookingView.FacilityGrid.DataBind();
-            //}
-
+          
             return bookingFacilityList;
         }
 
@@ -132,7 +123,6 @@ namespace YSGOpsWeb
             }
         }
 
-
         public void ConfirmBooking()
         {
             BookingInfo info = BookingInfo.fromIBooking(_bookingView);
@@ -154,5 +144,11 @@ namespace YSGOpsWeb
             return bOps.GetInventoryMaster();
         }
 
+        public List<EventTypeInfo> GetEventTypeMaster()
+        {
+            BookingOperations bOps = new BookingOperations();
+            return bOps.GetEventTypeMaster();
+        }
+    
     }
 }

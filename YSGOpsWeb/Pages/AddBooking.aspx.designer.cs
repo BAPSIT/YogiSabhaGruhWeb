@@ -283,6 +283,15 @@ namespace YSGOpsWeb.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpDiscountReason;
         
         /// <summary>
+        /// inpReferredBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpReferredBy;
+        
+        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>

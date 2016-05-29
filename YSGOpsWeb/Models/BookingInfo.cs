@@ -28,7 +28,7 @@ namespace YSGOpsWeb.Models
         public char Action { get; set; }
         public int Created_By { get; set; }
         public int Hall_no { get; set; }
-
+        public string Referred_By { get; set; }
 
         public EventDetails EventDetails;
 
@@ -59,7 +59,7 @@ namespace YSGOpsWeb.Models
             info.Event_Class = view.Event_Class;
             info.Created_By = view.Created_By;
             info.Hall_no = view.Hall_no;
-
+            info.Referred_By = view.Referred_By;
             return info;
         }
 

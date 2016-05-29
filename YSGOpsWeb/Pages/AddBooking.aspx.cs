@@ -31,11 +31,13 @@ namespace YSGOpsWeb.Pages
                         SetCustomerDetails();
                         SetBookingFacility();
                         SetInventoryList();
+                        SetEventTypeList();
                     }
                     else
                     {
                         SetBookingFacility();
                         SetInventoryList();
+                        SetEventTypeList();
                     }
                 }
             }
@@ -45,87 +47,6 @@ namespace YSGOpsWeb.Pages
                 lblMessage.Text = "Sorry! Something went wrong while loading the page. Please refresh the page or try again later.";
             }
 
-        }
-
-        private void SetBookingFacility()
-        {
-            var facilityList = manager.BindBookingFacilities(Booking_No);
-
-        }
-
-        private void AddNewRowToGrid()
-        {
-            List<BookingFacilityInfo> dtCurrentTable = SetPreviousData();
-            if (dtCurrentTable.Any())
-            {
-                gridFacilty.DataSource = dtCurrentTable;
-                gridFacilty.DataBind();
-            }
-            SetInventoryList();
-        }
-
-        private List<BookingFacilityInfo> SetPreviousData()
-        {
-            List<BookingFacilityInfo> facilityList = new List<BookingFacilityInfo>();
-
-            foreach (GridViewRow row in FacilityGrid.Rows)
-            {
-                var bookingFacilityInfo = new BookingFacilityInfo { Booking_No = this.Booking_No, InventoryInfo = new InventoryInfo() };
-
-                Label Item_no = (Label)row.Cells[0].FindControl("lblItemNo");
-                bookingFacilityInfo.Item_no = Convert.ToInt32(Item_no.Text.Trim().Equals(string.Empty) ? "0" : Item_no.Text.Trim());
-                bookingFacilityInfo.InventoryInfo.Item_no = Convert.ToInt32(Item_no.Text.Trim().Equals(string.Empty) ? "0" : Item_no.Text.Trim());
-
-                Label Item_name = (Label)row.Cells[0].FindControl("lblItem");
-                bookingFacilityInfo.InventoryInfo.Item_name = Item_name.Text.Trim();
-
-                Label Available_qty = (Label)row.Cells[0].FindControl("lblAvailableQty");
-                bookingFacilityInfo.InventoryInfo.Available_Qty = Convert.ToInt32(Available_qty.Text.Trim().Equals(string.Empty) ? "0" : Available_qty.Text.Trim());
-
-                Label Rent_per_Qty = (Label)row.Cells[0].FindControl("lblRatePerQty");
-                bookingFacilityInfo.InventoryInfo.Rent_per_Qty = Convert.ToInt32(Rent_per_Qty.Text.Trim().Equals(string.Empty) ? "0" : Rent_per_Qty.Text.Trim());
-
-                TextBox Required_Qty = (TextBox)row.Cells[0].FindControl("txtRequiredQty");
-                bookingFacilityInfo.Required_Qty = Convert.ToInt32(Required_Qty.Text.Trim().Equals(string.Empty) ? "0" : Required_Qty.Text.Trim());
-
-                TextBox Calculated_Amount = (TextBox)row.Cells[0].FindControl("txtAmount");
-                bookingFacilityInfo.Calculated_Amount = Convert.ToInt64(Calculated_Amount.Text.Trim().Equals(string.Empty) ? "0" : Calculated_Amount.Text.Trim());
-
-                TextBox Remarks = (TextBox)row.Cells[0].FindControl("txtRemarks");
-                bookingFacilityInfo.Remarks = Convert.ToString(Remarks.Text);
-                facilityList.Add(bookingFacilityInfo);
-
-            }
-
-            {
-                var footerRow = FacilityGrid.FooterRow;
-                var bookingFacilityInfo = new BookingFacilityInfo { Booking_No = this.Booking_No, InventoryInfo = new InventoryInfo() };
-
-                DropDownList ddlFacility = (DropDownList)footerRow.Cells[0].FindControl("ddlFacility");
-                bookingFacilityInfo.InventoryInfo.Item_name = ddlFacility.SelectedItem.Text.Trim();
-                bookingFacilityInfo.Item_no = Convert.ToInt32(ddlFacility.SelectedValue.Trim().Equals(string.Empty) ? "0" : ddlFacility.SelectedValue.Trim());
-                bookingFacilityInfo.InventoryInfo.Item_no = Convert.ToInt32(ddlFacility.SelectedValue.Trim().Equals(string.Empty) ? "0" : ddlFacility.SelectedValue.Trim());
-
-                TextBox Required_Qty = (TextBox)footerRow.Cells[0].FindControl("txtRequiredQty");
-                bookingFacilityInfo.Required_Qty = Convert.ToInt32(Required_Qty.Text.Trim().Equals(string.Empty) ? "0" : Required_Qty.Text.Trim());
-
-                TextBox Calculated_Amount = (TextBox)footerRow.Cells[0].FindControl("txtAmount");
-                bookingFacilityInfo.Calculated_Amount = Convert.ToInt64(Calculated_Amount.Text.Trim().Equals(string.Empty) ? "0" : Calculated_Amount.Text.Trim());
-
-                TextBox Remarks = (TextBox)footerRow.Cells[0].FindControl("txtRemarks");
-                bookingFacilityInfo.Remarks = Convert.ToString(Remarks.Text);
-
-
-                facilityList.Add(bookingFacilityInfo);
-            }
-
-            //ViewState["CurrentTable"] = facilityList;
-            return facilityList;
-        }
-
-        protected void btnAddFacility_Click(object sender, EventArgs e)
-        {
-            AddNewRowToGrid();
         }
 
         #region #Public Properties
@@ -443,7 +364,17 @@ namespace YSGOpsWeb.Pages
             }
         }
         public string Customer_Status { get; set; }
-        public string Referred_By { get; set; }
+        public string Referred_By
+        {
+            get
+            {
+                return inpReferredBy.Value;
+            }
+            set
+            {
+                inpReferredBy.Value = value;
+            }
+        }
         public string Customer_Type { get; set; }
         public string Comments { get; set; }
         // public int Created_By { get; set; }
@@ -507,7 +438,7 @@ namespace YSGOpsWeb.Pages
             }
             catch (Exception)
             {
-                 pnlMessage.Visible = true;
+                pnlMessage.Visible = true;
                 lblMessage.Text = "Sorry! something went wrong. Please try again later.";
             }
         }
@@ -517,9 +448,57 @@ namespace YSGOpsWeb.Pages
 
         }
 
+        protected void btnAddFacility_Click(object sender, EventArgs e)
+        {
+            AddNewRowToGrid();
+        }
+
+        protected void ddlFacility_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddlFacilty = (DropDownList)sender;
+            GridViewRow row = (GridViewRow)ddlFacilty.Parent.Parent;
+            int idx = row.RowIndex;
+
+            Label lblItemNo = (Label)row.Cells[0].FindControl("lblItemNo");
+
+
+            Label lblAvailableQty = (Label)row.Cells[0].FindControl("lblAvailableQty");
+            Label lblRatePerQty = (Label)row.Cells[0].FindControl("lblRatePerQty");
+
+            if (Cache["InventoryMaster"] != null)
+            {
+                int itemNo = int.Parse(ddlFacilty.SelectedValue);
+                var inventoryList = (List<InventoryInfo>)Cache["InventoryMaster"];
+                var item = inventoryList.FirstOrDefault(x => x.Item_no == itemNo);
+
+                if (item != null && ddlFacilty.SelectedValue != "0")
+                {
+                    lblAvailableQty.Text = item.Available_Qty.ToString();
+                    lblRatePerQty.Text = item.Rent_per_Qty.ToString();
+                }
+                else
+                {
+                    lblAvailableQty.Text = string.Empty;
+                    lblRatePerQty.Text = string.Empty;
+                }
+            }
+
+
+        }
         #endregion
 
         #region #Private Methods
+        private void AddNewRowToGrid()
+        {
+            List<BookingFacilityInfo> dtCurrentTable = SetPreviousData();
+            if (dtCurrentTable.Any())
+            {
+                gridFacilty.DataSource = dtCurrentTable;
+                gridFacilty.DataBind();
+            }
+            SetInventoryList();
+        }
+
         private void SetBookingDetails()
         {
             var booking = manager.GetBookingInfoById();
@@ -549,6 +528,7 @@ namespace YSGOpsWeb.Pages
 
                 Customer_no = booking.Customer_No;
                 Hall_no = booking.Hall_no;
+                Referred_By = booking.Referred_By;
             }
         }
 
@@ -568,7 +548,16 @@ namespace YSGOpsWeb.Pages
 
         private void SetInventoryList()
         {
-            var inventoryList = manager.GetInventoryMaster();
+            List<InventoryInfo> inventoryList = null;
+            if (Cache["InventoryMaster"] != null)
+            {
+                inventoryList = (List<InventoryInfo>)Cache["InventoryMaster"];
+            }
+            else
+            {
+                inventoryList = manager.GetInventoryMaster();
+                Cache["InventoryMaster"] = inventoryList;
+            }
             if (inventoryList != null)
             {
                 DropDownList ddlFacility = (DropDownList)FacilityGrid.FooterRow.Cells[0].FindControl("ddlFacility");
@@ -576,9 +565,100 @@ namespace YSGOpsWeb.Pages
                 ddlFacility.DataTextField = "Item_name";
                 ddlFacility.DataValueField = "Item_no";
                 ddlFacility.DataBind();
+                ddlFacility.Items.Insert(0, new ListItem("--Select--", "0"));
             }
 
 
+        }
+
+        private void SetEventTypeList()
+        {
+            List<EventTypeInfo> eventTypeList = null;
+            if (Cache["EventTypeMaster"] != null)
+            {
+                eventTypeList = (List<EventTypeInfo>)Cache["EventTypeMaster"];
+            }
+            else
+            {
+                eventTypeList = manager.GetEventTypeMaster();
+                Cache["EventTypeMaster"] = eventTypeList;
+            }
+            if (eventTypeList != null)
+            {
+                ddlEventType.DataSource = eventTypeList;
+                ddlEventType.DataTextField = "Event_name";
+                ddlEventType.DataValueField = "Event_no";
+                ddlEventType.DataBind();
+
+            }
+
+
+        }
+
+
+        private void SetBookingFacility()
+        {
+            var facilityList = manager.BindBookingFacilities(Booking_No);
+
+        }
+
+        private List<BookingFacilityInfo> SetPreviousData()
+        {
+            List<BookingFacilityInfo> facilityList = new List<BookingFacilityInfo>();
+
+            foreach (GridViewRow row in FacilityGrid.Rows)
+            {
+                var bookingFacilityInfo = new BookingFacilityInfo { Booking_No = this.Booking_No, InventoryInfo = new InventoryInfo() };
+
+                Label Item_no = (Label)row.Cells[0].FindControl("lblItemNo");
+                bookingFacilityInfo.Item_no = Convert.ToInt32(Item_no.Text.Trim().Equals(string.Empty) ? "0" : Item_no.Text.Trim());
+                bookingFacilityInfo.InventoryInfo.Item_no = Convert.ToInt32(Item_no.Text.Trim().Equals(string.Empty) ? "0" : Item_no.Text.Trim());
+
+                Label Item_name = (Label)row.Cells[0].FindControl("lblItem");
+                bookingFacilityInfo.InventoryInfo.Item_name = Item_name.Text.Trim();
+
+                Label Available_qty = (Label)row.Cells[0].FindControl("lblAvailableQty");
+                bookingFacilityInfo.InventoryInfo.Available_Qty = Convert.ToInt32(Available_qty.Text.Trim().Equals(string.Empty) ? "0" : Available_qty.Text.Trim());
+
+                Label Rent_per_Qty = (Label)row.Cells[0].FindControl("lblRatePerQty");
+                bookingFacilityInfo.InventoryInfo.Rent_per_Qty = Convert.ToInt32(Rent_per_Qty.Text.Trim().Equals(string.Empty) ? "0" : Rent_per_Qty.Text.Trim());
+
+                TextBox Required_Qty = (TextBox)row.Cells[0].FindControl("txtRequiredQty");
+                bookingFacilityInfo.Required_Qty = Convert.ToInt32(Required_Qty.Text.Trim().Equals(string.Empty) ? "0" : Required_Qty.Text.Trim());
+
+                TextBox Calculated_Amount = (TextBox)row.Cells[0].FindControl("txtAmount");
+                bookingFacilityInfo.Calculated_Amount = Convert.ToInt64(Calculated_Amount.Text.Trim().Equals(string.Empty) ? "0" : Calculated_Amount.Text.Trim());
+
+                TextBox Remarks = (TextBox)row.Cells[0].FindControl("txtRemarks");
+                bookingFacilityInfo.Remarks = Convert.ToString(Remarks.Text);
+                facilityList.Add(bookingFacilityInfo);
+
+            }
+
+            {
+                var footerRow = FacilityGrid.FooterRow;
+                var bookingFacilityInfo = new BookingFacilityInfo { Booking_No = this.Booking_No, InventoryInfo = new InventoryInfo() };
+
+                DropDownList ddlFacility = (DropDownList)footerRow.Cells[0].FindControl("ddlFacility");
+                bookingFacilityInfo.InventoryInfo.Item_name = ddlFacility.SelectedItem.Text.Trim();
+                bookingFacilityInfo.Item_no = Convert.ToInt32(ddlFacility.SelectedValue.Trim().Equals(string.Empty) ? "0" : ddlFacility.SelectedValue.Trim());
+                bookingFacilityInfo.InventoryInfo.Item_no = Convert.ToInt32(ddlFacility.SelectedValue.Trim().Equals(string.Empty) ? "0" : ddlFacility.SelectedValue.Trim());
+
+                TextBox Required_Qty = (TextBox)footerRow.Cells[0].FindControl("txtRequiredQty");
+                bookingFacilityInfo.Required_Qty = Convert.ToInt32(Required_Qty.Text.Trim().Equals(string.Empty) ? "0" : Required_Qty.Text.Trim());
+
+                TextBox Calculated_Amount = (TextBox)footerRow.Cells[0].FindControl("txtAmount");
+                bookingFacilityInfo.Calculated_Amount = Convert.ToInt64(Calculated_Amount.Text.Trim().Equals(string.Empty) ? "0" : Calculated_Amount.Text.Trim());
+
+                TextBox Remarks = (TextBox)footerRow.Cells[0].FindControl("txtRemarks");
+                bookingFacilityInfo.Remarks = Convert.ToString(Remarks.Text);
+
+
+                facilityList.Add(bookingFacilityInfo);
+            }
+
+            //ViewState["CurrentTable"] = facilityList;
+            return facilityList;
         }
         #endregion
     }
