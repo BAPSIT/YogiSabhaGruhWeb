@@ -644,6 +644,12 @@ namespace YSGOpsWeb.Pages
                 bookingFacilityInfo.Item_no = Convert.ToInt32(ddlFacility.SelectedValue.Trim().Equals(string.Empty) ? "0" : ddlFacility.SelectedValue.Trim());
                 bookingFacilityInfo.InventoryInfo.Item_no = Convert.ToInt32(ddlFacility.SelectedValue.Trim().Equals(string.Empty) ? "0" : ddlFacility.SelectedValue.Trim());
 
+                Label Available_qty = (Label)footerRow.Cells[0].FindControl("lblAvailableQty");
+                bookingFacilityInfo.InventoryInfo.Available_Qty = Convert.ToInt32(Available_qty.Text.Trim().Equals(string.Empty) ? "0" : Available_qty.Text.Trim());
+
+                Label Rent_per_Qty = (Label)footerRow.Cells[0].FindControl("lblRatePerQty");
+                bookingFacilityInfo.InventoryInfo.Rent_per_Qty = Convert.ToInt32(Rent_per_Qty.Text.Trim().Equals(string.Empty) ? "0" : Rent_per_Qty.Text.Trim());
+
                 TextBox Required_Qty = (TextBox)footerRow.Cells[0].FindControl("txtRequiredQty");
                 bookingFacilityInfo.Required_Qty = Convert.ToInt32(Required_Qty.Text.Trim().Equals(string.Empty) ? "0" : Required_Qty.Text.Trim());
 
