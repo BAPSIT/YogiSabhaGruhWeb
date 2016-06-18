@@ -149,6 +149,11 @@ namespace YSGOpsWeb
             BookingOperations bOps = new BookingOperations();
             return bOps.GetEventTypeMaster();
         }
-    
+
+        public List<HallInfo> GetHallMaster()
+        {
+            BookingOperations bOps = new BookingOperations();
+            return bOps.GetHallMaster();
+        }
     }
 }

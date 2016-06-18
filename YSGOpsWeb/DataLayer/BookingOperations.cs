@@ -108,5 +108,11 @@ namespace YSGOpsWeb.DataLayer
             IDbConnection db = new SqlConnection(this.ConnectionString);
             return db.Query<EventTypeInfo>("Get_EventType_Master", param: null, commandType: CommandType.StoredProcedure).ToList<EventTypeInfo>();
         }
+        public List<HallInfo> GetHallMaster()
+        {
+            IDbConnection db = new SqlConnection(this.ConnectionString);
+            return db.Query<HallInfo>("Get_HallInfo", param: null, commandType: CommandType.StoredProcedure).ToList<HallInfo>();
+
+        }
     }
 }

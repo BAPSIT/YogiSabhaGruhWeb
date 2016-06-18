@@ -41,7 +41,7 @@ namespace YSGOpsWeb.Interfaces
         string Customer_Type { get; set; }
         string Comments { get; set; }
         int Created_By { get; set; }
-
+        int Extra_Hour_Charges { get; set; }
         GridView FacilityGrid { get; }
         //List<BookingFacilityInfo> bookingFacility { get; set; }
 

@@ -151,12 +151,9 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
                         <label>Hall </label>
-                        <asp:DropDownList CssClass="form-control" ID="ddlHall" runat="server">
-                            <asp:ListItem Value="1">Yogi Mandapam</asp:ListItem>
-                            <asp:ListItem Value="2">Yogi Hall </asp:ListItem>
-                            <asp:ListItem Value="3">Yogi Hall + Balcony</asp:ListItem>
+                        <asp:DropDownList CssClass="form-control" ID="ddlHall" AutoPostBack="true" OnSelectedIndexChanged="ddlHall_SelectedIndexChanged" runat="server">
                         </asp:DropDownList>
-
+                         <span>Hall Charges:</span><asp:Label ID="txtHallCharges" runat="server"></asp:Label>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
@@ -274,28 +271,19 @@
     <div class="panel panel-default">
         <div class="panel-heading">Payment Information</div>
         <div class="panel-body">
-
             <div class="row">
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-4">
                     <div class="form-inline">
-                        <label for="inpBookingFinal">Final Booking Amount</label>
-                        <input type="text" runat="server" value="0" class="form-control" id="inpBookingFinal" /><br />
-                        &nbsp;
-                    </div>
-
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="form-inline">
-                        <label>Paid Amount</label>
-                        <input type="text" runat="server" class="form-control" id="inpPaidAmt" value="0" /><asp:RegularExpressionValidator ID="rfvPaidAmount" runat="server" ControlToValidate="inpPaidAmt" CssClass="text-danger" ValidationExpression="\d+" Display="Dynamic" ErrorMessage="Amount should be a number"></asp:RegularExpressionValidator>
+                        <label for="inpExtraHourCharges">Extra Hour Charges</label>
+                        <input type="number" runat="server" value="0" class="form-control" id="inpExtraHourCharges" />
+                        <asp:RegularExpressionValidator ID="rfvExtraHourCharges" runat="server" ControlToValidate="inpExtraHourCharges" CssClass="text-danger" ValidationExpression="\d+" Display="Dynamic" ErrorMessage="Extra Hour Charges should be a number"></asp:RegularExpressionValidator>
 
                         <br />
-
                     </div>
                 </div>
 
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: 20px">
                 <div class="col-md-4 col-sm-4">
                     <div class="form-inline">
                         <label for="inpBookingFinal">Discount</label>
@@ -311,16 +299,37 @@
                         <br />
                     </div>
                 </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
-                        <label for="inpBookingFinal">Reference Person/ Discount By</label>
+                        <label for="inpReferredBy">Reference Person/ Discount By</label>
                         <input type="text" runat="server" class="form-control" id="inpReferredBy" />
                     </div>
                 </div>
             </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-md-6 col-sm-6">
+                      <div class="form-inline">
+                        <label>Paid Amount</label>
+                        <input type="text" runat="server" class="form-control" id="inpPaidAmt" value="0" /><asp:RegularExpressionValidator ID="rfvPaidAmount" runat="server" ControlToValidate="inpPaidAmt" CssClass="text-danger" ValidationExpression="\d+" Display="Dynamic" ErrorMessage="Amount should be a number"></asp:RegularExpressionValidator>
+
+                        <br />
+
+                    </div>
+                </div>
+            </div>    
+            <div class="row" style="margin-top: 20px">
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-inline">
+                        <label for="inpBookingFinal">Final Booking Amount</label>
+                        <input type="text" runat="server" value="0" class="form-control" id="inpBookingFinal" disabled="disabled" />
+                         = Hall Charges + Facility Amount + Extra Hour Charges - Discount
+                    </div>
+
+                </div>
+                
+            </div>
+
+
         </div>
     </div>
     <div class="row">
@@ -345,31 +354,7 @@
     <asp:HiddenField ID="hdnBookingAction" Value="-1" runat="server" />
     <asp:HiddenField ID="hdnBookingNo" Value="0" runat="server" />
     <asp:HiddenField ID="hdnCustomerNo" Value="-1" runat="server" />
-
-    <script type="text/javascript">
-        function CalAmount(requiredQuantity) {
-            var gridRow = requiredQuantity.parentNode.parentNode;
-
-            var inputs = gridRow.getElementsByTagName("input");
-            var spans = gridRow.getElementsByTagName("span");
-            var rate;
-            var amount;
-
-            for (var i = 0; i < spans.length; i++) {
-                if (spans[i].id.indexOf("lblRatePerQty") != -1) {
-                    rate = spans[i].innerHTML;
-                }
-            }
-            amount = requiredQuantity.value * rate;
-
-            for (var i = 0; i < inputs.length; i++) {
-                if (inputs[i].id.indexOf("txtAmount") != -1) {
-                    inputs[i].value = amount;
-                }
-            }
-        }
-
-    </script>
+    <asp:HiddenField ID="hdnHallCharges" Value="0" runat="server" />
 
 </asp:Content>
 

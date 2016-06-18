@@ -29,16 +29,13 @@ namespace YSGOpsWeb.Pages
                         hdnBookingId.Value = Request.QueryString["booking_id"].ToString();
                         SetBookingDetails();
                         SetCustomerDetails();
-                        SetBookingFacility();
-                        SetInventoryList();
-                        SetEventTypeList();
+
                     }
-                    else
-                    {
-                        SetBookingFacility();
-                        SetInventoryList();
-                        SetEventTypeList();
-                    }
+
+                    SetBookingFacility();
+                    SetInventoryList();
+                    SetEventTypeList();
+                    SetHallMasterList();
                 }
             }
             catch (Exception)
@@ -223,14 +220,25 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                return Booking_Calculated_Amt - Discount;
+                return Booking_Calculated_Amt + HallCharges - Discount + Extra_Hour_Charges;
             }
             set
             {
 
             }
         }
-
+        public int HallCharges
+        {
+            get
+            {
+                return Int32.Parse(hdnHallCharges.Value);
+            }
+            set
+            {
+                hdnHallCharges.Value = value.ToString();
+                txtHallCharges.Text = value.ToString();
+            }
+        }
         public string RemarkOrComments
         {
             get
@@ -401,6 +409,17 @@ namespace YSGOpsWeb.Pages
             }
 
         }
+        public int Extra_Hour_Charges
+        {
+            get
+            {
+                return Int32.Parse(inpExtraHourCharges.Value);
+            }
+            set
+            {
+                inpExtraHourCharges.Value = value.ToString();
+            }
+        }
         #endregion
 
         #region #Event Handlers
@@ -525,7 +544,7 @@ namespace YSGOpsWeb.Pages
                 Paid_Amt = booking.Paid_Amt;
                 Balance_Amt = booking.Balance_Amt;
                 Created_By = booking.Created_By;
-
+                Extra_Hour_Charges = booking.Extra_Hour_Charges;
                 Customer_no = booking.Customer_No;
                 Hall_no = booking.Hall_no;
                 Referred_By = booking.Referred_By;
@@ -595,7 +614,27 @@ namespace YSGOpsWeb.Pages
 
         }
 
+        private void SetHallMasterList()
+        {
+            List<HallInfo> hallInfo = null;
+            if (Cache["HallInfo"] != null)
+            {
+                hallInfo = (List<HallInfo>)Cache["HallInfo"];
+            }
+            else
+            {
+                hallInfo = manager.GetHallMaster();
+                Cache["HallInfo"] = hallInfo;
+            }
+            ddlHall.DataSource = hallInfo;
+            ddlHall.DataTextField = "Hall_Name";
+            ddlHall.DataValueField = "Hall_No";
+            ddlHall.DataBind();
+            int selectedID = Int32.Parse(ddlHall.SelectedItem.Value);
 
+            HallInfo selectedHall = hallInfo.Where((hall) => hall.Hall_No == selectedID).FirstOrDefault<HallInfo>();
+            HallCharges = selectedHall.Rent_Per_Hour;
+        }
         private void SetBookingFacility()
         {
             var facilityList = manager.BindBookingFacilities(Booking_No);
@@ -667,5 +706,27 @@ namespace YSGOpsWeb.Pages
             return facilityList;
         }
         #endregion
+
+        protected void ddlHall_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<HallInfo> hallInfo = null;
+            if (Cache["HallInfo"] != null)
+            {
+                hallInfo = (List<HallInfo>)Cache["HallInfo"];
+            }
+            else
+            {
+                hallInfo = manager.GetHallMaster();
+                Cache["HallInfo"] = hallInfo;
+            }
+
+            int selectedID = Int32.Parse(ddlHall.SelectedItem.Value);
+
+            HallInfo selectedHall = hallInfo.Where((hall) => hall.Hall_No == selectedID).FirstOrDefault<HallInfo>();
+            HallCharges = selectedHall.Rent_Per_Hour;
+        }
+
+
+
     }
 }

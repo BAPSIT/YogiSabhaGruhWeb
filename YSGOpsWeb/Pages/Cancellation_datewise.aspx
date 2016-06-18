@@ -56,7 +56,7 @@
                      </SelectParameters>
                  </asp:SqlDataSource>
 
-<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
+<asp:ScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ScriptManager>
              </div>
 
             </div>

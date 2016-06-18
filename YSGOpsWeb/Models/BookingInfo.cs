@@ -29,7 +29,7 @@ namespace YSGOpsWeb.Models
         public int Created_By { get; set; }
         public int Hall_no { get; set; }
         public string Referred_By { get; set; }
-
+        public int Extra_Hour_Charges { get; set; }
         public EventDetails EventDetails;
 
         public DateTime Search_Booking_FromDate;
@@ -60,6 +60,7 @@ namespace YSGOpsWeb.Models
             info.Created_By = view.Created_By;
             info.Hall_no = view.Hall_no;
             info.Referred_By = view.Referred_By;
+            info.Extra_Hour_Charges = view.Extra_Hour_Charges;
             return info;
         }
 

@@ -193,6 +193,15 @@ namespace YSGOpsWeb.Pages {
         protected global::System.Web.UI.WebControls.DropDownList ddlHall;
         
         /// <summary>
+        /// txtHallCharges control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtHallCharges;
+        
+        /// <summary>
         /// inpNGuests control.
         /// </summary>
         /// <remarks>
@@ -229,31 +238,22 @@ namespace YSGOpsWeb.Pages {
         protected global::System.Web.UI.WebControls.Button btnAddFacility;
         
         /// <summary>
-        /// inpBookingFinal control.
+        /// inpExtraHourCharges control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpBookingFinal;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inpExtraHourCharges;
         
         /// <summary>
-        /// inpPaidAmt control.
+        /// rfvExtraHourCharges control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPaidAmt;
-        
-        /// <summary>
-        /// rfvPaidAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvPaidAmount;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvExtraHourCharges;
         
         /// <summary>
         /// inpDiscount control.
@@ -290,6 +290,33 @@ namespace YSGOpsWeb.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpReferredBy;
+        
+        /// <summary>
+        /// inpPaidAmt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPaidAmt;
+        
+        /// <summary>
+        /// rfvPaidAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvPaidAmount;
+        
+        /// <summary>
+        /// inpBookingFinal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpBookingFinal;
         
         /// <summary>
         /// btnSave control.
@@ -371,5 +398,14 @@ namespace YSGOpsWeb.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnCustomerNo;
+        
+        /// <summary>
+        /// hdnHallCharges control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnHallCharges;
     }
 }

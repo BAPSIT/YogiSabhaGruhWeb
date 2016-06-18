@@ -51,11 +51,9 @@ E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOpsWeb\bin\System.Web.Razor
 E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOpsWeb\bin\System.Web.WebPages.xml
 E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOpsWeb\bin\System.Web.WebPages.Deployment.xml
 E:\Bhavesh\Projects\BAPS\BAPS-IT\YogiSabhaGruhWeb\YSGOpsWeb\bin\System.Web.WebPages.Razor.xml
-F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\ApplicationInsights.config
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\YSGOpsWeb.dll
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\YSGOpsWeb.pdb
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Antlr3.Runtime.dll
-F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.dll
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\EntityFramework.dll
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\EntityFramework.SqlServer.dll
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Microsoft.AspNet.Identity.Core.dll
@@ -78,8 +76,6 @@ F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\System.Web.WebPa
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\System.Web.WebPages.dll
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\System.Web.WebPages.Razor.dll
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\WebGrease.dll
-F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\YSGServices.dll
-F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\YSGServices.pdb
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Antlr3.Runtime.pdb
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.pdb
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.xml
@@ -402,3 +398,14 @@ I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\RdlCompile.cache
 I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\RdlCompile.compiled
 I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\YSGOpsWeb.dll
 I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\YSGOpsWeb.pdb
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\RdlCompile.cache
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\obj\Debug\RdlCompile.compiled
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\AjaxControlToolkit.dll
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.Contrib.dll
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\DapperExtensions.dll
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Microsoft.ReportViewer.Common.dll
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Microsoft.ReportViewer.WebForms.DLL
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.Contrib.pdb
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.Contrib.xml
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\DapperExtensions.pdb
