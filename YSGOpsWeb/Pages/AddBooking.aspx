@@ -195,7 +195,7 @@
                                             </ItemTemplate>
 
                                             <FooterTemplate>
-                                                <asp:DropDownList CssClass="form-control" ID="ddlFacility" runat="server" OnSelectedIndexChanged="ddlFacility_SelectedIndexChanged" AutoPostBack="true">
+                                                <asp:DropDownList CssClass="form-control" ID="ddlFacility" runat="server" OnSelectedIndexChanged="ddlFacility_SelectedIndexChanged" AutoPostBack="true" onchange="calcFacilityTotal();">
                                                     <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                 </asp:DropDownList>
                                             </FooterTemplate>
@@ -218,18 +218,18 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Required Qty">
                                             <ItemTemplate>
-                                                <asp:TextBox ID="txtRequiredQty" runat="server" onchange="CalAmount(this)" Text='<%# DataBinder.Eval(Container.DataItem, "Required_Qty") %>' TextMode="Number" MaxLength="6"></asp:TextBox>
+                                                <asp:TextBox ID="txtRequiredQty" runat="server" onchange="CalAmount(this); calcFacilityTotal();updateBookingAmount();" Text='<%# DataBinder.Eval(Container.DataItem, "Required_Qty") %>' TextMode="Number" MaxLength="6"></asp:TextBox>
                                             </ItemTemplate>
                                             <FooterTemplate>
-                                                <asp:TextBox ID="txtRequiredQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Required_Qty") %>' TextMode="Number" MaxLength="6"></asp:TextBox>
+                                                <asp:TextBox ID="txtRequiredQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Required_Qty") %>' TextMode="Number" MaxLength="6"  onchange="calcFacilityTotal();updateBookingAmount();"></asp:TextBox>
                                             </FooterTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Amount">
                                             <ItemTemplate>
-                                                <asp:TextBox ID="txtAmount" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Calculated_Amount") %>' TextMode="Number" MaxLength="10"></asp:TextBox>
+                                                <asp:TextBox ID="txtAmount" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Calculated_Amount") %>' TextMode="Number" MaxLength="10" Class="calcAmt" onchange="calcFacilityTotal();updateBookingAmount();"></asp:TextBox>
                                             </ItemTemplate>
                                             <FooterTemplate>
-                                                <asp:TextBox ID="txtAmount" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Calculated_Amount") %>' TextMode="Number" MaxLength="10"></asp:TextBox>
+                                                <asp:TextBox ID="txtAmount" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Calculated_Amount") %>' TextMode="Number" MaxLength="10" Class="calcAmt" onchange="calcFacilityTotal();updateBookingAmount();"></asp:TextBox>
                                             </FooterTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Remarks">
@@ -254,9 +254,9 @@
                                 </asp:GridView>
                             </p>
 
-                            <div class="">
-                                <asp:Button ID="btnAddFacility" runat="server" Text="Add Other Facility" OnClick="btnAddFacility_Click" CausesValidation="False" />
-
+                            <div>
+                                <asp:Button ID="btnAddFacility" runat="server" Text="Add Other Facility" OnClick="btnAddFacility_Click" CausesValidation="False"  />
+                              
                             </div>
                         </div>
                     </ContentTemplate>
@@ -264,6 +264,7 @@
                         <asp:AsyncPostBackTrigger ControlID="btnAddFacility" EventName="Click" />
                     </Triggers>
                 </asp:UpdatePanel>
+                  <span style="float: right; width: 35%">Total Facility Amount : <asp:Label ID="lblFacilityTotal" runat="server" Text="0" ></asp:Label></span>
             </div>
 
         </div>
@@ -299,10 +300,16 @@
                         <br />
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-4">
                     <div class="form-inline">
-                        <label for="inpReferredBy">Reference Person/ Discount By</label>
+                        <label for="inpReferredBy">Reference Person</label>
                         <input type="text" runat="server" class="form-control" id="inpReferredBy" />
+                    </div>
+                </div>
+                 <div class="col-md-4 col-sm-4">
+                    <div class="form-inline">
+                        <label for="inpReferredBy">Discount By</label>
+                        <input type="text" runat="server" class="form-control" id="inpDiscountBy" />
                     </div>
                 </div>
             </div>

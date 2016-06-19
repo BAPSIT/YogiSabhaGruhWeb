@@ -409,3 +409,9 @@ F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Microsoft.Report
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.Contrib.pdb
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.Contrib.xml
 F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOpsWeb\bin\DapperExtensions.pdb
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\bin\AjaxControlToolkit.dll
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\bin\Dapper.Contrib.dll
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\bin\DapperExtensions.dll
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\bin\Microsoft.ReportViewer.Common.dll
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+G:\Rajesh\Tech\Misc\YogiSabhaGruh\YogiSabhaGruhWeb\YSGOpsWeb\bin\Microsoft.ReportViewer.WebForms.DLL

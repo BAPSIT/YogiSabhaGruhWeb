@@ -50,6 +50,7 @@ namespace YSGOpsWeb.Interfaces
         float Calculated_Amount { get; set; }
         string Remarks { get; set; }
         int Hall_no { get; set; }
+        string Discount_By { get; set; }
     }
 
     public interface SBooking

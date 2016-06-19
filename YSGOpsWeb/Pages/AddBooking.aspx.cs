@@ -420,6 +420,18 @@ namespace YSGOpsWeb.Pages
                 inpExtraHourCharges.Value = value.ToString();
             }
         }
+
+        public string Discount_By
+        {
+            get
+            {
+                return inpDiscountBy.Value;
+            }
+            set
+            {
+                inpDiscountBy.Value = value;
+            }
+        }
         #endregion
 
         #region #Event Handlers
@@ -548,6 +560,7 @@ namespace YSGOpsWeb.Pages
                 Customer_no = booking.Customer_No;
                 Hall_no = booking.Hall_no;
                 Referred_By = booking.Referred_By;
+                Discount_By = booking.Discount_By;
             }
         }
 
