@@ -276,7 +276,7 @@
                 <div class="col-md-4 col-sm-4">
                     <div class="form-inline">
                         <label for="inpExtraHourCharges">Extra Hour Charges</label>
-                        <input type="number" runat="server" value="0" class="form-control" id="inpExtraHourCharges" />
+                        <input type="text" runat="server" value="0" class="form-control" id="inpExtraHourCharges" />
                         <asp:RegularExpressionValidator ID="rfvExtraHourCharges" runat="server" ControlToValidate="inpExtraHourCharges" CssClass="text-danger" ValidationExpression="\d+" Display="Dynamic" ErrorMessage="Extra Hour Charges should be a number"></asp:RegularExpressionValidator>
 
                         <br />
