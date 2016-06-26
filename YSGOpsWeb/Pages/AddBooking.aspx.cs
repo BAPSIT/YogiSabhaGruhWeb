@@ -512,7 +512,14 @@ namespace YSGOpsWeb.Pages
                     lblAvailableQty.Text = string.Empty;
                     lblRatePerQty.Text = string.Empty;
                 }
+                TextBox txtRequiredGrid = row.FindControl("txtRequiredQty") as TextBox;
+                if (txtRequiredGrid != null)
+                {
+                    txtRequiredGrid.Attributes.Add("data-maxvalue", item.Available_Qty.ToString());
+                }
             }
+
+
 
 
         }
@@ -750,6 +757,9 @@ namespace YSGOpsWeb.Pages
                 }
 
 
+            }
+            if (e.Row.RowType == DataControlRowType.Footer)
+            {
             }
 
         }

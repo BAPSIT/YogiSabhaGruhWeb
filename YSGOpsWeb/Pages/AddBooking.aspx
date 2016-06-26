@@ -10,7 +10,7 @@
     <script src="../Scripts/bootstrap-timepicker.js"></script>
     <script src="../Scripts/jquery-ui-1.11.4.min.js"></script>
     <script src="../Scripts/jquery.jqGrid.min.js"></script>
-    <script src="../Scripts/AddBooking.js"></script>
+    <script src="../Scripts/AddBooking.js?d=20160626"></script>
 
 </asp:Content>
 
@@ -228,7 +228,7 @@
 
                                             </ItemTemplate>
                                             <FooterTemplate>
-                                                <asp:TextBox ID="txtRequiredQty" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Required_Qty") %>' TextMode="Number" MaxLength="6" onchange="calcFacilityTotal();updateBookingAmount();"></asp:TextBox>
+                                                <asp:TextBox ID="txtRequiredQty" runat="server"  Text='<%# DataBinder.Eval(Container.DataItem, "Required_Qty") %>' TextMode="Number" MaxLength="6" onchange="CalAmount(this); calcFacilityTotal();updateBookingAmount();"></asp:TextBox>
                                             </FooterTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Amount">
