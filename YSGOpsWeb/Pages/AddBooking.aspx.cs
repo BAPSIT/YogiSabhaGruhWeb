@@ -38,7 +38,7 @@ namespace YSGOpsWeb.Pages
                     SetHallMasterList();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 pnlMessage.Visible = true;
                 lblMessage.Text = "Sorry! Something went wrong while loading the page. Please refresh the page or try again later.";
@@ -739,6 +739,20 @@ namespace YSGOpsWeb.Pages
             HallCharges = selectedHall.Rent_Per_Hour;
         }
 
+        protected void gridFacilty_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                TextBox txtRequiredGrid = e.Row.FindControl("txtRequiredQty") as TextBox;
+                if (txtRequiredGrid != null)
+                {
+                    txtRequiredGrid.Attributes.Add("data-maxvalue", DataBinder.Eval(e.Row.DataItem, "InventoryInfo.Available_Qty").ToString());
+                }
+
+
+            }
+
+        }
 
 
     }

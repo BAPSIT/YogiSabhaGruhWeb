@@ -79,3 +79,7 @@ I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\EntityFramework.SqlSer
 I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.csprojResolveAssemblyReference.cache
 I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.dll
 I:\Pratik\YSG\YogiSabhaGruhWeb\YSGOps.DataModel\obj\Debug\YSGOps.DataModel.pdb
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\Dapper.dll
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\DapperExtensions.dll
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\Dapper.pdb
+F:\Personal\YogiSabhaGruh\YSGOps\YogiSabhaGruhWeb\YSGOps.DataModel\bin\Debug\DapperExtensions.pdb
