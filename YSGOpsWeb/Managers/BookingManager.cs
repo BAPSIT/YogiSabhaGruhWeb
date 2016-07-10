@@ -48,7 +48,7 @@ namespace YSGOpsWeb
 
         public IEnumerable<BookingFacilityInfo> BindBookingFacilities(int bookingNo)
         {           
-            var bookingFacilityList = new FacilityOperations().GetBookingFacilities(bookingNo).ToList();
+            var bookingFacilityList = new BookingFacilityOperations().GetBookingFacilities(bookingNo).ToList();
            
             _bookingView.FacilityGrid.DataSource = bookingFacilityList;
             _bookingView.FacilityGrid.DataBind();
@@ -140,7 +140,7 @@ namespace YSGOpsWeb
 
         public List<InventoryInfo> GetInventoryMaster()
         {
-            BookingOperations bOps = new BookingOperations();
+            InventoryOperations bOps = new InventoryOperations();
             return bOps.GetInventoryMaster();
         }
 

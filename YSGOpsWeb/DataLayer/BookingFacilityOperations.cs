@@ -10,7 +10,7 @@ using Dapper;
 using YSGOpsWeb.Models;
 namespace YSGOpsWeb.DataLayer
 {
-    public class FacilityOperations
+    public class BookingFacilityOperations
     {
         private string conn = ConfigurationManager.ConnectionStrings["YogiSabhaGruhConnectionString"].ConnectionString;
         public IEnumerable<BookingFacilityInfo> GetBookingFacilities(int bookingNo)
@@ -54,9 +54,6 @@ namespace YSGOpsWeb.DataLayer
 
            
         }
-
-
-
         public int AddOrUpdateFaciltiy(CustomerDetails Customer)
         {
             if (Customer.Customer_no == -1)

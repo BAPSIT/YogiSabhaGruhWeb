@@ -19,7 +19,7 @@ namespace YSGOpsWeb.Controller
 
         public IEnumerable<BookingFacilityInfo> GetBookingFacilities(string bookingNo)
         {
-            var bookingFacilityList =  new FacilityOperations().GetBookingFacilities(int.Parse(bookingNo)).ToList();
+            var bookingFacilityList =  new BookingFacilityOperations().GetBookingFacilities(int.Parse(bookingNo)).ToList();
             return bookingFacilityList;
         }
 

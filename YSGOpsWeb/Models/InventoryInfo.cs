@@ -13,6 +13,9 @@ namespace YSGOpsWeb.Models
         public string Item_name { get; set; }     
         public int Available_Qty { get; set; }
         public float Rent_per_Qty { get; set; }
+        public int Related_Dept_no { get; set; }
+        public string Description { get; set; }
+        public int CreatedBy { get; set; }
        
     }
 }

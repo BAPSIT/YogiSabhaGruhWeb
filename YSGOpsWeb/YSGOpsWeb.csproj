@@ -260,6 +260,8 @@
     <Content Include="Pages\FindBooking.aspx" />
     <Content Include="Pages\Hall_Utilization.aspx" />
     <Content Include="Pages\Home.aspx" />
+    <Content Include="Pages\InventoryDetails.aspx" />
+    <Content Include="Pages\InventoryForm.aspx" />
     <Content Include="Pages\Item_list_rpt.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\TithiCalendar.aspx" />
@@ -312,8 +314,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controller\BookingController.cs" />
-    <Compile Include="DataLayer\FacilityOperations.cs" />
+    <Compile Include="DataLayer\BookingFacilityOperations.cs" />
     <Compile Include="DataLayer\CustomerOperations.cs" />
+    <Compile Include="DataLayer\InventoryOperations.cs" />
     <Compile Include="DataLayer\FindBooking.cs" />
     <Compile Include="Interfaces\ICustomerDetails.cs" />
     <Compile Include="Interfaces\IFindBooking.cs" />
@@ -326,6 +329,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IBooking.cs" />
+    <Compile Include="Managers\InventoryManager.cs" />
     <Compile Include="Managers\FindBookingManager.cs" />
     <Compile Include="Master\YSGWeb.Master.cs">
       <DependentUpon>YSGWeb.Master</DependentUpon>
@@ -384,6 +388,20 @@
     </Compile>
     <Compile Include="Pages\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InventoryDetails.aspx.cs">
+      <DependentUpon>InventoryDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InventoryDetails.aspx.designer.cs">
+      <DependentUpon>InventoryDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InventoryForm.aspx.cs">
+      <DependentUpon>InventoryForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InventoryForm.aspx.designer.cs">
+      <DependentUpon>InventoryForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Item_list_rpt.aspx.cs">
       <DependentUpon>Item_list_rpt.aspx</DependentUpon>

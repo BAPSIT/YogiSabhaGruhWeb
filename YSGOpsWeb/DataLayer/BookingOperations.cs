@@ -97,11 +97,7 @@ namespace YSGOpsWeb.DataLayer
 
         }
 
-        public List<InventoryInfo> GetInventoryMaster()
-        {
-            IDbConnection db = new SqlConnection(this.ConnectionString);
-            return db.Query<InventoryInfo>("Get_Inventory_Master", param: null, commandType: CommandType.StoredProcedure).ToList<InventoryInfo>();
-        }
+       
 
         public List<EventTypeInfo> GetEventTypeMaster()
         {
