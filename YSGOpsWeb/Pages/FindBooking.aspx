@@ -80,11 +80,14 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
-                        <asp:GridView ID="grdList" runat="server" EmptyDataText="No Booking Available" AutoGenerateColumns="false" Width="98%">
+                        <p>
+                            Booking Status Legends: I - Inquiry / F - Confirmed / C - Cancelled / R - Refused / M - Completed
+                        </p>
+                        <asp:GridView OnRowDataBound="grdList_RowDataBound" ID="grdList" runat="server" EmptyDataText="No Booking Available" AutoGenerateColumns="false" Width="98%">
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:linkbutton id="btnEdit" text="Cancel" runat="server" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" xmlns:asp="#unknown" />
+                                        <asp:linkbutton id="btnEdit" text="Cancel" runat="server" class="btn btn-info btn-lg"  data-toggle="modal" data-target="#myModal" xmlns:asp="#unknown" />
                                     </ItemTemplate>
                                     <ItemStyle Width="15px" />
                                 </asp:TemplateField>
@@ -167,4 +170,12 @@
     <asp:HiddenField ID="hdnBookingNo" Value="-1" runat="server" />
     <asp:HiddenField ID="hdnBookingId" Value="-1" runat="server" />
     <asp:HiddenField ID="hdnBookingAction" Value="-1" runat="server" />
+    <script>   
+        function setHiddenFields(bookingNo, bookingId) {
+
+            $("#ContentPlaceHolder1_hdnBookingNo").val(bookingNo);
+            $("#ContentPlaceHolder1_hdnBookingId").val(bookingId);
+        }
+
+    </script>
 </asp:Content>

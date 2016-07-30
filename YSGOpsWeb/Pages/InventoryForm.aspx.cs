@@ -49,6 +49,9 @@ namespace YSGOpsWeb.Pages
         {
             this.mgr.AddOrUpdateInventory(InventoryInfo);
 
+
+            Response.Redirect("/pages/home.aspx");
+
         }
 
         public Models.InventoryInfo InventoryInfo

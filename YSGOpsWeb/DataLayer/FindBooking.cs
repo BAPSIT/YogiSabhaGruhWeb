@@ -39,10 +39,11 @@ namespace YSGOpsWeb.DataLayer
 
         }
 
-        public void CancelBooking(Double BookingNo, string Cancellation_Reason, string Cancellation_Description, Double Cancellation_Refunded_Amt, DateTime Cancellation_Datetime)
+        public void CancelBooking(int BookingID, int BookingNo, string Cancellation_Reason, string Cancellation_Description, Double Cancellation_Refunded_Amt, DateTime Cancellation_Datetime)
         {
             IDbConnection db = new SqlConnection(this.ConnectionString);
-            db.Query("AUD_YSG_Booking_Info", param: new { Booking_No = BookingNo, Action = "C", Cancellation_Reason = Cancellation_Reason, Cancellation_Description = Cancellation_Description, Cancellation_Refunded_Amt = Cancellation_Refunded_Amt, Cancellation_Datetime = Cancellation_Datetime }, commandType: CommandType.StoredProcedure);
+           
+            db.Query("Cancel_YSG_Booking_Info", param: new { Booking_No = BookingNo, Cancellation_Reason = Cancellation_Reason, Cancellation_Description = Cancellation_Description, Cancellation_Refunded_Amt = Cancellation_Refunded_Amt, Cancellation_Datetime = Cancellation_Datetime }, commandType: CommandType.StoredProcedure);
         }
     }
 }

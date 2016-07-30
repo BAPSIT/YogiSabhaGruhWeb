@@ -31,11 +31,11 @@ namespace YSGOpsWeb
             return bOps.SearchBooking(fromdate,todate);
         }
 
-        public void Cancel(Double BookingNo, string Cancellation_Reason, string Cancellation_Description, Double Cancellation_Refunded_Amt, DateTime Cancellation_Datetime)
+        public void Cancel(int BookingID, int BookingNo, string Cancellation_Reason, string Cancellation_Description, Double Cancellation_Refunded_Amt, DateTime Cancellation_Datetime)
         {
             //FindBookingInfo info = FindBookingInfo.SearchBooking(_view);
             FindBookingOperations bOps = new FindBookingOperations();
-            bOps.CancelBooking(BookingNo, Cancellation_Reason, Cancellation_Description, Cancellation_Refunded_Amt, Cancellation_Datetime);
+            bOps.CancelBooking(BookingID,BookingNo, Cancellation_Reason, Cancellation_Description, Cancellation_Refunded_Amt, Cancellation_Datetime);
         }
     }
 }

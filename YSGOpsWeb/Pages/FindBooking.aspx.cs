@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Web;
@@ -58,15 +59,17 @@ namespace YSGOpsWeb.Pages
         protected void btnSave_Click(object sender, EventArgs e)
         {
             string Cancellation_Reason, Cancellation_Description;
-            Double BookingNo, Cancellation_Refunded_Amt;
+            Double  Cancellation_Refunded_Amt;
             DateTime Cancellation_Datetime;
-
-            BookingNo = 4;
+            int bookingId = -1, bookingNo = -1;
+            Int32.TryParse(hdnBookingNo.Value, out bookingNo);
+            Int32.TryParse(hdnBookingId.Value, out bookingId);
+            
             Cancellation_Reason = inpReason.Value;
             Cancellation_Description = inpDescription.Value;
             Cancellation_Refunded_Amt = Convert.ToDouble(inpAmountRefunded.Value);
             Cancellation_Datetime = DateTime.ParseExact(inpCancellationdate.Value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            manager.Cancel(BookingNo, Cancellation_Reason, Cancellation_Description, Cancellation_Refunded_Amt, Cancellation_Datetime);
+            manager.Cancel(bookingId,bookingNo, Cancellation_Reason, Cancellation_Description, Cancellation_Refunded_Amt, Cancellation_Datetime);
             msg.Visible = true;
         }
 
@@ -103,6 +106,22 @@ namespace YSGOpsWeb.Pages
             set
             {
                 inpBookingToDate.Value = value.ToString("dd/MM/yyyy");
+            }
+        }
+
+        protected void grdList_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                LinkButton btnCancel = e.Row.FindControl("btnEdit") as LinkButton;
+                if (btnCancel != null)
+                {
+                    string bookingNo = (e.Row.DataItem as DataRowView).Row["Booking_No"].ToString();
+                    string bookingId = (e.Row.DataItem as DataRowView).Row["Booking_Id"].ToString();
+
+                    btnCancel.Attributes.Add("onclick", "setHiddenFields(" + bookingNo + "," + bookingId + ")");
+
+                }
             }
         }
 
