@@ -30,14 +30,10 @@
             &nbsp;</div>
             <div class="form-group">
                 <asp:Button ID="LoginButton" class="btn btn-primary btn-lg btn-block" runat="server" Text="Login" ValidationGroup="Login1" OnClick="LoginButton_Click" />
-              <span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span>
+              <span class="pull-right"><a href="/pages/User_Master.aspx"">Register</a></span><span><a href="#">Need help?</a></span>
             </div>
       </div>
-      <div class="modal-footer">
-          <div class="col-md-12">
-          <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-		  </div>	
-      </div>
+     
   </div>
   </div>
 </div>

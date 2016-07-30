@@ -22,7 +22,7 @@ namespace YSGOpsWeb.Pages
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["YogiSabhaGruhConnectionString"].ToString();
             cn.Open();
-            string cmd = "select user_name,User_password from YSG_User_Master where user_name=@user_name and User_password=@User_password";
+            string cmd = "select user_name,User_password from YSG_User_Master where user_login_id=@user_name and User_password=@User_password";
             SqlCommand cmd2 = new SqlCommand(cmd, cn);
             cmd2.Parameters.AddWithValue("@user_name", txtusername.Text);
             cmd2.Parameters.AddWithValue("@User_password", txtpassword.Text);

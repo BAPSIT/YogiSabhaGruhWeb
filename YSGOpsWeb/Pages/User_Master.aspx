@@ -2,14 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="panel panel-default">
-        <div class="panel-heading">Register - User</div>
+        <div class="panel-heading">Create User Account</div>
         <div class="panel-body">
             <div class="row" style="margin-top: 20px">
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
-                        <label>Full Name</label>
+                        <label>Name</label>
+                        <br />
                         <input type="text" id="txtFullName" runat="server" /><br />
-                        <asp:RequiredFieldValidator Display="Dynamic" CssClass="text-danger" ID="rfvItemName" ControlToValidate="txtFullName" runat="server" ErrorMessage="Full Name is required"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator Display="Dynamic" CssClass="text-danger" ID="rfvItemName" ControlToValidate="txtFullName" runat="server" ErrorMessage="Name is required"></asp:RequiredFieldValidator>
 
                     </div>
                 </div>
@@ -17,9 +18,10 @@
             <div class="row" style="margin-top: 20px">
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
-                        <label>User ID</label>
+                        <label>Choose your username</label>
+                        <br />
                         <input type="text" id="txtUserId" runat="server" /><br />
-                        <asp:RequiredFieldValidator Display="Dynamic" CssClass="text-danger" ID="RequiredFieldValidator2" ControlToValidate="txtUserId" runat="server" ErrorMessage="User ID is required"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator Display="Dynamic" CssClass="text-danger" ID="RequiredFieldValidator2" ControlToValidate="txtUserId" runat="server" ErrorMessage="Username is required"></asp:RequiredFieldValidator>
 
                     </div>
                 </div>
@@ -27,7 +29,8 @@
             <div class="row" style="margin-top: 20px">
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
-                        <label>Password</label>
+                        <label>Create a password</label>
+                        <br />
                         <input type="password" id="txtPassword" runat="server" /><br />
                         <asp:RequiredFieldValidator Display="Dynamic" CssClass="text-danger" ID="RequiredFieldValidator3" ControlToValidate="txtPassword" runat="server" ErrorMessage="Password is required"></asp:RequiredFieldValidator>
 
@@ -37,27 +40,31 @@
             <div class="row" style="margin-top: 20px">
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
-                        <label>Re-enter Password</label>
+                        <label>Confirm password</label>
+                        <br />
                         <input type="password" id="txtRePassword" runat="server" /><br />
                         <asp:RequiredFieldValidator Display="Dynamic" CssClass="text-danger" ID="RequiredFieldValidator4" ControlToValidate="txtRePassword" runat="server" ErrorMessage="Please re-type password"></asp:RequiredFieldValidator>
-                    </div>
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Password & Confirm password don't match " ControlToCompare="txtPassword" ControlToValidate="txtRePassword" ForeColor="#990000"></asp:CompareValidator>
+                         </div>
                 </div>
             </div>
             <div class="row" style="margin-top: 20px">
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
-                        <label>Mobile Number</label>
+                        <label>Mobile phone</label>
+                        <br />
                         <input type="text" id="txtMobileNumber" runat="server" /><br />
-                        <asp:RequiredFieldValidator Display="Dynamic" CssClass="text-danger" ID="RequiredFieldValidator1" ControlToValidate="txtMobileNumber" runat="server" ErrorMessage="Mobile number is required"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator Display="Dynamic" CssClass="text-danger" ID="RequiredFieldValidator1" ControlToValidate="txtMobileNumber" runat="server" ErrorMessage="Mobile phone is required"></asp:RequiredFieldValidator>
                     </div>
                 </div>
             </div>
             <div class="row" style="margin-top: 20px">
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
-                        <label>Email Address</label>
-                        <input type="text" id="txtEmail" runat="server" /><br />
-                      
+                        <label>Email </label>
+&nbsp;<br />
+                        <input type="email" id="txtEmail" runat="server" /><br />
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter proper email" ControlToValidate="txtEmail" ForeColor="#990000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </div>
                 </div>
             </div>
