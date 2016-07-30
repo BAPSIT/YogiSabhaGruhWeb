@@ -41,7 +41,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Details
         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">All Employee Details</a></li>
+                            <li><a href="/pages/UserDetails.aspx">User Details</a></li>
                             <li><a href="/pages/inventorydetails.aspx">Facility Details</a></li>
                             <li><a href="#">Other Details</a></li>
                             <li><a href="#">Tithi Calendar</a></li>
