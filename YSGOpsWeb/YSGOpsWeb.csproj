@@ -257,6 +257,8 @@
     <Content Include="Pages\AddBooking.aspx" />
     <Content Include="Pages\booking_datewise.aspx" />
     <Content Include="Pages\Cancellation_datewise.aspx" />
+    <Content Include="Pages\HallForm.aspx" />
+    <Content Include="Pages\HallMaster.aspx" />
     <Content Include="Pages\UserDetails.aspx" />
     <Content Include="Pages\FindBooking.aspx" />
     <Content Include="Pages\Hall_Utilization.aspx" />
@@ -318,6 +320,7 @@
     <Compile Include="Common\Application_Constants.cs" />
     <Compile Include="Controller\BookingController.cs" />
     <Compile Include="DataLayer\BookingFacilityOperations.cs" />
+    <Compile Include="DataLayer\HallOperations.cs" />
     <Compile Include="DataLayer\UserOperations.cs" />
     <Compile Include="DataLayer\CustomerOperations.cs" />
     <Compile Include="DataLayer\InventoryOperations.cs" />
@@ -333,6 +336,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IBooking.cs" />
+    <Compile Include="Managers\HallManager.cs" />
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Managers\InventoryManager.cs" />
@@ -373,6 +377,20 @@
     </Compile>
     <Compile Include="Pages\Cancellation_datewise.aspx.designer.cs">
       <DependentUpon>Cancellation_datewise.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HallForm.aspx.cs">
+      <DependentUpon>HallForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\HallForm.aspx.designer.cs">
+      <DependentUpon>HallForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HallMaster.aspx.cs">
+      <DependentUpon>HallMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\HallMaster.aspx.designer.cs">
+      <DependentUpon>HallMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\UserDetails.aspx.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
