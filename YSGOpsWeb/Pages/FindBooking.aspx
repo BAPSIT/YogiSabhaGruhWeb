@@ -15,8 +15,19 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>--%>
     <script>
         $(document).ready(function () {
-            $(".datepicker").datepicker({
-                format: 'dd/mm/yyyy'
+            $(".startdate").datepicker({
+                format: 'dd/mm/yyyy',
+                
+            }).on('changeDate', function (e) {
+                $("#ContentPlaceHolder1_hdnBookingStartDate").val(e.date.toISOString());
+            });
+
+            $(".enddate").datepicker({
+                format: 'dd/mm/yyyy',
+
+            }).on('changeDate', function (e) {
+                $("#ContentPlaceHolder1_hdnBookingEndDate").val(e.date.toISOString());
+
             });
             //$("#inpBookingFromDate").datepicker();
         });
@@ -47,7 +58,7 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
                         <label for="inpBookingDate">Booking From Date</label><span class="text-danger">*</span>
-                        <input type="text" runat="server" class="form-control datepicker" id="inpBookingFromDate" placeholder="Booking Date" />
+                        <input type="text" runat="server" class="form-control datepicker startdate" id="inpBookingFromDate" placeholder="Booking Date" />
                         <asp:RequiredFieldValidator ValidationGroup="search" ID="rfvBookingDate" runat="server" CssClass="text-danger" ErrorMessage="Booking Date is compulsory" ControlToValidate="inpBookingFromDate"></asp:RequiredFieldValidator>
                     </div>
 
@@ -56,7 +67,7 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="form-inline">
                         <label for="inpBookingTo">To Date</label><span class="text-danger">*</span>
-                        <input type="text" runat="server" class="form-control datepicker" id="inpBookingToDate" placeholder="Booking Date" />
+                        <input type="text" runat="server" class="form-control datepicker enddate" id="inpBookingToDate" placeholder="Booking Date" />
                         <asp:RequiredFieldValidator ValidationGroup="search" SetFocusOnError="True" ID="rfvTo" runat="server" CssClass="text-danger" ErrorMessage="To is compulsory" ControlToValidate="inpBookingToDate"></asp:RequiredFieldValidator>
                     </div>
                 </div>
@@ -170,6 +181,8 @@
     <asp:HiddenField ID="hdnBookingNo" Value="-1" runat="server" />
     <asp:HiddenField ID="hdnBookingId" Value="-1" runat="server" />
     <asp:HiddenField ID="hdnBookingAction" Value="-1" runat="server" />
+    <asp:HiddenField ID="hdnBookingStartDate" Value="" runat="server" />
+    <asp:HiddenField ID="hdnBookingEndDate" Value="" runat="server" />
     <script>   
         function setHiddenFields(bookingNo, bookingId) {
 

@@ -50,8 +50,8 @@ namespace YSGOpsWeb.Pages
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            Search_Booking_FromDate = DateTime.ParseExact(inpBookingFromDate.Value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            Search_Booking_ToDate = DateTime.ParseExact(inpBookingToDate.Value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            //Search_Booking_FromDate = DateTime.ParseExact(inpBookingFromDate.Value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            //Search_Booking_ToDate = DateTime.ParseExact(inpBookingToDate.Value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             grdList.DataSource = manager.Search(Search_Booking_FromDate, Search_Booking_ToDate);
             grdList.DataBind();
         }
@@ -59,17 +59,17 @@ namespace YSGOpsWeb.Pages
         protected void btnSave_Click(object sender, EventArgs e)
         {
             string Cancellation_Reason, Cancellation_Description;
-            Double  Cancellation_Refunded_Amt;
+            Double Cancellation_Refunded_Amt;
             DateTime Cancellation_Datetime;
             int bookingId = -1, bookingNo = -1;
             Int32.TryParse(hdnBookingNo.Value, out bookingNo);
             Int32.TryParse(hdnBookingId.Value, out bookingId);
-            
+
             Cancellation_Reason = inpReason.Value;
             Cancellation_Description = inpDescription.Value;
             Cancellation_Refunded_Amt = Convert.ToDouble(inpAmountRefunded.Value);
             Cancellation_Datetime = DateTime.ParseExact(inpCancellationdate.Value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            manager.Cancel(bookingId,bookingNo, Cancellation_Reason, Cancellation_Description, Cancellation_Refunded_Amt, Cancellation_Datetime);
+            manager.Cancel(bookingId, bookingNo, Cancellation_Reason, Cancellation_Description, Cancellation_Refunded_Amt, Cancellation_Datetime);
             msg.Visible = true;
         }
 
@@ -89,11 +89,13 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                return DateTime.ParseExact(inpBookingFromDate.Value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                //return DateTime.ParseExact(inpBookingFromDate.Value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                return DateTime.Parse(hdnBookingStartDate.Value, null, System.Globalization.DateTimeStyles.RoundtripKind);
             }
             set
             {
                 inpBookingFromDate.Value = value.ToString("dd/MM/yyyy");
+                hdnBookingStartDate.Value = value.ToString("yyyy-MM-ddTHH:mm:ssK");
             }
         }
 
@@ -101,11 +103,14 @@ namespace YSGOpsWeb.Pages
         {
             get
             {
-                return DateTime.ParseExact(inpBookingToDate.Value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                return DateTime.Parse(hdnBookingEndDate.Value, null, System.Globalization.DateTimeStyles.RoundtripKind);
+
+                //                return DateTime.ParseExact(inpBookingToDate.Value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             }
             set
             {
                 inpBookingToDate.Value = value.ToString("dd/MM/yyyy");
+                hdnBookingEndDate.Value = value.ToString("yyyy-MM-ddTHH:mm:ssK");
             }
         }
 
